@@ -9,7 +9,7 @@ const Router = () => {
             <NavBar />
             <Route path="/login" component={Login} />
             <Route path="/about" component={About} />
-            <Route exact path="/" component={Home} />
+            <Route exact path={"(/)?"} component={Home} />
         </BrowserRouter>
     )
 }
