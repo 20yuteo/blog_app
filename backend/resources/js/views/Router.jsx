@@ -1,16 +1,18 @@
 import React from 'react'
-import {BrowserRouter, Route} from 'react-router-dom';
+import { Route, Switch } from 'react-router';
 import NavBar from './template/NavBar';
 import {Login, About, Home} from './pages';
 
 const Router = () => {
     return (
-        <BrowserRouter>
+        <>
             <NavBar />
-            <Route path="/login" component={Login} />
-            <Route path="/about" component={About} />
-            <Route exact path={"(/)?"} component={Home} />
-        </BrowserRouter>
+            <Switch>
+                <Route exact path={"/login"} component={Login} />
+                <Route exact path={"/about"} component={About} />
+                <Route exact path={"(/)?"} component={Home} />
+            </Switch>
+        </>
     )
 }
 export default Router
