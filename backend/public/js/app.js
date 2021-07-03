@@ -3183,7 +3183,15 @@ function _taggedTemplateLiteral(strings, raw) { if (!raw) { raw = strings.slice(
 
 
 
-var BaseFormInput = styled_components__WEBPACK_IMPORTED_MODULE_2__.default.input(_templateObject || (_templateObject = _taggedTemplateLiteral(["\n    background-color: ", ";\n    border-color: ", ";\n    border-radius: ", "px;\n    color: ", ";\n    padding: ", "px ", "px;\n    width: ", "%;\n    font-size: ", "rem;\n    font-weight: ", ";\n"])), _styles_color__WEBPACK_IMPORTED_MODULE_0__.default.Form.Input, _styles_color__WEBPACK_IMPORTED_MODULE_0__.default.Form.Input, _styles_size__WEBPACK_IMPORTED_MODULE_1__.default.BorderRadius, _styles_color__WEBPACK_IMPORTED_MODULE_0__.default.Form.Color, _styles_size__WEBPACK_IMPORTED_MODULE_1__.default.Form.PaddingTop, _styles_size__WEBPACK_IMPORTED_MODULE_1__.default.Form.PaddingLeft, _styles_size__WEBPACK_IMPORTED_MODULE_1__.default.Form.Width, _styles_size__WEBPACK_IMPORTED_MODULE_1__.default.FontSize.Medium, _styles_size__WEBPACK_IMPORTED_MODULE_1__.default.Form.FontWeight);
+var BaseFormInput = styled_components__WEBPACK_IMPORTED_MODULE_2__.default.input(_templateObject || (_templateObject = _taggedTemplateLiteral(["\n    background-color: ", ";\n    border-color: ", ";\n    border-radius: ", "px;\n    color: ", ";\n    padding: ", "px ", "px;\n    margin-top: ", "px;\n    margin-bottom: ", "px;\n    margin-left: ", "px;\n    margin-right: ", "px;\n    width: ", "%;\n    -moz-box-sizing: border-box;\n    -webkit-box-sizing: border-box;\n    box-sizing: border-box;\n    font-size: ", "rem;\n    font-weight: ", ";\n"])), _styles_color__WEBPACK_IMPORTED_MODULE_0__.default.Form.Input, _styles_color__WEBPACK_IMPORTED_MODULE_0__.default.Form.Input, _styles_size__WEBPACK_IMPORTED_MODULE_1__.default.BorderRadius, _styles_color__WEBPACK_IMPORTED_MODULE_0__.default.Form.Color, _styles_size__WEBPACK_IMPORTED_MODULE_1__.default.Form.PaddingTop, _styles_size__WEBPACK_IMPORTED_MODULE_1__.default.Form.PaddingLeft, function (props) {
+  return props.marginTop;
+}, function (props) {
+  return props.marginBottom;
+}, function (props) {
+  return props.marginLeft;
+}, function (props) {
+  return props.marginRight;
+}, _styles_size__WEBPACK_IMPORTED_MODULE_1__.default.Form.Width, _styles_size__WEBPACK_IMPORTED_MODULE_1__.default.FontSize.Medium, _styles_size__WEBPACK_IMPORTED_MODULE_1__.default.Form.FontWeight);
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (BaseFormInput);
 
 /***/ }),
@@ -3271,7 +3279,8 @@ var EmailForm = function EmailForm(_ref) {
       value: email,
       onChange: function onChange(e) {
         return setEmail(e.target.value);
-      }
+      },
+      marginBottom: 8
     })]
   });
 };
@@ -3311,12 +3320,45 @@ var PasswordForm = function PasswordForm(_ref) {
       value: password,
       onChange: function onChange(e) {
         return setPassword(e.target.value);
-      }
+      },
+      marginBottom: 8
     })]
   });
 };
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (PasswordForm);
+
+/***/ }),
+
+/***/ "./resources/js/views/organisms/BaseForm.js":
+/*!**************************************************!*\
+  !*** ./resources/js/views/organisms/BaseForm.js ***!
+  \**************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! styled-components */ "./node_modules/styled-components/dist/styled-components.browser.esm.js");
+/* harmony import */ var _styles_size__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../styles/size */ "./resources/js/views/styles/size.js");
+var _templateObject;
+
+function _taggedTemplateLiteral(strings, raw) { if (!raw) { raw = strings.slice(0); } return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } })); }
+
+
+
+var BaseForm = styled_components__WEBPACK_IMPORTED_MODULE_1__.default.form(_templateObject || (_templateObject = _taggedTemplateLiteral(["\n    display: flex;\n    flex-flow: column;\n    justify-content: center;\n    padding-top: ", "px;\n    padding-bottom: ", "px;\n    padding-left: ", "px;\n    padding-right: ", "px;\n    margin: 0 auto;\n    @media screen and (max-width:", "px) {\n        max-width: 32rem;\n    }\n    @media screen and (min-width:", "px) and ( max-width:", "px) {\n        max-width: 32rem;\n    }\n    @media screen and (min-width:", "px) {\n        max-width: 64rem;\n    }\n"])), function (props) {
+  return props.PaddingTop;
+}, function (props) {
+  return props.PaddingBottom;
+}, function (props) {
+  return props.PaddingLeft;
+}, function (props) {
+  return props.PaddingRight;
+}, _styles_size__WEBPACK_IMPORTED_MODULE_0__.default.MediaScreen.Small, _styles_size__WEBPACK_IMPORTED_MODULE_0__.default.MediaScreen.Small, _styles_size__WEBPACK_IMPORTED_MODULE_0__.default.MediaScreen.Medium, _styles_size__WEBPACK_IMPORTED_MODULE_0__.default.MediaScreen.Large);
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (BaseForm);
 
 /***/ }),
 
@@ -3334,8 +3376,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _molecules_EmailForm__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../molecules/EmailForm */ "./resources/js/views/molecules/EmailForm.jsx");
 /* harmony import */ var _molecules_PasswordForm__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../molecules/PasswordForm */ "./resources/js/views/molecules/PasswordForm.jsx");
 /* harmony import */ var _atoms_buttons_BaseButton__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../atoms/buttons/BaseButton */ "./resources/js/views/atoms/buttons/BaseButton.js");
-/* harmony import */ var _reducks_users_operations__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../reducks/users/operations */ "./resources/js/reducks/users/operations.js");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+/* harmony import */ var _BaseForm__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./BaseForm */ "./resources/js/views/organisms/BaseForm.js");
+/* harmony import */ var _reducks_users_operations__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../reducks/users/operations */ "./resources/js/reducks/users/operations.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+
 
 
 
@@ -3349,17 +3393,18 @@ var LoginForm = function LoginForm(_ref) {
       setEmail = _ref.setEmail,
       setPassword = _ref.setPassword,
       dispatch = _ref.dispatch;
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("form", {
-    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_molecules_EmailForm__WEBPACK_IMPORTED_MODULE_0__.default, {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)(_BaseForm__WEBPACK_IMPORTED_MODULE_3__.default, {
+    PaddingTop: 16,
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_molecules_EmailForm__WEBPACK_IMPORTED_MODULE_0__.default, {
       email: email,
       setEmail: setEmail
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_molecules_PasswordForm__WEBPACK_IMPORTED_MODULE_1__.default, {
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_molecules_PasswordForm__WEBPACK_IMPORTED_MODULE_1__.default, {
       password: password,
       setPassword: setPassword
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_atoms_buttons_BaseButton__WEBPACK_IMPORTED_MODULE_2__.default, {
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_atoms_buttons_BaseButton__WEBPACK_IMPORTED_MODULE_2__.default, {
       type: "button",
       onClick: function onClick() {
-        return dispatch((0,_reducks_users_operations__WEBPACK_IMPORTED_MODULE_3__.signIn)(email, password));
+        return dispatch((0,_reducks_users_operations__WEBPACK_IMPORTED_MODULE_4__.signIn)(email, password));
       },
       children: "\u30ED\u30B0\u30A4\u30F3"
     })]
@@ -3579,6 +3624,11 @@ var Size = {
     PaddingLeft: 12,
     Width: 100,
     FontWeight: 700
+  },
+  MediaScreen: {
+    Small: 480,
+    Medium: 768,
+    Large: 1024
   }
 };
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Size);
