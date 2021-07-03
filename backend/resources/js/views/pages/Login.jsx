@@ -1,6 +1,7 @@
 import React, {useState} from 'react'
 import {useDispatch} from 'react-redux';
 import { signIn } from '../../reducks/users/operations';
+import BaseButton from '../atoms/buttons/BaseButton';
 
 const Login = () => {
 
@@ -25,9 +26,12 @@ const Login = () => {
                 value={password}
                 onChange={e => setPassword(e.target.value)}
             />
-            <button type="button" onClick={() => dispatch(signIn(email, password))}>
+            {/* <button type="button" onClick={() => dispatch(signIn(email, password))}>
                 ログインする
-            </button>
+            </button> */}
+            <BaseButton type="button" onClick={() => dispatch(signIn(email, password))}>
+                ログインする?
+            </BaseButton>
             </form>
         </div>
     );
