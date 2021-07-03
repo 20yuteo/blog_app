@@ -11,6 +11,7 @@ const EmailForm = ({email, setEmail}) => {
                 type="email"
                 value={email}
                 onChange={e => setEmail(e.target.value)}
+                marginBottom={8}
             />
         </>
     )

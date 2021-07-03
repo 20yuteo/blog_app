@@ -11,6 +11,7 @@ const PasswordForm = ({password, setPassword}) => {
                 type="password"
                 value={password}
                 onChange={e => setPassword(e.target.value)}
+                marginBottom={8}
             />
         </>
     )
