@@ -3162,6 +3162,58 @@ var Router = function Router() {
 
 /***/ }),
 
+/***/ "./resources/js/views/atoms/Forms/BaseFormInput.js":
+/*!*********************************************************!*\
+  !*** ./resources/js/views/atoms/Forms/BaseFormInput.js ***!
+  \*********************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! styled-components */ "./node_modules/styled-components/dist/styled-components.browser.esm.js");
+/* harmony import */ var _styles_color__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../styles/color */ "./resources/js/views/styles/color.js");
+/* harmony import */ var _styles_size__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../styles/size */ "./resources/js/views/styles/size.js");
+var _templateObject;
+
+function _taggedTemplateLiteral(strings, raw) { if (!raw) { raw = strings.slice(0); } return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } })); }
+
+
+
+
+var BaseFormInput = styled_components__WEBPACK_IMPORTED_MODULE_2__.default.input(_templateObject || (_templateObject = _taggedTemplateLiteral(["\n    background-color: ", ";\n    border-color: ", ";\n    border-radius: ", "px;\n    color: ", ";\n    padding: ", "px ", "px;\n    width: ", "%;\n    font-size: ", "rem;\n    font-weight: ", ";\n"])), _styles_color__WEBPACK_IMPORTED_MODULE_0__.default.Form.Input, _styles_color__WEBPACK_IMPORTED_MODULE_0__.default.Form.Input, _styles_size__WEBPACK_IMPORTED_MODULE_1__.default.BorderRadius, _styles_color__WEBPACK_IMPORTED_MODULE_0__.default.Form.Color, _styles_size__WEBPACK_IMPORTED_MODULE_1__.default.Form.PaddingTop, _styles_size__WEBPACK_IMPORTED_MODULE_1__.default.Form.PaddingLeft, _styles_size__WEBPACK_IMPORTED_MODULE_1__.default.Form.Width, _styles_size__WEBPACK_IMPORTED_MODULE_1__.default.FontSize.Medium, _styles_size__WEBPACK_IMPORTED_MODULE_1__.default.Form.FontWeight);
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (BaseFormInput);
+
+/***/ }),
+
+/***/ "./resources/js/views/atoms/Forms/BaseFormLabel.js":
+/*!*********************************************************!*\
+  !*** ./resources/js/views/atoms/Forms/BaseFormLabel.js ***!
+  \*********************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! styled-components */ "./node_modules/styled-components/dist/styled-components.browser.esm.js");
+/* harmony import */ var _styles_color__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../styles/color */ "./resources/js/views/styles/color.js");
+/* harmony import */ var _styles_size__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../styles/size */ "./resources/js/views/styles/size.js");
+var _templateObject;
+
+function _taggedTemplateLiteral(strings, raw) { if (!raw) { raw = strings.slice(0); } return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } })); }
+
+
+
+
+var BaseFormLabel = styled_components__WEBPACK_IMPORTED_MODULE_2__.default.label(_templateObject || (_templateObject = _taggedTemplateLiteral(["\n    color: ", ";\n    font-size: ", "rem;\n    font-weight: ", ";\n"])), _styles_color__WEBPACK_IMPORTED_MODULE_0__.default.Form.Color, _styles_size__WEBPACK_IMPORTED_MODULE_1__.default.FontSize.Medium, _styles_size__WEBPACK_IMPORTED_MODULE_1__.default.Form.FontWeight);
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (BaseFormLabel);
+
+/***/ }),
+
 /***/ "./resources/js/views/atoms/buttons/BaseButton.js":
 /*!********************************************************!*\
   !*** ./resources/js/views/atoms/buttons/BaseButton.js ***!
@@ -3173,15 +3225,17 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! styled-components */ "./node_modules/styled-components/dist/styled-components.browser.esm.js");
+/* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! styled-components */ "./node_modules/styled-components/dist/styled-components.browser.esm.js");
 /* harmony import */ var _styles_color__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../styles/color */ "./resources/js/views/styles/color.js");
+/* harmony import */ var _styles_size__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../styles/size */ "./resources/js/views/styles/size.js");
 var _templateObject;
 
 function _taggedTemplateLiteral(strings, raw) { if (!raw) { raw = strings.slice(0); } return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } })); }
 
 
 
-var BaseButton = styled_components__WEBPACK_IMPORTED_MODULE_1__.default.button(_templateObject || (_templateObject = _taggedTemplateLiteral(["\n    background-color: ", ";\n    color: ", ";\n    border-color: ", ";\n    display: inline-block;\n    border-radius: 3px;\n    padding: 1.2rem 2rem;\n    opacity: 1;\n    font-size: 1.1rem;\n    font-weight: 900;\n    font-family: proxima-nova, sans-serif;\n    cursor: pointer;\n"])), _styles_color__WEBPACK_IMPORTED_MODULE_0__.default.Button, _styles_color__WEBPACK_IMPORTED_MODULE_0__.default.ButtonText, _styles_color__WEBPACK_IMPORTED_MODULE_0__.default.Button);
+
+var BaseButton = styled_components__WEBPACK_IMPORTED_MODULE_2__.default.button(_templateObject || (_templateObject = _taggedTemplateLiteral(["\n    background-color: ", ";\n    color: ", ";\n    border-color: ", ";\n    display: inline-block;\n    border-radius: ", "px;\n    padding: ", "rem ", "rem;\n    opacity: ", ";\n    font-size: ", "rem;\n    font-weight: ", ";\n    cursor: pointer;\n"])), _styles_color__WEBPACK_IMPORTED_MODULE_0__.default.Button, _styles_color__WEBPACK_IMPORTED_MODULE_0__.default.Form.Color, _styles_color__WEBPACK_IMPORTED_MODULE_0__.default.Button, _styles_size__WEBPACK_IMPORTED_MODULE_1__.default.BorderRadius, _styles_size__WEBPACK_IMPORTED_MODULE_1__.default.Button.PaddingTop, _styles_size__WEBPACK_IMPORTED_MODULE_1__.default.Button.PaddingLeft, _styles_size__WEBPACK_IMPORTED_MODULE_1__.default.Button.Opacity, _styles_size__WEBPACK_IMPORTED_MODULE_1__.default.FontSize.Medium, _styles_size__WEBPACK_IMPORTED_MODULE_1__.default.Button.FontWeight);
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (BaseButton);
 
 /***/ }),
@@ -3253,7 +3307,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
 /* harmony import */ var _reducks_users_operations__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../reducks/users/operations */ "./resources/js/reducks/users/operations.js");
 /* harmony import */ var _atoms_buttons_BaseButton__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../atoms/buttons/BaseButton */ "./resources/js/views/atoms/buttons/BaseButton.js");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+/* harmony import */ var _atoms_Forms_BaseFormInput__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../atoms/Forms/BaseFormInput */ "./resources/js/views/atoms/Forms/BaseFormInput.js");
+/* harmony import */ var _atoms_Forms_BaseFormLabel__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../atoms/Forms/BaseFormLabel */ "./resources/js/views/atoms/Forms/BaseFormLabel.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
 function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
 
 function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
@@ -3265,6 +3321,8 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
 function _iterableToArrayLimit(arr, i) { var _i = arr == null ? null : typeof Symbol !== "undefined" && arr[Symbol.iterator] || arr["@@iterator"]; if (_i == null) return; var _arr = []; var _n = true; var _d = false; var _s, _e; try { for (_i = _i.call(arr); !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
 
 function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
+
+
 
 
 
@@ -3286,27 +3344,27 @@ var Login = function Login() {
       password = _useState4[0],
       setPassword = _useState4[1];
 
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
-    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("h2", {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("h2", {
       children: "Login"
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("form", {
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("label", {
-        children: "email"
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("input", {
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("form", {
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_atoms_Forms_BaseFormLabel__WEBPACK_IMPORTED_MODULE_5__.default, {
+        children: "email address"
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_atoms_Forms_BaseFormInput__WEBPACK_IMPORTED_MODULE_4__.default, {
         type: "email",
         value: email,
         onChange: function onChange(e) {
           return setEmail(e.target.value);
         }
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("label", {
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_atoms_Forms_BaseFormLabel__WEBPACK_IMPORTED_MODULE_5__.default, {
         children: "password"
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("input", {
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_atoms_Forms_BaseFormInput__WEBPACK_IMPORTED_MODULE_4__.default, {
         type: "password",
         value: password,
         onChange: function onChange(e) {
           return setPassword(e.target.value);
         }
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_atoms_buttons_BaseButton__WEBPACK_IMPORTED_MODULE_3__.default, {
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_atoms_buttons_BaseButton__WEBPACK_IMPORTED_MODULE_3__.default, {
         type: "button",
         onClick: function onClick() {
           return dispatch((0,_reducks_users_operations__WEBPACK_IMPORTED_MODULE_2__.signIn)(email, password));
@@ -3377,12 +3435,47 @@ var Color = {
     Highlight: '#f582ae'
   },
   Form: {
-    Input: '#f3d2c1',
-    Button: '#f582ae',
-    ButtonText: '#001858'
+    Input: '#fffffe',
+    Color: '#001858',
+    Button: '#f582ae'
   }
 };
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Color); // https://www.happyhues.co/palettes/17
+
+/***/ }),
+
+/***/ "./resources/js/views/styles/size.js":
+/*!*******************************************!*\
+  !*** ./resources/js/views/styles/size.js ***!
+  \*******************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+var Size = {
+  BorderRadius: 3,
+  FontSize: {
+    Small: 0.8,
+    Medium: 1.6,
+    Large: 2.4
+  },
+  Button: {
+    PaddingTop: 1.2,
+    PaddingLeft: 2,
+    Opacity: 1,
+    FontWeight: 900
+  },
+  Form: {
+    PaddingTop: 8,
+    PaddingLeft: 12,
+    Width: 100,
+    FontWeight: 700
+  }
+};
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Size);
 
 /***/ }),
 
