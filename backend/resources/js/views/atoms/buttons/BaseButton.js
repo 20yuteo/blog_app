@@ -10,9 +10,7 @@ const BaseButton = styled.button`
     border-radius: ${Size.Button.BorderRadius}px;
     padding: ${Size.Button.PaddingTop} rem ${Size.Button.PaddingLeft} rem;
     opacity: ${Size.Button.Opacity};
-    font-size: ${Size.Button.FontSize}rem;
-    font-weight: ${Size.Button.FontWeight};
-    font-family: proxima-nova, sans-serif;
+    font-size: ${Size.FontSize.Medium} rem;
     cursor: pointer;
 `;
 export default BaseButton;
