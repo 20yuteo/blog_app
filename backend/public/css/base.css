@@ -1,0 +1,26 @@
+html {
+    background-color: #fef6e4;
+    word-wrap: break-word;
+    font-size: 62.5%;
+    margin: 0;
+    padding: 0;
+    font-family: proxima-nova, sans-serif;
+    -webkit-font-feature-settings: 'palt';
+	font-feature-settings: 'palt';
+}
+
+body {
+	-webkit-text-size-adjust: 100%;
+	text-size-adjust: 100%;
+}
+
+input, button, textarea, select {
+	-webkit-appearance: none;
+	appearance: none;
+}
+
+img {
+	max-width: 100%;
+	height: auto;
+	vertical-align: bottom;
+}
