@@ -8,7 +8,14 @@ const BaseFormInput = styled.input`
     border-radius: ${ Size.BorderRadius }px;
     color: ${  Color.Form.Color };
     padding: ${ Size.Form.PaddingTop }px ${ Size.Form.PaddingLeft }px;
+    margin-top: ${(props) => props.marginTop}px;
+    margin-bottom: ${(props) => props.marginBottom}px;
+    margin-left: ${(props) => props.marginLeft}px;
+    margin-right: ${(props) => props.marginRight}px;
     width: ${ Size.Form.Width }%;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
     font-size: ${ Size.FontSize.Medium }rem;
     font-weight: ${ Size.Form.FontWeight };
 `;
