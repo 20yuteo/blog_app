@@ -2,6 +2,8 @@ import React, {useState} from 'react'
 import {useDispatch} from 'react-redux';
 import { signIn } from '../../reducks/users/operations';
 import BaseButton from '../atoms/buttons/BaseButton';
+import BaseFormInput from '../atoms/Forms/BaseFormInput';
+import BaseFormLabel from '../atoms/Forms/BaseFormLabel';
 
 const Login = () => {
 
@@ -14,21 +16,23 @@ const Login = () => {
         <div>
             <h2>Login</h2>
             <form>
-            <label>email</label>
-            <input
+            <BaseFormLabel>
+                email address
+            </BaseFormLabel>
+            <BaseFormInput
                 type="email"
                 value={email}
                 onChange={e => setEmail(e.target.value)}
             />
-            <label>password</label>
-            <input
+            <BaseFormLabel>
+                password
+            </BaseFormLabel>
+            <BaseFormInput
                 type="password"
                 value={password}
                 onChange={e => setPassword(e.target.value)}
             />
-            {/* <button type="button" onClick={() => dispatch(signIn(email, password))}>
-                ログインする
-            </button> */}
+
             <BaseButton type="button" onClick={() => dispatch(signIn(email, password))}>
                 ログインする?
             </BaseButton>
