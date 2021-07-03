@@ -16,6 +16,11 @@ const Size = {
         PaddingLeft: 12,
         Width: 100,
         FontWeight: 700
+    },
+    MediaScreen: {
+        Small: 480,
+        Medium: 768,
+        Large: 1024
     }
 }
 export default Size
