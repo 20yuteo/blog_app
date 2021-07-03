@@ -3240,6 +3240,136 @@ var BaseButton = styled_components__WEBPACK_IMPORTED_MODULE_2__.default.button(_
 
 /***/ }),
 
+/***/ "./resources/js/views/molecules/EmailForm.jsx":
+/*!****************************************************!*\
+  !*** ./resources/js/views/molecules/EmailForm.jsx ***!
+  \****************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _atoms_Forms_BaseFormInput__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../atoms/Forms/BaseFormInput */ "./resources/js/views/atoms/Forms/BaseFormInput.js");
+/* harmony import */ var _atoms_Forms_BaseFormLabel__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../atoms/Forms/BaseFormLabel */ "./resources/js/views/atoms/Forms/BaseFormLabel.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+
+
+
+
+
+
+var EmailForm = function EmailForm(_ref) {
+  var email = _ref.email,
+      setEmail = _ref.setEmail;
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.Fragment, {
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_atoms_Forms_BaseFormLabel__WEBPACK_IMPORTED_MODULE_1__.default, {
+      children: "Email Address"
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_atoms_Forms_BaseFormInput__WEBPACK_IMPORTED_MODULE_0__.default, {
+      type: "email",
+      value: email,
+      onChange: function onChange(e) {
+        return setEmail(e.target.value);
+      }
+    })]
+  });
+};
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (EmailForm);
+
+/***/ }),
+
+/***/ "./resources/js/views/molecules/PasswordForm.jsx":
+/*!*******************************************************!*\
+  !*** ./resources/js/views/molecules/PasswordForm.jsx ***!
+  \*******************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _atoms_Forms_BaseFormInput__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../atoms/Forms/BaseFormInput */ "./resources/js/views/atoms/Forms/BaseFormInput.js");
+/* harmony import */ var _atoms_Forms_BaseFormLabel__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../atoms/Forms/BaseFormLabel */ "./resources/js/views/atoms/Forms/BaseFormLabel.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+
+
+
+
+
+
+var PasswordForm = function PasswordForm(_ref) {
+  var password = _ref.password,
+      setPassword = _ref.setPassword;
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.Fragment, {
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_atoms_Forms_BaseFormLabel__WEBPACK_IMPORTED_MODULE_1__.default, {
+      children: "Password"
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_atoms_Forms_BaseFormInput__WEBPACK_IMPORTED_MODULE_0__.default, {
+      type: "password",
+      value: password,
+      onChange: function onChange(e) {
+        return setPassword(e.target.value);
+      }
+    })]
+  });
+};
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (PasswordForm);
+
+/***/ }),
+
+/***/ "./resources/js/views/organisms/LoginForm.jsx":
+/*!****************************************************!*\
+  !*** ./resources/js/views/organisms/LoginForm.jsx ***!
+  \****************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _molecules_EmailForm__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../molecules/EmailForm */ "./resources/js/views/molecules/EmailForm.jsx");
+/* harmony import */ var _molecules_PasswordForm__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../molecules/PasswordForm */ "./resources/js/views/molecules/PasswordForm.jsx");
+/* harmony import */ var _atoms_buttons_BaseButton__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../atoms/buttons/BaseButton */ "./resources/js/views/atoms/buttons/BaseButton.js");
+/* harmony import */ var _reducks_users_operations__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../reducks/users/operations */ "./resources/js/reducks/users/operations.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+
+
+
+
+
+
+
+var LoginForm = function LoginForm(_ref) {
+  var email = _ref.email,
+      password = _ref.password,
+      setEmail = _ref.setEmail,
+      setPassword = _ref.setPassword,
+      dispatch = _ref.dispatch;
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("form", {
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_molecules_EmailForm__WEBPACK_IMPORTED_MODULE_0__.default, {
+      email: email,
+      setEmail: setEmail
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_molecules_PasswordForm__WEBPACK_IMPORTED_MODULE_1__.default, {
+      password: password,
+      setPassword: setPassword
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_atoms_buttons_BaseButton__WEBPACK_IMPORTED_MODULE_2__.default, {
+      type: "button",
+      onClick: function onClick() {
+        return dispatch((0,_reducks_users_operations__WEBPACK_IMPORTED_MODULE_3__.signIn)(email, password));
+      },
+      children: "\u30ED\u30B0\u30A4\u30F3"
+    })]
+  });
+};
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (LoginForm);
+
+/***/ }),
+
 /***/ "./resources/js/views/pages/About.jsx":
 /*!********************************************!*\
   !*** ./resources/js/views/pages/About.jsx ***!
@@ -3305,11 +3435,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
-/* harmony import */ var _reducks_users_operations__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../reducks/users/operations */ "./resources/js/reducks/users/operations.js");
-/* harmony import */ var _atoms_buttons_BaseButton__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../atoms/buttons/BaseButton */ "./resources/js/views/atoms/buttons/BaseButton.js");
-/* harmony import */ var _atoms_Forms_BaseFormInput__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../atoms/Forms/BaseFormInput */ "./resources/js/views/atoms/Forms/BaseFormInput.js");
-/* harmony import */ var _atoms_Forms_BaseFormLabel__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../atoms/Forms/BaseFormLabel */ "./resources/js/views/atoms/Forms/BaseFormLabel.js");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+/* harmony import */ var _organisms_LoginForm__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../organisms/LoginForm */ "./resources/js/views/organisms/LoginForm.jsx");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
 function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
 
 function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
@@ -3321,9 +3448,6 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
 function _iterableToArrayLimit(arr, i) { var _i = arr == null ? null : typeof Symbol !== "undefined" && arr[Symbol.iterator] || arr["@@iterator"]; if (_i == null) return; var _arr = []; var _n = true; var _d = false; var _s, _e; try { for (_i = _i.call(arr); !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
 
 function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
-
-
-
 
 
 
@@ -3344,33 +3468,15 @@ var Login = function Login() {
       password = _useState4[0],
       setPassword = _useState4[1];
 
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
-    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("h2", {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("h2", {
       children: "Login"
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("form", {
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_atoms_Forms_BaseFormLabel__WEBPACK_IMPORTED_MODULE_5__.default, {
-        children: "email address"
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_atoms_Forms_BaseFormInput__WEBPACK_IMPORTED_MODULE_4__.default, {
-        type: "email",
-        value: email,
-        onChange: function onChange(e) {
-          return setEmail(e.target.value);
-        }
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_atoms_Forms_BaseFormLabel__WEBPACK_IMPORTED_MODULE_5__.default, {
-        children: "password"
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_atoms_Forms_BaseFormInput__WEBPACK_IMPORTED_MODULE_4__.default, {
-        type: "password",
-        value: password,
-        onChange: function onChange(e) {
-          return setPassword(e.target.value);
-        }
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_atoms_buttons_BaseButton__WEBPACK_IMPORTED_MODULE_3__.default, {
-        type: "button",
-        onClick: function onClick() {
-          return dispatch((0,_reducks_users_operations__WEBPACK_IMPORTED_MODULE_2__.signIn)(email, password));
-        },
-        children: "\u30ED\u30B0\u30A4\u30F3\u3059\u308B?"
-      })]
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_organisms_LoginForm__WEBPACK_IMPORTED_MODULE_2__.default, {
+      email: email,
+      password: password,
+      setEmail: setEmail,
+      setPassword: setPassword,
+      dispatch: dispatch
     })]
   });
 };
