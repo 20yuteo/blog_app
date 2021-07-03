@@ -21,9 +21,9 @@ const Color = {
         Highlight: '#f582ae',
     },
     Form: {
-        Input: '#f3d2c1',
+        Input: '#fffffe',
+        Color: '#001858',
         Button: '#f582ae',
-        ButtonText: '#001858',
     }
 }
 export default Color
