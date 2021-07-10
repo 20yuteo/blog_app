@@ -1,23 +1,15 @@
 import React from 'react';
-import styled from 'styled-components';
-import { Link } from 'react-router-dom';
-import Size from '../styles/size';
+import Links from '../molecules/Links';
+import BaseLink from '../atoms/Links/BaseLink';
+import Color from '../styles/color';
 
 const NavBar = () => {
 
-    const Links = styled.div`
-        display: flex;
-        width: 8rem;
-        @media screen and (min-width:${Size.MediaScreen.Small}px) {
-            flex-flow: column;
-        }
-    `;
-
     return (
         <Links>
-            <Link to="/">Home</Link>
-            <Link to="/about">About</Link>
-            <Link to="/login">Login</Link>
+            <BaseLink to={ '/' } backgroundColor={ Color.Background } borderColor={ Color.Stroke } Name={'Home'}/>
+            <BaseLink to={ '/about' } backgroundColor={ Color.Secondary } borderColor={ Color.Stroke }  Name={'About'} />
+            <BaseLink to={ '/login' } backgroundColor={ Color.Tertiary } borderColor={ Color.Stroke } Name={'Login'} />
         </Links>
     );
 }
