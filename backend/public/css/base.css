@@ -1,6 +1,7 @@
 html {
     background-color: #fef6e4;
     word-wrap: break-word;
+	height: 100%;
     font-size: 62.5%;
     margin: 0;
     padding: 0;
@@ -10,6 +11,7 @@ html {
 }
 
 body {
+	height: 100%;
 	-webkit-text-size-adjust: 100%;
 	text-size-adjust: 100%;
 }
@@ -23,4 +25,8 @@ img {
 	max-width: 100%;
 	height: auto;
 	vertical-align: bottom;
+}
+
+#app {
+	height: 100%;
 }
