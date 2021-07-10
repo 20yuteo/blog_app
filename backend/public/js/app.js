@@ -3115,7 +3115,7 @@ function _taggedTemplateLiteral(strings, raw) { if (!raw) { raw = strings.slice(
 
 
 var App = function App() {
-  var Main = styled_components__WEBPACK_IMPORTED_MODULE_5__.default.div(_templateObject || (_templateObject = _taggedTemplateLiteral(["\n        display: flex;\n        @media screen and (max-width:", "px) {\n            flex-direction: column-reverse;\n        }\n    "])), _styles_size__WEBPACK_IMPORTED_MODULE_3__.default.MediaScreen.Small);
+  var Main = styled_components__WEBPACK_IMPORTED_MODULE_5__.default.div(_templateObject || (_templateObject = _taggedTemplateLiteral(["\n        display: flex;\n        height: 100%;\n        @media screen and (max-width:", "px) {\n            flex-direction: column-reverse;\n        }\n    "])), _styles_size__WEBPACK_IMPORTED_MODULE_3__.default.MediaScreen.Small);
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)(Main, {
     children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_template_NavBar__WEBPACK_IMPORTED_MODULE_1__.default, {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_Router__WEBPACK_IMPORTED_MODULE_2__.default, {})]
   });
@@ -3237,6 +3237,51 @@ var BaseFormLabel = styled_components__WEBPACK_IMPORTED_MODULE_2__.default.label
 
 /***/ }),
 
+/***/ "./resources/js/views/atoms/Links/BaseLink.js":
+/*!****************************************************!*\
+  !*** ./resources/js/views/atoms/Links/BaseLink.js ***!
+  \****************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! styled-components */ "./node_modules/styled-components/dist/styled-components.browser.esm.js");
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
+/* harmony import */ var _styles_color__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../styles/color */ "./resources/js/views/styles/color.js");
+/* harmony import */ var _styles_size__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../styles/size */ "./resources/js/views/styles/size.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+var _templateObject, _templateObject2;
+
+function _taggedTemplateLiteral(strings, raw) { if (!raw) { raw = strings.slice(0); } return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } })); }
+
+
+
+
+
+
+var StyledLink = (0,styled_components__WEBPACK_IMPORTED_MODULE_3__.default)(react_router_dom__WEBPACK_IMPORTED_MODULE_4__.Link)(_templateObject || (_templateObject = _taggedTemplateLiteral(["\n    display: inline-block;\n    background-color: ", ";\n    color: ", ";\n    font-size: ", "rem;\n    font-weight: ", ";\n    min-width: 8rem;\n    min-height: 2rem;\n    text-decoration: none;\n    padding: ", "rem ", "rem ;\n    text-align: center;\n"])), function (props) {
+  return props.backgroundColor;
+}, _styles_color__WEBPACK_IMPORTED_MODULE_0__.default.ButtonText, _styles_size__WEBPACK_IMPORTED_MODULE_1__.default.FontSize.Medium, _styles_size__WEBPACK_IMPORTED_MODULE_1__.default.Form.FontWeight, _styles_size__WEBPACK_IMPORTED_MODULE_1__.default.Button.PaddingTop, _styles_size__WEBPACK_IMPORTED_MODULE_1__.default.Button.PaddingLeft);
+var LayoutLink = styled_components__WEBPACK_IMPORTED_MODULE_3__.default.div(_templateObject2 || (_templateObject2 = _taggedTemplateLiteral(["\n    margin: 2rem 2rem;\n"])));
+
+var BaseLink = function BaseLink(props) {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(LayoutLink, {
+    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(StyledLink, {
+      to: props.to,
+      backgroundColor: props.backgroundColor,
+      borderColor: props.borderColor,
+      children: props.Name
+    })
+  });
+};
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (BaseLink);
+
+/***/ }),
+
 /***/ "./resources/js/views/atoms/buttons/BaseButton.js":
 /*!********************************************************!*\
   !*** ./resources/js/views/atoms/buttons/BaseButton.js ***!
@@ -3301,6 +3346,32 @@ var EmailForm = function EmailForm(_ref) {
 };
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (EmailForm);
+
+/***/ }),
+
+/***/ "./resources/js/views/molecules/Links.jsx":
+/*!************************************************!*\
+  !*** ./resources/js/views/molecules/Links.jsx ***!
+  \************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! styled-components */ "./node_modules/styled-components/dist/styled-components.browser.esm.js");
+/* harmony import */ var _styles_color__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../styles/color */ "./resources/js/views/styles/color.js");
+/* harmony import */ var _styles_size__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../styles/size */ "./resources/js/views/styles/size.js");
+var _templateObject;
+
+function _taggedTemplateLiteral(strings, raw) { if (!raw) { raw = strings.slice(0); } return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } })); }
+
+
+
+
+var Links = styled_components__WEBPACK_IMPORTED_MODULE_2__.default.div(_templateObject || (_templateObject = _taggedTemplateLiteral(["\n    display: flex;\n    width: 100%;\n    border-top: 8px solid ", ";\n    overflow:scroll;\n    background: ", ";\n    @media screen and (min-width:", "px) {\n        flex-flow: column;\n        border-right: 8px solid ", ";\n        width: 16rem;\n        height: 100%;\n    }\n"])), _styles_color__WEBPACK_IMPORTED_MODULE_0__.default.Stroke, _styles_color__WEBPACK_IMPORTED_MODULE_0__.default.SideBar.Background, _styles_size__WEBPACK_IMPORTED_MODULE_1__.default.MediaScreen.Small, _styles_color__WEBPACK_IMPORTED_MODULE_0__.default.Stroke);
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Links);
 
 /***/ }),
 
@@ -3604,6 +3675,9 @@ var Color = {
     Input: '#fffffe',
     Color: '#001858',
     Button: '#f582ae'
+  },
+  SideBar: {
+    Background: '#f3d2c1'
   }
 };
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Color); // https://www.happyhues.co/palettes/17
@@ -3662,14 +3736,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! styled-components */ "./node_modules/styled-components/dist/styled-components.browser.esm.js");
-/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
-/* harmony import */ var _styles_size__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../styles/size */ "./resources/js/views/styles/size.js");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
-var _templateObject;
-
-function _taggedTemplateLiteral(strings, raw) { if (!raw) { raw = strings.slice(0); } return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } })); }
-
+/* harmony import */ var _molecules_Links__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../molecules/Links */ "./resources/js/views/molecules/Links.jsx");
+/* harmony import */ var _atoms_Links_BaseLink__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../atoms/Links/BaseLink */ "./resources/js/views/atoms/Links/BaseLink.js");
+/* harmony import */ var _styles_color__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../styles/color */ "./resources/js/views/styles/color.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
 
 
 
@@ -3678,17 +3748,22 @@ function _taggedTemplateLiteral(strings, raw) { if (!raw) { raw = strings.slice(
 
 
 var NavBar = function NavBar() {
-  var Links = styled_components__WEBPACK_IMPORTED_MODULE_3__.default.div(_templateObject || (_templateObject = _taggedTemplateLiteral(["\n        display: flex;\n        width: 8rem;\n        @media screen and (min-width:", "px) {\n            flex-flow: column;\n        }\n    "])), _styles_size__WEBPACK_IMPORTED_MODULE_1__.default.MediaScreen.Small);
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)(Links, {
-    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_4__.Link, {
-      to: "/",
-      children: "Home"
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_4__.Link, {
-      to: "/about",
-      children: "About"
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_4__.Link, {
-      to: "/login",
-      children: "Login"
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)(_molecules_Links__WEBPACK_IMPORTED_MODULE_1__.default, {
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_atoms_Links_BaseLink__WEBPACK_IMPORTED_MODULE_2__.default, {
+      to: '/',
+      backgroundColor: _styles_color__WEBPACK_IMPORTED_MODULE_3__.default.Background,
+      borderColor: _styles_color__WEBPACK_IMPORTED_MODULE_3__.default.Stroke,
+      Name: 'Home'
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_atoms_Links_BaseLink__WEBPACK_IMPORTED_MODULE_2__.default, {
+      to: '/about',
+      backgroundColor: _styles_color__WEBPACK_IMPORTED_MODULE_3__.default.Secondary,
+      borderColor: _styles_color__WEBPACK_IMPORTED_MODULE_3__.default.Stroke,
+      Name: 'About'
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_atoms_Links_BaseLink__WEBPACK_IMPORTED_MODULE_2__.default, {
+      to: '/login',
+      backgroundColor: _styles_color__WEBPACK_IMPORTED_MODULE_3__.default.Tertiary,
+      borderColor: _styles_color__WEBPACK_IMPORTED_MODULE_3__.default.Stroke,
+      Name: 'Login'
     })]
   });
 };

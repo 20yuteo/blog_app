@@ -7,6 +7,7 @@ import Size from './styles/size';
 const App = () => {
     const Main = styled.div`
         display: flex;
+        height: 100%;
         @media screen and (max-width:${Size.MediaScreen.Small}px) {
             flex-direction: column-reverse;
         }
