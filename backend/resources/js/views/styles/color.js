@@ -24,6 +24,9 @@ const Color = {
         Input: '#fffffe',
         Color: '#001858',
         Button: '#f582ae',
+    },
+    SideBar: {
+        Background: '#f3d2c1',
     }
 }
 export default Color
