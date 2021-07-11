@@ -5,7 +5,7 @@ import Router from './Router';
 import Size from './styles/size';
 
 const App = () => {
-    const Main = styled.div`
+    const Main = styled.main`
         display: flex;
         height: 100%;
         @media screen and (max-width:${Size.MediaScreen.Small}px) {
