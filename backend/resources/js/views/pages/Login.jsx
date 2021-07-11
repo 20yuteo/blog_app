@@ -1,5 +1,6 @@
 import React, {useState} from 'react'
 import {useDispatch} from 'react-redux';
+import PageTitle from '../atoms/Title/PageTitle';
 import LoginForm from '../organisms/LoginForm';
 
 const Login = () => {
@@ -11,7 +12,9 @@ const Login = () => {
 
     return (
         <div>
-            <h2>Login</h2>
+            <PageTitle>
+                Login
+            </PageTitle>
             <LoginForm
                 email={email}
                 password={password}

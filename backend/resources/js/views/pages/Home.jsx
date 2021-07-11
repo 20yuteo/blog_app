@@ -1,10 +1,11 @@
 import React from 'react'
+import PageTitle from '../atoms/Title/PageTitle';
 
 const Home = () => {
     return (
-        <div>
+        <PageTitle>
             Home
-        </div>
+        </PageTitle>
     );
 }
 

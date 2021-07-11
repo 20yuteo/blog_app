@@ -1,9 +1,11 @@
 import React from 'react';
+import PageTitle from '../atoms/Title/PageTitle';
+
 const About = () => {
     return (
-        <div>
+        <PageTitle>
             About
-        </div>
+        </PageTitle>
     );
 }
 export default About
