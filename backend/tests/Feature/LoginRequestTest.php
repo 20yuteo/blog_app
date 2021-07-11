@@ -15,12 +15,7 @@ class LoginRequestTest extends TestCase
     public function setUp(): void
     {
         parent::setUp();
-
-        $this->user = User::factory()->state([
-            'name' => '20yuteo',
-            'email' => '20yuteo@gmail.com',
-            'password' => Hash::make('ghshandball'),
-        ])->create();
+        $this->user = User::factory()->admin()->create();
     }
 
     /**
