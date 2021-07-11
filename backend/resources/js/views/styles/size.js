@@ -1,5 +1,6 @@
 const Size = {
     BorderRadius: 3,
+    FontWeight: 700,
     FontSize: {
         Small: 0.8,
         Medium: 1.6,
