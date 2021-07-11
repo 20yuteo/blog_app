@@ -58,7 +58,7 @@ class UserFactory extends Factory
                 'name' => '20yuteo',
                 'email' => '20yuteo@gmail.com',
                 'email_verified_at' => now(),
-                'password' => Hash::make('ghshandball'),
+                'password' => Hash::make('303ebiMayo'),
                 'remember_token' => Str::random(10),
             ];
         });
