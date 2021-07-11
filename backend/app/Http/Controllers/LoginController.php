@@ -4,32 +4,23 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
+use App\Repositories\User\UserRepositoryInterface;
 use Illuminate\Support\Facades\Auth;
+use App\Http\Requests\LoginUserRequest;
 
 class LoginController extends Controller
 {
     use AuthenticatesUsers;
 
-    public function login(Request $request)
+    public function __construct(UserRepositoryInterface $user)
     {
-        // バリデーション
-        $this->validateLogin($request);
-        $result = false;
-        $status = 401;
-        $message = 'ユーザが見つかりません';
-        $user = null;
-        $credentials = $request->only('email', 'password');
-        if (Auth::attempt($credentials)) {
-            // Success
-            $result = true;
-            $status = 200;
-            $message = 'OK';
-            $user = Auth::user();
-            // ※古いトークン削除&新しいトークン生成
-            $user->tokens()->where('name', 'token-name')->delete();
-            $token = $user->createToken('token-name')->plainTextToken;
-        }
-        return response()->json(['result' => $result, 'status' => $status, 'user' => $user, 'message' => $message]);
+        $this->user = $user;
+    }
+
+    public function login(LoginUserRequest $request)
+    {
+        $login_response = $this->user->attemptLogin($request);
+        return response()->json($login_response);
     }
 
     public function logout(Request $request)
