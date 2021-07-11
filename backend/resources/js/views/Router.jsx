@@ -4,18 +4,18 @@ import { Route, Switch } from 'react-router';
 import {Login, About, Home} from './pages';
 
 const Router = () => {
-    const Main = styled.div`
+    const Nav = styled.nav`
         flex: 1;
     `;
 
     return (
-        <Main>
+        <Nav>
             <Switch>
                 <Route exact path={"/login"} component={Login} />
                 <Route exact path={"/about"} component={About} />
                 <Route exact path={"(/)?"} component={Home} />
             </Switch>
-        </Main>
+        </Nav>
     )
 }
 export default Router
