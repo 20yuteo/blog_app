@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import NavBar from './template/NavBar';
 import Router from './Router';
+import Header from './organisms/Hearder';
 import Size from './styles/size';
 
 const App = () => {
@@ -13,10 +14,19 @@ const App = () => {
         }
     `;
 
+    const Section = styled.section`
+        display: flex;
+        flex-flow: column;
+        flex-grow: 1;
+    `;
+
     return(
         <Main>
             <NavBar />
-            <Router />
+            <Section>
+                <Header/>
+                <Router />
+            </Section>
         </Main>
     )
 }
