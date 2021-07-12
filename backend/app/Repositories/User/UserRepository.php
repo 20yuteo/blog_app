@@ -16,6 +16,7 @@ class UserRepository implements UserRepositoryInterface
     public function __construct(User $user)
     {
         $this->user = $user;
+
         $this->login_response = [
             'result' => false,
             'status' => 401,
@@ -37,8 +38,7 @@ class UserRepository implements UserRepositoryInterface
             $this->login_response['status'] = 200;
             $this->login_response['message'] = 'OK';
             $this->login_response['user'] = Auth::user();
-            Auth::user()->tokens()->where('name', 'token-name')->delete();
-            Auth::user()->createToken('token-name')->plainTextToken;
+            $request->session()->regenerate();
         }
         return $this->login_response;
     }
