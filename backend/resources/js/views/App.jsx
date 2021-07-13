@@ -1,9 +1,11 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import { useDispatch } from 'react-redux';
 import styled from 'styled-components';
 import NavBar from './template/NavBar';
 import Router from './Router';
 import Header from './organisms/Hearder';
 import Size from './styles/size';
+import { getLoginUser } from '../reducks/users/operations';
 
 const App = () => {
     const Main = styled.main`
@@ -19,6 +21,13 @@ const App = () => {
         flex-flow: column;
         flex-grow: 1;
     `;
+
+
+    const dispatch = useDispatch();
+
+    useEffect(() => {
+        dispatch(getLoginUser());
+    });
 
     return(
         <Main>
