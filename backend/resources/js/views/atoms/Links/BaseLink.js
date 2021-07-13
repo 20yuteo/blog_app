@@ -16,15 +16,9 @@ const StyledLink = styled(Link)`
     text-align: center;
 `;
 
-const LayoutLink = styled.div`
-    margin: 2rem 2rem;
-`;
-
 const BaseLink = (props) => {
     return (
-        <LayoutLink>
-            <StyledLink to={props.to} backgroundColor={props.backgroundColor} borderColor={props.borderColor}>{props.Name}</StyledLink>
-        </LayoutLink>
+        <StyledLink to={props.to} backgroundColor={props.backgroundColor} borderColor={props.borderColor}>{props.Name}</StyledLink>
     )
 }
 export default BaseLink;
