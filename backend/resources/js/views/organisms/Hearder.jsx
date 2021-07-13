@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import Logo from "../../../../public/image/logo.png"
+import Logo from "../../../../public/images/logo.png"
 import { BaseLogoImage } from "../atoms/Image/BaseLogoImage";
 import { Link } from "react-router-dom";
 import Color from "../styles/color";
