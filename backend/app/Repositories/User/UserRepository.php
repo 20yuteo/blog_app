@@ -26,6 +26,23 @@ class UserRepository implements UserRepositoryInterface
     }
 
     /**
+     * Get Auth User
+     *
+     * @param void
+     * @return array
+     */
+    public function getAuthUser()
+    {
+        if (Auth::user()){
+            $this->auth_response['result'] = true;
+            $this->auth_response['status'] = 200;
+            $this->auth_response['message'] = 'OK';
+            $this->auth_response['user'] = Auth::user();
+        }
+        return $this->auth_response;
+    }
+
+    /**
      * Attempt for login
      *
      * @param Response

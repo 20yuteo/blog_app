@@ -7,6 +7,14 @@ use Illuminate\Http\Request;
 interface UserRepositoryInterface {
 
     /**
+     * Get Auth User
+     *
+     * @param void
+     * @return array
+     */
+    public function getAuthUser();
+
+    /**
      * Attempt for login
      *
      * @param Response
