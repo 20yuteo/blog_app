@@ -5,9 +5,9 @@ import Size from "../styles/size";
 const Links = styled.div`
     display: flex;
     width: 100%;
-    border-top: 8px solid ${Color.Stroke};
+    border: 8px solid ${Color.Stroke};
     overflow:scroll;
-    background: ${ Color.SideBar.Background };
+    background: ${ Color.Stroke };
     @media screen and (min-width:${Size.MediaScreen.Small}px) {
         flex-flow: column;
         border-right: 8px solid ${Color.Stroke};
