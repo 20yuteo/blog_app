@@ -17,7 +17,7 @@ class UserRepository implements UserRepositoryInterface
     {
         $this->user = $user;
 
-        $this->login_response = [
+        $this->auth_response = [
             'result' => false,
             'status' => 401,
             'message' => 'ユーザが見つかりません',
@@ -34,12 +34,30 @@ class UserRepository implements UserRepositoryInterface
     public function attemptLogin(Request $request)
     {
         if (Auth::attempt($request->only('email', 'password'))){
-            $this->login_response['result'] = true;
-            $this->login_response['status'] = 200;
-            $this->login_response['message'] = 'OK';
-            $this->login_response['user'] = Auth::user();
+            $this->auth_response['result'] = true;
+            $this->auth_response['status'] = 200;
+            $this->auth_response['message'] = 'OK';
+            $this->auth_response['user'] = Auth::user();
             $request->session()->regenerate();
         }
-        return $this->login_response;
+        return $this->auth_response;
+    }
+
+
+    /**
+     * Attempt for login
+     *
+     * @param Response
+     * @return array
+     */
+    public function Logout(Request $request)
+    {
+        Auth::logout();
+        $this->auth_response['result'] = true;
+        $this->auth_response['status'] = 200;
+        $this->auth_response['message'] = 'OK';
+        $request->session()->invalidate();
+        $request->session()->regenerateToken();
+        return $this->auth_response;
     }
 }
