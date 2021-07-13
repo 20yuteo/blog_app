@@ -1,4 +1,4 @@
-import { signInAction } from "./actions";
+import { signInAction, signOutAction } from "./actions";
 import {push} from 'connected-react-router';
 import axios from "axios";
 
@@ -23,6 +23,22 @@ export const signIn = (email, password) => {
                     alert('ログインに失敗しました。');
                 });
             })
+        }
+    }
+}
+
+export const signOut = () => {
+    return async(dispatch, getState) => {
+        const state = getState();
+        const isSignedIn = state.users.isSignedIn
+
+        if (isSignedIn){
+            axios.get("api/logout").then(res => {
+                dispatch(signOutAction())
+                dispatch(push('/'))
+            }).catch(res => {
+                alert('ログアウトに失敗しました。');
+            });
         }
     }
 }
