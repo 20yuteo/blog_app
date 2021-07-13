@@ -9,7 +9,7 @@ const LoginForm = ({email, password, setEmail, setPassword, dispatch}) => {
         <BaseForm PaddingTop={16}>
             <EmailForm email={email} setEmail={setEmail} />
             <PasswordForm password={password} setPassword={setPassword} />
-            <BaseButton type="button" onClick={() => dispatch(signIn(email, password))}>
+            <BaseButton type="button" paddingTop={1.2} paddingLeft={2} onClick={() => dispatch(signIn(email, password))}>
                 ログイン
             </BaseButton>
         </BaseForm>
