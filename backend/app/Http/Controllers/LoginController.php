@@ -25,10 +25,7 @@ class LoginController extends Controller
 
     public function logout(Request $request)
     {
-        Auth::logout();
-        $result = true;
-        $status = 200;
-        $message = 'ログアウトしました';
-        return response()->json(['result' => $result, 'status' => $status, 'message' => $message]);
+        $logout_response = $this->user->logout($request);
+        return response()->json($logout_response);
     }
 }
