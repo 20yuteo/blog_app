@@ -7,8 +7,10 @@ const BaseButton = styled.button`
     color: ${ Color.Form.Color };
     border-color: ${ Color.Button };
     display: inline-block;
+    min-width: ${props => props.minWidth}rem;
+    min-height: ${props => props.minHeight}rem;
     border-radius: ${Size.BorderRadius}px;
-    padding: ${Size.Button.PaddingTop}rem ${Size.Button.PaddingLeft}rem;
+    padding: ${props => props.paddingTop}rem ${props => props.paddingLeft}rem;
     opacity: ${Size.Button.Opacity};
     font-size: ${Size.FontSize.Medium}rem;
     font-weight: ${Size.Button.FontWeight};
