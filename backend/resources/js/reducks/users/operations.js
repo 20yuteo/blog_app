@@ -42,3 +42,21 @@ export const signOut = () => {
         }
     }
 }
+
+export const getLoginUser = () => {
+    return async(dispatch, getState) => {
+        const state = getState();
+        const isSignedIn = state.users.isSignedIn
+        if (!isSignedIn){
+            axios.get("api/user").then(res => {
+                dispatch(signInAction({
+                    isSignedIn: true,
+                    id: res.data.user.id,
+                    name: res.data.user.name
+                }))
+            }).catch(res => {
+
+            });
+        }
+    }
+}
