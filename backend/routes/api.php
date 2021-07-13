@@ -2,7 +2,7 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\LoginController;
+use App\Http\Controllers\AuthController;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,10 +16,8 @@ use App\Http\Controllers\LoginController;
 */
 
 Route::group(['middleware' => ['auth:sanctum']], function(){
-    Route::get('user', function(Request $request){
-        return $request->user();
-    });
+    Route::get('/user', [AuthController::class, 'getLoginUser']);
 });
 
-Route::post('/login', [LoginController::class, 'login']);
-Route::get('/logout', [LoginController::class, 'logout']);
+Route::post('/login', [AuthController::class, 'login']);
+Route::get('/logout', [AuthController::class, 'logout']);
