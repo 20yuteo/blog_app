@@ -3254,6 +3254,10 @@ var Router = function Router() {
         exact: true,
         path: "(/)?",
         component: _pages__WEBPACK_IMPORTED_MODULE_1__.Home
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(react_router__WEBPACK_IMPORTED_MODULE_4__.Route, {
+        exact: true,
+        path: "/my_page",
+        component: _pages__WEBPACK_IMPORTED_MODULE_1__.MyPage
       })]
     })
   });
@@ -3836,6 +3840,34 @@ var Login = function Login() {
 
 /***/ }),
 
+/***/ "./resources/js/views/pages/MyPage.jsx":
+/*!*********************************************!*\
+  !*** ./resources/js/views/pages/MyPage.jsx ***!
+  \*********************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var _atoms_Title_PageTitle__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../atoms/Title/PageTitle */ "./resources/js/views/atoms/Title/PageTitle.jsx");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+
+
+
+
+var MyPage = function MyPage() {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_atoms_Title_PageTitle__WEBPACK_IMPORTED_MODULE_1__.default, {
+    children: "MyPage"
+  });
+};
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (MyPage);
+
+/***/ }),
+
 /***/ "./resources/js/views/pages/index.js":
 /*!*******************************************!*\
   !*** ./resources/js/views/pages/index.js ***!
@@ -3847,11 +3879,14 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "About": () => (/* reexport safe */ _About__WEBPACK_IMPORTED_MODULE_0__.default),
 /* harmony export */   "Home": () => (/* reexport safe */ _Home__WEBPACK_IMPORTED_MODULE_1__.default),
-/* harmony export */   "Login": () => (/* reexport safe */ _Login__WEBPACK_IMPORTED_MODULE_2__.default)
+/* harmony export */   "Login": () => (/* reexport safe */ _Login__WEBPACK_IMPORTED_MODULE_2__.default),
+/* harmony export */   "MyPage": () => (/* reexport safe */ _MyPage__WEBPACK_IMPORTED_MODULE_3__.default)
 /* harmony export */ });
 /* harmony import */ var _About__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./About */ "./resources/js/views/pages/About.jsx");
 /* harmony import */ var _Home__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Home */ "./resources/js/views/pages/Home.jsx");
 /* harmony import */ var _Login__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./Login */ "./resources/js/views/pages/Login.jsx");
+/* harmony import */ var _MyPage__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./MyPage */ "./resources/js/views/pages/MyPage.jsx");
+
 
 
 
@@ -3976,6 +4011,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+
 var NavBar = function NavBar() {
   var dispatch = (0,react_redux__WEBPACK_IMPORTED_MODULE_1__.useDispatch)();
   var selector = (0,react_redux__WEBPACK_IMPORTED_MODULE_1__.useSelector)(function (state) {
@@ -3984,23 +4020,36 @@ var NavBar = function NavBar() {
   var authComponent;
 
   if (selector.users.isSignedIn) {
-    authComponent = /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_atoms_buttons_BaseButton__WEBPACK_IMPORTED_MODULE_5__.default, {
-      type: "button",
-      minWidth: 8,
-      minHeight: 2,
-      paddingTop: 1.2,
-      paddingLeft: 3,
-      onClick: function onClick() {
-        return dispatch((0,_reducks_users_operations__WEBPACK_IMPORTED_MODULE_7__.signOut)());
-      },
-      children: "Logout"
+    authComponent = /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.Fragment, {
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_molecules_LinkWrapper__WEBPACK_IMPORTED_MODULE_4__.LinkWrapper, {
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_atoms_Links_BaseLink__WEBPACK_IMPORTED_MODULE_3__.default, {
+          to: '/my_page',
+          backgroundColor: _styles_color__WEBPACK_IMPORTED_MODULE_6__.default.Secondary,
+          borderColor: _styles_color__WEBPACK_IMPORTED_MODULE_6__.default.Stroke,
+          Name: 'MyPage'
+        })
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_molecules_LinkWrapper__WEBPACK_IMPORTED_MODULE_4__.LinkWrapper, {
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_atoms_buttons_BaseButton__WEBPACK_IMPORTED_MODULE_5__.default, {
+          type: "button",
+          minWidth: 8,
+          minHeight: 2,
+          paddingTop: 1.2,
+          paddingLeft: 3,
+          onClick: function onClick() {
+            return dispatch((0,_reducks_users_operations__WEBPACK_IMPORTED_MODULE_7__.signOut)());
+          },
+          children: "Logout"
+        })
+      })]
     });
   } else {
-    authComponent = /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_atoms_Links_BaseLink__WEBPACK_IMPORTED_MODULE_3__.default, {
-      to: '/login',
-      backgroundColor: _styles_color__WEBPACK_IMPORTED_MODULE_6__.default.Tertiary,
-      borderColor: _styles_color__WEBPACK_IMPORTED_MODULE_6__.default.Stroke,
-      Name: 'Login'
+    authComponent = /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_molecules_LinkWrapper__WEBPACK_IMPORTED_MODULE_4__.LinkWrapper, {
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_atoms_Links_BaseLink__WEBPACK_IMPORTED_MODULE_3__.default, {
+        to: '/login',
+        backgroundColor: _styles_color__WEBPACK_IMPORTED_MODULE_6__.default.Tertiary,
+        borderColor: _styles_color__WEBPACK_IMPORTED_MODULE_6__.default.Stroke,
+        Name: 'Login'
+      })
     });
   }
 
@@ -4019,9 +4068,7 @@ var NavBar = function NavBar() {
         borderColor: _styles_color__WEBPACK_IMPORTED_MODULE_6__.default.Stroke,
         Name: 'About'
       })
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_molecules_LinkWrapper__WEBPACK_IMPORTED_MODULE_4__.LinkWrapper, {
-      children: authComponent
-    })]
+    }), authComponent]
   });
 };
 
