@@ -16,9 +16,18 @@ const NavBar = () => {
     let authComponent;
 
     if (selector.users.isSignedIn){
-        authComponent = <BaseButton type="button" minWidth={8} minHeight={2} paddingTop={1.2} paddingLeft={3} onClick={() => dispatch(signOut())}>Logout</BaseButton>
+        authComponent = <>
+                            <LinkWrapper>
+                                <BaseLink to={ '/my_page' } backgroundColor={ Color.Secondary } borderColor={ Color.Stroke }  Name={'MyPage'} />
+                            </LinkWrapper>
+                            <LinkWrapper>
+                                <BaseButton type="button" minWidth={8} minHeight={2} paddingTop={1.2} paddingLeft={3} onClick={() => dispatch(signOut())}>Logout</BaseButton>
+                            </LinkWrapper>
+                        </>
     } else {
-        authComponent = <BaseLink to={ '/login' } backgroundColor={ Color.Tertiary } borderColor={ Color.Stroke } Name={'Login'} />
+        authComponent = <LinkWrapper>
+                            <BaseLink to={ '/login' } backgroundColor={ Color.Tertiary } borderColor={ Color.Stroke } Name={'Login'} />
+                        </LinkWrapper>
     }
 
     return (
@@ -29,9 +38,7 @@ const NavBar = () => {
             <LinkWrapper>
                 <BaseLink to={ '/about' } backgroundColor={ Color.Secondary } borderColor={ Color.Stroke }  Name={'About'} />
             </LinkWrapper>
-            <LinkWrapper>
                 { authComponent }
-            </LinkWrapper>
         </Links>
     );
 }
