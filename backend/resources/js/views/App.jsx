@@ -1,27 +1,17 @@
 import React, { useEffect } from 'react';
-import { useDispatch } from 'react-redux';
-import styled from 'styled-components';
+import { useDispatch, useSelector } from 'react-redux';
 import NavBar from './template/NavBar';
 import Router from './Router';
 import Header from './organisms/Hearder';
-import Size from './styles/size';
+import { Section } from './styles/element';
+import { Main } from './styles/element';
 import { getLoginUser } from '../reducks/users/operations';
+import StyledLoader from './atoms/Loader/StyledLoader';
+import Color from './styles/color';
 
 const App = () => {
-    const Main = styled.main`
-        display: flex;
-        height: 100%;
-        @media screen and (max-width:${Size.MediaScreen.Small}px) {
-            flex-direction: column-reverse;
-        }
-    `;
 
-    const Section = styled.section`
-        display: flex;
-        flex-flow: column;
-        flex-grow: 1;
-    `;
-
+    const selector = useSelector((state) => state);
 
     const dispatch = useDispatch();
 
@@ -34,7 +24,7 @@ const App = () => {
             <NavBar />
             <Section>
                 <Header/>
-                <Router />
+                { selector.loading.isLoading ? <StyledLoader type="Puff" color={ Color.Stroke } height={80} width={80} /> : <Router /> }
             </Section>
         </Main>
     )
