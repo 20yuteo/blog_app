@@ -3,6 +3,9 @@ const initialState = {
         isSignedIn: false,
         id: '',
         name: ''
+    },
+    loading: {
+        isLoading: false
     }
 };
 
