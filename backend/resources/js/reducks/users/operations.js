@@ -21,7 +21,7 @@ export const signIn = (email, password) => {
                         id: res.data.user.id,
                         name: res.data.user.name
                     }))
-                    dispatch(push('/'))
+                    dispatch(push('/my_page'))
                 }).catch(res => {
                     Loading(false, dispatch);
                     alert('ログインに失敗しました。');
@@ -55,14 +55,17 @@ export const getLoginUser = () => {
         const state = getState();
         const isSignedIn = state.users.isSignedIn
         if (!isSignedIn){
+            Loading(true, dispatch);
             axios.get("api/user").then(res => {
+                Loading(false, dispatch);
                 dispatch(signInAction({
                     isSignedIn: true,
                     id: res.data.user.id,
                     name: res.data.user.name
                 }))
+                dispatch(push('/my_page'))
             }).catch(res => {
-
+                Loading(false, dispatch);
             });
         }
     }
