@@ -1,20 +1,20 @@
 import React from 'react'
-import styled from 'styled-components';
-import { Route, Switch } from 'react-router';
+import { Nav } from './styles/element';
+import { Route, Switch, Redirect } from 'react-router';
 import {Login, About, Home, MyPage} from './pages';
 
-const Router = () => {
-    const Nav = styled.nav`
-        flex: 1;
-    `;
-
+const Router = (props) => {
     return (
         <Nav>
             <Switch>
-                <Route exact path={"/login"} component={Login} />
                 <Route exact path={"/about"} component={About} />
                 <Route exact path={"(/)?"} component={Home} />
-                <Route exact path={"/my_page"} component={MyPage} />
+                <Route exact path={"/login"}>
+                    { !props.users.isSignedIn ? <Login /> : <Redirect to="/my_page" /> }
+                </Route>
+                <Route exact path={"/my_page"}>
+                    { props.users.isSignedIn ? <MyPage/> : <Redirect to="/login" /> }
+                </Route>
             </Switch>
         </Nav>
     )
