@@ -17,14 +17,13 @@ const App = () => {
 
     useEffect(() => {
         dispatch(getLoginUser());
-    });
+    }, []);
 
     return(
         <Main>
             <NavBar />
             <Section>
-                <Header/>
-                { selector.loading.isLoading ? <StyledLoader type="Puff" color={ Color.Stroke } height={80} width={80} /> : <Router /> }
+                { selector.loading.isLoading ? <StyledLoader type="Puff" color={ Color.Stroke } height={80} width={80} /> : <><Header/><Router users={selector.users} /></> }
             </Section>
         </Main>
     )
