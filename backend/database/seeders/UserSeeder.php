@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 use App\Models\User;
+use App\Models\Profile;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Database\Seeder;
 
@@ -15,6 +16,8 @@ class UserSeeder extends Seeder
      */
     public function run()
     {
-        User::factory()->admin()->create();
+        User::factory()->admin()->create()->each(function(User $user){
+            $user->profile()->save(Profile::factory()->make());
+        });
     }
 }
