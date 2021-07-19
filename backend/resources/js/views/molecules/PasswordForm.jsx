@@ -13,6 +13,7 @@ const PasswordForm = ({register}) => {
                 marginBottom={8}
                 {...register("password", {
                     required: true,
+                    pattern: /^(?=.*?[a-z])(?=.*?\d)[a-z\d]{8,100}$/i,
                 })}
             />
         </>
