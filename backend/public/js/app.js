@@ -3743,7 +3743,8 @@ var EmailForm = function EmailForm(_ref) {
       name: "email",
       marginBottom: 8
     }, register("email", {
-      required: true
+      required: true,
+      pattern: /^[A-Za-z0-9]{1}[A-Za-z0-9_.-]*@{1}[A-Za-z0-9_.-]{1,}.[A-Za-z0-9]{1,}$/
     })))]
   });
 };
@@ -3835,7 +3836,8 @@ var PasswordForm = function PasswordForm(_ref) {
       name: "password",
       marginBottom: 8
     }, register("password", {
-      required: true
+      required: true,
+      pattern: /^(?=.*?[a-z])(?=.*?\d)[a-z\d]{8,100}$/i
     })))]
   });
 };
@@ -3976,10 +3978,14 @@ var LoginForm = function LoginForm(_ref) {
       register: register
     }), errors.email && errors.email.type === "required" && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("span", {
       children: "This is required"
+    }), errors.email && errors.email.type === "pattern" && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("span", {
+      children: "invalid password pattern"
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_molecules_PasswordForm__WEBPACK_IMPORTED_MODULE_1__.default, {
       register: register
     }), errors.password && errors.password.type === "required" && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("span", {
       children: "This is required"
+    }), errors.password && errors.password.type === "pattern" && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("span", {
+      children: "invalid password pattern"
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_atoms_buttons_BaseButton__WEBPACK_IMPORTED_MODULE_2__.default, {
       type: "submit",
       paddingTop: 1.2,
