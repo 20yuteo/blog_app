@@ -1,7 +1,7 @@
 import BaseFormInput from '../atoms/Forms/BaseFormInput';
 import BaseFormLabel from '../atoms/Forms/BaseFormLabel';
 
-const EmailForm = ({email, setEmail}) => {
+const EmailForm = ({register}) => {
     return (
         <>
             <BaseFormLabel>
@@ -9,9 +9,11 @@ const EmailForm = ({email, setEmail}) => {
             </BaseFormLabel>
             <BaseFormInput
                 type="email"
-                value={email}
-                onChange={e => setEmail(e.target.value)}
+                name="email"
                 marginBottom={8}
+                {...register("email", {
+                    required: true,
+                })}
             />
         </>
     )
