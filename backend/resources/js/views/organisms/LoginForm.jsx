@@ -16,9 +16,11 @@ const LoginForm = ({dispatch}) => {
     return (
         <BaseForm PaddingTop={16} onSubmit={handleSubmit(onSubmit)}>
             <EmailForm register={register} />
-            {errors.email && errors.email.type === "required" && <span>This is required</span>}
+            <Error checkElement={ errors.email } errorMessage={'This is required'} />
+            <Error checkElement={ errors.email } errorMessage={'invalid email pattern'} />
             <PasswordForm register={register} />
-            {errors.password && errors.password.type === "required" && <span>This is required</span>}
+            <Error checkElement={ errors.password } errorMessage={'This is required'} />
+            <Error checkElement={ errors.password } errorMessage={'invalid password pattern'} />
             <BaseButton type="submit" paddingTop={1.2} paddingLeft={2}>
                 ログイン
             </BaseButton>
