@@ -1,7 +1,7 @@
 import BaseFormInput from '../atoms/Forms/BaseFormInput';
 import BaseFormLabel from '../atoms/Forms/BaseFormLabel';
 
-const PasswordForm = ({password, setPassword}) => {
+const PasswordForm = ({register}) => {
     return (
         <>
             <BaseFormLabel>
@@ -9,9 +9,11 @@ const PasswordForm = ({password, setPassword}) => {
             </BaseFormLabel>
             <BaseFormInput
                 type="password"
-                value={password}
-                onChange={e => setPassword(e.target.value)}
+                name="password"
                 marginBottom={8}
+                {...register("password", {
+                    required: true,
+                })}
             />
         </>
     )
