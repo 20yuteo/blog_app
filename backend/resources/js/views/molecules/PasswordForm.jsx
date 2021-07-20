@@ -12,8 +12,11 @@ const PasswordForm = ({register}) => {
                 name="password"
                 marginBottom={8}
                 {...register("password", {
-                    required: true,
-                    pattern: /^(?=.*?[a-z])(?=.*?\d)[a-z\d]{8,100}$/i,
+                    required: '入力してください。',
+                    pattern: {
+                        value: /^(?=.*?[a-z])(?=.*?\d)[a-z\d]{8,100}$/i,
+                        message: 'パスワードは半角英字と半角数字それぞれ1文字以上含む8文字以上100文字以下の文字列で入力してください。'
+                    },
                 })}
             />
         </>
