@@ -3482,6 +3482,41 @@ var Router = function Router(props) {
 
 /***/ }),
 
+/***/ "./resources/js/views/atoms/Errors/Error.jsx":
+/*!***************************************************!*\
+  !*** ./resources/js/views/atoms/Errors/Error.jsx ***!
+  \***************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! styled-components */ "./node_modules/styled-components/dist/styled-components.browser.esm.js");
+/* harmony import */ var _styles_color__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../styles/color */ "./resources/js/views/styles/color.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+var _templateObject;
+
+function _taggedTemplateLiteral(strings, raw) { if (!raw) { raw = strings.slice(0); } return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } })); }
+
+
+
+
+var StyledError = styled_components__WEBPACK_IMPORTED_MODULE_2__.default.span(_templateObject || (_templateObject = _taggedTemplateLiteral(["\n    color: ", ";\n"])), _styles_color__WEBPACK_IMPORTED_MODULE_0__.default.Tertiary);
+
+var Error = function Error(props) {
+  var _props$checkElement, _props$checkElement2, _props$checkElement3, _props$checkElement4;
+
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)(StyledError, {
+    children: [((_props$checkElement = props.checkElement) === null || _props$checkElement === void 0 ? void 0 : _props$checkElement.type) === "required" ? (_props$checkElement2 = props.checkElement) === null || _props$checkElement2 === void 0 ? void 0 : _props$checkElement2.message : '', ((_props$checkElement3 = props.checkElement) === null || _props$checkElement3 === void 0 ? void 0 : _props$checkElement3.type) === "pattern" ? (_props$checkElement4 = props.checkElement) === null || _props$checkElement4 === void 0 ? void 0 : _props$checkElement4.message : '']
+  });
+};
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Error);
+
+/***/ }),
+
 /***/ "./resources/js/views/atoms/Forms/BaseFormInput.js":
 /*!*********************************************************!*\
   !*** ./resources/js/views/atoms/Forms/BaseFormInput.js ***!
@@ -3743,8 +3778,11 @@ var EmailForm = function EmailForm(_ref) {
       name: "email",
       marginBottom: 8
     }, register("email", {
-      required: true,
-      pattern: /^[A-Za-z0-9]{1}[A-Za-z0-9_.-]*@{1}[A-Za-z0-9_.-]{1,}.[A-Za-z0-9]{1,}$/
+      required: '入力してください。',
+      pattern: {
+        value: /^[A-Za-z0-9]{1}[A-Za-z0-9_.-]*@{1}[A-Za-z0-9_.-]{1,}.[A-Za-z0-9]{1,}$/,
+        message: 'メールアドレスを入力してください。'
+      }
     })))]
   });
 };
@@ -3836,8 +3874,11 @@ var PasswordForm = function PasswordForm(_ref) {
       name: "password",
       marginBottom: 8
     }, register("password", {
-      required: true,
-      pattern: /^(?=.*?[a-z])(?=.*?\d)[a-z\d]{8,100}$/i
+      required: '入力してください。',
+      pattern: {
+        value: /^(?=.*?[a-z])(?=.*?\d)[a-z\d]{8,100}$/i,
+        message: 'パスワードは半角英字と半角数字それぞれ1文字以上含む8文字以上100文字以下の文字列で入力してください。'
+      }
     })))]
   });
 };
@@ -3947,8 +3988,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _atoms_buttons_BaseButton__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../atoms/buttons/BaseButton */ "./resources/js/views/atoms/buttons/BaseButton.js");
 /* harmony import */ var _BaseForm__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./BaseForm */ "./resources/js/views/organisms/BaseForm.js");
 /* harmony import */ var react_hook_form__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react-hook-form */ "./node_modules/react-hook-form/dist/index.esm.js");
-/* harmony import */ var _reducks_users_operations__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../reducks/users/operations */ "./resources/js/reducks/users/operations.js");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+/* harmony import */ var _atoms_Errors_Error__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../atoms/Errors/Error */ "./resources/js/views/atoms/Errors/Error.jsx");
+/* harmony import */ var _reducks_users_operations__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../reducks/users/operations */ "./resources/js/reducks/users/operations.js");
+/* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
 
 
 
@@ -3958,35 +4001,33 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-var LoginForm = function LoginForm(_ref) {
-  var dispatch = _ref.dispatch;
 
+
+var LoginForm = function LoginForm() {
   var _useForm = (0,react_hook_form__WEBPACK_IMPORTED_MODULE_4__.useForm)(),
       register = _useForm.register,
       watch = _useForm.watch,
       handleSubmit = _useForm.handleSubmit,
       errors = _useForm.formState.errors;
 
+  var dispatch = (0,react_redux__WEBPACK_IMPORTED_MODULE_7__.useDispatch)();
+
   var onSubmit = function onSubmit() {
-    dispatch((0,_reducks_users_operations__WEBPACK_IMPORTED_MODULE_5__.signIn)(watch('email'), watch('password')));
+    dispatch((0,_reducks_users_operations__WEBPACK_IMPORTED_MODULE_6__.signIn)(watch('email'), watch('password')));
   };
 
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)(_BaseForm__WEBPACK_IMPORTED_MODULE_3__.default, {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)(_BaseForm__WEBPACK_IMPORTED_MODULE_3__.default, {
     PaddingTop: 16,
     onSubmit: handleSubmit(onSubmit),
-    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_molecules_EmailForm__WEBPACK_IMPORTED_MODULE_0__.default, {
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_molecules_EmailForm__WEBPACK_IMPORTED_MODULE_0__.default, {
       register: register
-    }), errors.email && errors.email.type === "required" && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("span", {
-      children: "This is required"
-    }), errors.email && errors.email.type === "pattern" && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("span", {
-      children: "invalid password pattern"
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_molecules_PasswordForm__WEBPACK_IMPORTED_MODULE_1__.default, {
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_atoms_Errors_Error__WEBPACK_IMPORTED_MODULE_5__.default, {
+      checkElement: errors.email
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_molecules_PasswordForm__WEBPACK_IMPORTED_MODULE_1__.default, {
       register: register
-    }), errors.password && errors.password.type === "required" && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("span", {
-      children: "This is required"
-    }), errors.password && errors.password.type === "pattern" && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("span", {
-      children: "invalid password pattern"
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_atoms_buttons_BaseButton__WEBPACK_IMPORTED_MODULE_2__.default, {
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_atoms_Errors_Error__WEBPACK_IMPORTED_MODULE_5__.default, {
+      checkElement: errors.password
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_atoms_buttons_BaseButton__WEBPACK_IMPORTED_MODULE_2__.default, {
       type: "submit",
       paddingTop: 1.2,
       paddingLeft: 2,
@@ -4067,11 +4108,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
-/* harmony import */ var _atoms_Title_PageTitle__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../atoms/Title/PageTitle */ "./resources/js/views/atoms/Title/PageTitle.jsx");
-/* harmony import */ var _organisms_LoginForm__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../organisms/LoginForm */ "./resources/js/views/organisms/LoginForm.jsx");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
-
+/* harmony import */ var _atoms_Title_PageTitle__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../atoms/Title/PageTitle */ "./resources/js/views/atoms/Title/PageTitle.jsx");
+/* harmony import */ var _organisms_LoginForm__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../organisms/LoginForm */ "./resources/js/views/organisms/LoginForm.jsx");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
 
 
 
@@ -4079,13 +4118,10 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var Login = function Login() {
-  var dispatch = (0,react_redux__WEBPACK_IMPORTED_MODULE_1__.useDispatch)();
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
-    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_atoms_Title_PageTitle__WEBPACK_IMPORTED_MODULE_2__.default, {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_atoms_Title_PageTitle__WEBPACK_IMPORTED_MODULE_1__.default, {
       children: "Login"
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_organisms_LoginForm__WEBPACK_IMPORTED_MODULE_3__.default, {
-      dispatch: dispatch
-    })]
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_organisms_LoginForm__WEBPACK_IMPORTED_MODULE_2__.default, {})]
   });
 };
 
