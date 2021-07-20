@@ -12,8 +12,11 @@ const EmailForm = ({register}) => {
                 name="email"
                 marginBottom={8}
                 {...register("email", {
-                    required: true,
-                    pattern: /^[A-Za-z0-9]{1}[A-Za-z0-9_.-]*@{1}[A-Za-z0-9_.-]{1,}.[A-Za-z0-9]{1,}$/,
+                    required: '入力してください。',
+                    pattern: {
+                        value: /^[A-Za-z0-9]{1}[A-Za-z0-9_.-]*@{1}[A-Za-z0-9_.-]{1,}.[A-Za-z0-9]{1,}$/,
+                        message: 'メールアドレスを入力してください。'
+                    },
                 })}
             />
         </>
