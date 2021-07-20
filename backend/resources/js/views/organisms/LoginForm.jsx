@@ -3,11 +3,15 @@ import PasswordForm from '../molecules/PasswordForm';
 import BaseButton from '../atoms/buttons/BaseButton';
 import BaseForm from './BaseForm';
 import { useForm } from "react-hook-form";
+import Error from '../atoms/Errors/Error';
 import { signIn } from '../../reducks/users/operations';
+import { useDispatch } from 'react-redux';
 
-const LoginForm = ({dispatch}) => {
+const LoginForm = () => {
 
     const { register, watch, handleSubmit, formState: { errors } } = useForm();
+
+    const dispatch = useDispatch();
 
     const onSubmit = () => {
         dispatch(signIn(watch('email'), watch('password')))
@@ -16,11 +20,9 @@ const LoginForm = ({dispatch}) => {
     return (
         <BaseForm PaddingTop={16} onSubmit={handleSubmit(onSubmit)}>
             <EmailForm register={register} />
-            <Error checkElement={ errors.email } errorMessage={'This is required'} />
-            <Error checkElement={ errors.email } errorMessage={'invalid email pattern'} />
+            <Error checkElement={ errors.email } />
             <PasswordForm register={register} />
-            <Error checkElement={ errors.password } errorMessage={'This is required'} />
-            <Error checkElement={ errors.password } errorMessage={'invalid password pattern'} />
+            <Error checkElement={ errors.password } />
             <BaseButton type="submit" paddingTop={1.2} paddingLeft={2}>
                 ログイン
             </BaseButton>
