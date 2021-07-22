@@ -23,7 +23,7 @@ class ProfileFactory extends Factory
     {
         return [
             'user_id' => 1,
-            'image_url' => 'public/images/profile.png'
+            'image_url' => '/SampleImages/profile.png'
         ];
     }
 }
