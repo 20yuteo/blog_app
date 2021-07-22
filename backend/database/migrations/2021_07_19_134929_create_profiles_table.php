@@ -16,7 +16,7 @@ class CreateProfilesTable extends Migration
         Schema::create('profiles', function (Blueprint $table) {
             $table->id();
             $table->foreignId('user_id')->constrained('users');
-            $table->string('image_url')->default('public/images/profile.png');
+            $table->string('image_url')->default('/sampleImages/profile.png');
             $table->timestamps();
         });
     }
