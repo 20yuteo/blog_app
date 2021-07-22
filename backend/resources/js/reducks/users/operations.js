@@ -19,7 +19,8 @@ export const signIn = (email, password) => {
                     dispatch(signInAction({
                         isSignedIn: true,
                         id: res.data.user.id,
-                        name: res.data.user.name
+                        name: res.data.user.name,
+                        image_url: res.data.user.profile.image_url
                     }))
                     dispatch(push('/my_page'))
                 }).catch(res => {
@@ -61,7 +62,8 @@ export const getLoginUser = () => {
                 dispatch(signInAction({
                     isSignedIn: true,
                     id: res.data.user.id,
-                    name: res.data.user.name
+                    name: res.data.user.name,
+                    image_url: res.data.user.profile.image_url
                 }))
                 dispatch(push('/my_page'))
             }).catch(res => {
