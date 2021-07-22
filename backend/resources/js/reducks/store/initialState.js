@@ -2,7 +2,8 @@ const initialState = {
     users: {
         isSignedIn: false,
         id: '',
-        name: ''
+        name: '',
+        image_url: ''
     },
     loading: {
         isLoading: false
