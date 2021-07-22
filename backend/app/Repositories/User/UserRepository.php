@@ -21,7 +21,8 @@ class UserRepository implements UserRepositoryInterface
             'result' => false,
             'status' => 401,
             'message' => 'ユーザが見つかりません',
-            'user' => null
+            'user' => null,
+            'image_url' => '',
         ];
     }
 
@@ -38,6 +39,7 @@ class UserRepository implements UserRepositoryInterface
             $this->auth_response['status'] = 200;
             $this->auth_response['message'] = 'OK';
             $this->auth_response['user'] = Auth::user();
+            $this->auth_response['image_url'] = Auth::user()->profile->image_url;
         }
         return $this->auth_response;
     }
@@ -55,6 +57,7 @@ class UserRepository implements UserRepositoryInterface
             $this->auth_response['status'] = 200;
             $this->auth_response['message'] = 'OK';
             $this->auth_response['user'] = Auth::user();
+            $this->auth_response['image_url'] = Auth::user()->profile->image_url;
             $request->session()->regenerate();
         }
         return $this->auth_response;
