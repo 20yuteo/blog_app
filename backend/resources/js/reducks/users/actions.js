@@ -5,7 +5,8 @@ export const signInAction = (userState) => {
         payload: {
             isSignedIn: true,
             id: userState.id,
-            name: userState.name
+            name: userState.name,
+            image_url: userState.image_url
         }
     }
 };
@@ -17,7 +18,8 @@ export const signOutAction = () => {
         payload: {
             isSignedIn: false,
             id: '',
-            name: ''
+            name: '',
+            image_url: ''
         }
     }
 }
