@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const BaseLogoImage = styled.img`
+export const LogoImage = styled.img`
     max-width: 8rem;
     max-height: 8rem;
 `;
