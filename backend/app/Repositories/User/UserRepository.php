@@ -100,7 +100,6 @@ class UserRepository implements UserRepositoryInterface
             Auth::user()->profile->image_url = '/images/LocalImages/'.$upload_result;
             Auth::user()->profile->save();
         }
-        clock(Auth::user()->profile->image_url);
         $this->auth_response['image_url'] = Auth::user()->profile->image_url;
         return $this->auth_response;
     }
