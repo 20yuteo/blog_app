@@ -1,6 +1,6 @@
 <?php
 
-use Illuminate\Http\Request;
+use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 
@@ -17,6 +17,7 @@ use App\Http\Controllers\AuthController;
 
 Route::group(['middleware' => ['auth:sanctum']], function(){
     Route::get('/user', [AuthController::class, 'getLoginUser']);
+    Route::post('/profile', [ProfileController::class, 'update']);
 });
 
 Route::post('/login', [AuthController::class, 'login']);
