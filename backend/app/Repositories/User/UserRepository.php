@@ -3,6 +3,7 @@
 namespace App\Repositories\User;
 
 use App\Models\User;
+use App\Services\Image\LocalImageService;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -10,10 +11,12 @@ class UserRepository implements UserRepositoryInterface
 {
     protected $user;
 
+    protected $image_service;
+
     /**
     * @param object $user
     */
-    public function __construct(User $user)
+    public function __construct(User $user, LocalImageService $image_service_interface)
     {
         $this->user = $user;
 
@@ -24,6 +27,8 @@ class UserRepository implements UserRepositoryInterface
             'user' => null,
             'image_url' => '',
         ];
+
+        $this->image_service = $image_service_interface;
     }
 
     /**
@@ -65,7 +70,7 @@ class UserRepository implements UserRepositoryInterface
 
 
     /**
-     * Attempt for login
+     * Attempt for logout
      *
      * @param Response
      * @return array
@@ -78,6 +83,25 @@ class UserRepository implements UserRepositoryInterface
         $this->auth_response['message'] = 'OK';
         $request->session()->invalidate();
         $request->session()->regenerateToken();
+        return $this->auth_response;
+    }
+
+    /**
+     * Update user profile
+     *
+     * @param Response
+     * @return array
+     */
+    public function updateProfile(Request $request)
+    {
+        $upload_result = $this->image_service->upload($request);
+
+        if ($upload_result){
+            Auth::user()->profile->image_url = '/images/LocalImages/'.$upload_result;
+            Auth::user()->profile->save();
+        }
+        clock(Auth::user()->profile->image_url);
+        $this->auth_response['image_url'] = Auth::user()->profile->image_url;
         return $this->auth_response;
     }
 }

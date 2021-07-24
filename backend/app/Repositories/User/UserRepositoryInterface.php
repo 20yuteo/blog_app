@@ -29,4 +29,12 @@ interface UserRepositoryInterface {
      * @return array
      */
     public function Logout(Request $request);
+
+    /**
+     * Update user profile
+     *
+     * @param Response
+     * @return array
+     */
+    public function updateProfile(Request $request);
 }
