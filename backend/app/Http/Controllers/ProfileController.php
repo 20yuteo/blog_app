@@ -2,17 +2,23 @@
 
 namespace App\Http\Controllers;
 
+use App\Repositories\User\UserRepositoryInterface;
 use Illuminate\Http\Request;
+use Storage;
 
 class ProfileController extends Controller
 {
 
-    public function __construct()
+    protected $user_repository;
+
+    public function __construct(UserRepositoryInterface $user_repository)
     {
         $this->middleware(function ($request, $next) {
             $this->user = \Auth::user();
             return $next($request);
         });
+
+        $this->user_repository = $user_repository;
     }
     /**
      * Display a listing of the resource.
@@ -74,9 +80,10 @@ class ProfileController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request)
     {
-        //
+        $auth_response = $this->user_repository->updateProfile($request);
+        return response()->json($auth_response);
     }
 
     /**
