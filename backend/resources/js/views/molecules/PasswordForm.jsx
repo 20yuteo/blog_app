@@ -1,12 +1,13 @@
 import BaseFormInput from '../atoms/Forms/BaseFormInput';
 import BaseFormLabel from '../atoms/Forms/BaseFormLabel';
+import FormLabel from '../atoms/Forms/MainForms/FormLabel';
 
 const PasswordForm = ({register}) => {
     return (
         <>
-            <BaseFormLabel>
+            <FormLabel>
                 Password
-            </BaseFormLabel>
+            </FormLabel>
             <BaseFormInput
                 type="password"
                 name="password"
