@@ -19,6 +19,10 @@ const Color = {
         TagBackground: '#fef6e4',
         TagText: '#001858',
         Highlight: '#f582ae',
+        Form: {
+            Color: '#fffffe',
+            Border: '#fffffe'
+        }
     },
     Form: {
         Input: '#fffffe',
