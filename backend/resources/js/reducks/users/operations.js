@@ -1,4 +1,4 @@
-import { signInAction, signOutAction } from "./actions";
+import { signInAction, signOutAction, editProfileAction } from "./actions";
 import { Loading } from "../loading/operations";
 import {push} from 'connected-react-router';
 import axios from "axios";
@@ -60,6 +60,52 @@ export const getLoginUser = () => {
             axios.get("api/user").then(res => {
                 Loading(false, dispatch);
                 dispatch(signInAction({
+                    isSignedIn: true,
+                    id: res.data.user.id,
+                    name: res.data.user.name,
+                    image_url: res.data.user.profile.image_url
+                }))
+                dispatch(push('/my_page'))
+            }).catch(res => {
+                Loading(false, dispatch);
+            });
+        }
+    }
+}
+
+export const editProfileImage = (uploadImage) => {
+    return async(dispatch) => {
+        if (uploadImage !== undefined){
+            Loading(true, dispatch);
+            const data = new FormData();
+            data.append('file', uploadImage);
+            axios.post("api/profile", data ).then(res => {
+                Loading(false, dispatch);
+                dispatch(editProfileAction({
+                    isSignedIn: true,
+                    id: res.data.user.id,
+                    name: res.data.user.name,
+                    image_url: res.data.user.profile.image_url
+                }))
+                dispatch(push('/my_page'))
+            }).catch(res => {
+                Loading(false, dispatch);
+            });
+        }
+    }
+}
+
+export const editProfile = (userName) => {
+    return async (dispatch) => {
+        let name = null;
+        if (userName !== undefined) {
+            name = userName;
+        }
+        if (name !== null){
+            Loading(true, dispatch);
+            axios.post("api/profile", { name }).then(res => {
+                Loading(false, dispatch);
+                dispatch(editProfileAction({
                     isSignedIn: true,
                     id: res.data.user.id,
                     name: res.data.user.name,

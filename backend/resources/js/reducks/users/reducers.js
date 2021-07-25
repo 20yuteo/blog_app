@@ -13,6 +13,11 @@ export const UsersReducers = (state = initialState.users, action) => {
                 ...state,
                 ...action.payload
             }
+        case Actions.EDIT_PROFILE:
+            return {
+                ...state,
+                ...action.payload
+            }
         default:
             return state
     }

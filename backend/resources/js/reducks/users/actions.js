@@ -23,3 +23,16 @@ export const signOutAction = () => {
         }
     }
 }
+
+export const EDIT_PROFILE = 'EDIT_PROFILE';
+export const editProfileAction = (userState) => {
+    return {
+        type: 'EDIT_PROFILE',
+        payload: {
+            isSignedIn: true,
+            id: userState.id,
+            name: userState.name,
+            image_url: userState.image_url
+        }
+    }
+}
