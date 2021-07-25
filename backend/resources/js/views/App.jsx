@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import NavBar from './template/NavBar';
 import Router from './Router';
-import Header from './organisms/Hearder';
+import Header from './organisms/Header/Hearder';
 import { Section } from './styles/element';
 import { Main } from './styles/element';
 import { ErrorBoundary } from '../ErrorBoundary';
