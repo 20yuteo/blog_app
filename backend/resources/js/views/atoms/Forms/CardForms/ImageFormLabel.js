@@ -7,4 +7,5 @@ export const ImageFormLabel = styled(BaseFormLabel)`
     background-color: ${ Color.Card.Background };
     padding: 10px;
     border: dashed 4px ${ Color.Card.Form.Border };
+    margin: 5px;
 `;
