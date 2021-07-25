@@ -11,6 +11,7 @@
     },
     "devDependencies": {
         "@babel/preset-react": "^7.13.13",
+        "@pmmmwh/react-refresh-webpack-plugin": "^0.5.0-rc.0",
         "@types/react": "^17.0.11",
         "@types/react-dom": "^17.0.8",
         "axios": "^0.21",
@@ -22,6 +23,7 @@
         "postcss": "^8.1.14",
         "react": "^17.0.2",
         "react-dom": "^17.0.2",
+        "react-refresh": "^0.10.0",
         "resolve-url-loader": "^4.0.0",
         "sass": "^1.32.11",
         "sass-loader": "^11.0.1"
@@ -31,6 +33,7 @@
         "history": "^4.10.1",
         "react-hook-form": "^7.11.1",
         "react-loader-spinner": "^4.0.0",
+        "react-modal": "^3.14.3",
         "react-redux": "^7.2.4",
         "react-router": "^5.2.0",
         "react-router-dom": "^5.2.0",
