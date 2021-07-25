@@ -94,12 +94,24 @@ class UserRepository implements UserRepositoryInterface
      */
     public function updateProfile(Request $request)
     {
+        clock($request->all());
+
         $upload_result = $this->image_service->upload($request);
 
         if ($upload_result){
             Auth::user()->profile->image_url = '/images/LocalImages/'.$upload_result;
             Auth::user()->profile->save();
         }
+
+        if ($request->has('name')){
+            Auth::user()->name = $request->name;
+            Auth::user()->save();
+        }
+
+        $this->auth_response['result'] = true;
+        $this->auth_response['status'] = 200;
+        $this->auth_response['message'] = 'OK';
+        $this->auth_response['user'] = Auth::user();
         $this->auth_response['image_url'] = Auth::user()->profile->image_url;
         return $this->auth_response;
     }
