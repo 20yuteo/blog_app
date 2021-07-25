@@ -18,6 +18,9 @@ const NavBar = () => {
     if (selector.users.isSignedIn){
         authComponent = <>
                             <LinkWrapper>
+                                <BaseLink to={ '/post' } backgroundColor={ Color.Tertiary } borderColor={ Color.Stroke }  Name={'Post'} />
+                            </LinkWrapper>
+                            <LinkWrapper>
                                 <BaseLink to={ '/my_page' } backgroundColor={ Color.Secondary } borderColor={ Color.Stroke }  Name={'MyPage'} />
                             </LinkWrapper>
                             <LinkWrapper>
