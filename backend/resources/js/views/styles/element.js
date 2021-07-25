@@ -18,3 +18,9 @@ export const Section = styled.section`
 export const Nav = styled.nav`
     flex: 1;
 `;
+
+export const ProfileSection = styled.section`
+    display: flex;
+    padding: 16px;
+    justify-content: space-around;
+`;
