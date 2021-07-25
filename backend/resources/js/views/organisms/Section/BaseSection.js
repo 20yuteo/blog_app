@@ -4,6 +4,7 @@ import Size from "../../styles/size";
 const BaseSection = styled.section`
     justify-content: center;
     margin: 0 auto;
+    text-align: center;
     @media screen and (max-width:${Size.MediaScreen.Small}px) {
         max-width: 32rem;
     }
