@@ -7,6 +7,9 @@ const initialState = {
     },
     loading: {
         isLoading: false
+    },
+    posts: {
+        tag_name: ''
     }
 };
 
