@@ -3072,6 +3072,127 @@ var LoadingReducers = function LoadingReducers() {
 
 /***/ }),
 
+/***/ "./resources/js/reducks/posts/actions.js":
+/*!***********************************************!*\
+  !*** ./resources/js/reducks/posts/actions.js ***!
+  \***********************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "ADD_POST": () => (/* binding */ ADD_POST),
+/* harmony export */   "addPostAction": () => (/* binding */ addPostAction)
+/* harmony export */ });
+var ADD_POST = "ADD_POST";
+var addPostAction = function addPostAction(postState) {
+  return {
+    type: "ADD_POST",
+    payload: {
+      tags_name: postState.tags_name
+    }
+  };
+};
+
+/***/ }),
+
+/***/ "./resources/js/reducks/posts/operations.js":
+/*!**************************************************!*\
+  !*** ./resources/js/reducks/posts/operations.js ***!
+  \**************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "addPost": () => (/* binding */ addPost)
+/* harmony export */ });
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _actions__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./actions */ "./resources/js/reducks/posts/actions.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_2__);
+
+
+function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
+
+function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
+
+
+
+
+var addPost = function addPost(tag_name) {
+  return /*#__PURE__*/function () {
+    var _ref = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee(dispatch, getState) {
+      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee$(_context) {
+        while (1) {
+          switch (_context.prev = _context.next) {
+            case 0:
+              if (tag_name !== undefined) {
+                axios__WEBPACK_IMPORTED_MODULE_2___default().post('api/post', {
+                  tag_name: tag_name
+                }).then(function (res) {
+                  console.log(res);
+                  dispatch((0,_actions__WEBPACK_IMPORTED_MODULE_1__.addPostAction)({
+                    tags_name: res.posts.tags_name
+                  }));
+                })["catch"](function (res) {
+                  console.log(res);
+                });
+              }
+
+            case 1:
+            case "end":
+              return _context.stop();
+          }
+        }
+      }, _callee);
+    }));
+
+    return function (_x, _x2) {
+      return _ref.apply(this, arguments);
+    };
+  }();
+};
+
+/***/ }),
+
+/***/ "./resources/js/reducks/posts/reducers.js":
+/*!************************************************!*\
+  !*** ./resources/js/reducks/posts/reducers.js ***!
+  \************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "PostsReducers": () => (/* binding */ PostsReducers)
+/* harmony export */ });
+/* harmony import */ var _actions__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./actions */ "./resources/js/reducks/posts/actions.js");
+/* harmony import */ var _store_initialState__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../store/initialState */ "./resources/js/reducks/store/initialState.js");
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) { symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); } keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+
+
+var PostsReducers = function PostsReducers() {
+  var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : _store_initialState__WEBPACK_IMPORTED_MODULE_1__.default.posts;
+  var action = arguments.length > 1 ? arguments[1] : undefined;
+
+  switch (action.type) {
+    case _actions__WEBPACK_IMPORTED_MODULE_0__.ADD_POST:
+      return _objectSpread(_objectSpread({}, state), action.payload);
+
+    default:
+      return state;
+  }
+};
+
+/***/ }),
+
 /***/ "./resources/js/reducks/store/initialState.js":
 /*!****************************************************!*\
   !*** ./resources/js/reducks/store/initialState.js ***!
@@ -3092,6 +3213,9 @@ var initialState = {
   },
   loading: {
     isLoading: false
+  },
+  posts: {
+    tag_name: ''
   }
 };
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (initialState);
@@ -3109,23 +3233,26 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (/* binding */ createStore)
 /* harmony export */ });
-/* harmony import */ var redux__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! redux */ "./node_modules/redux/es/redux.js");
-/* harmony import */ var connected_react_router__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! connected-react-router */ "./node_modules/connected-react-router/esm/index.js");
-/* harmony import */ var connected_react_router__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! connected-react-router */ "./node_modules/connected-react-router/esm/middleware.js");
+/* harmony import */ var redux__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! redux */ "./node_modules/redux/es/redux.js");
+/* harmony import */ var connected_react_router__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! connected-react-router */ "./node_modules/connected-react-router/esm/index.js");
+/* harmony import */ var connected_react_router__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! connected-react-router */ "./node_modules/connected-react-router/esm/middleware.js");
 /* harmony import */ var _users_reducers__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../users/reducers */ "./resources/js/reducks/users/reducers.js");
 /* harmony import */ var _loading_reducers__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../loading/reducers */ "./resources/js/reducks/loading/reducers.js");
-/* harmony import */ var redux_thunk__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! redux-thunk */ "./node_modules/redux-thunk/es/index.js");
+/* harmony import */ var _posts_reducers__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../posts/reducers */ "./resources/js/reducks/posts/reducers.js");
+/* harmony import */ var redux_thunk__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! redux-thunk */ "./node_modules/redux-thunk/es/index.js");
+
 
 
 
 
 
 function createStore(history) {
-  return (0,redux__WEBPACK_IMPORTED_MODULE_3__.createStore)((0,redux__WEBPACK_IMPORTED_MODULE_3__.combineReducers)({
-    router: (0,connected_react_router__WEBPACK_IMPORTED_MODULE_4__.connectRouter)(history),
+  return (0,redux__WEBPACK_IMPORTED_MODULE_4__.createStore)((0,redux__WEBPACK_IMPORTED_MODULE_4__.combineReducers)({
+    router: (0,connected_react_router__WEBPACK_IMPORTED_MODULE_5__.connectRouter)(history),
     users: _users_reducers__WEBPACK_IMPORTED_MODULE_0__.UsersReducers,
-    loading: _loading_reducers__WEBPACK_IMPORTED_MODULE_1__.LoadingReducers
-  }), (0,redux__WEBPACK_IMPORTED_MODULE_3__.applyMiddleware)((0,connected_react_router__WEBPACK_IMPORTED_MODULE_5__.default)(history), redux_thunk__WEBPACK_IMPORTED_MODULE_2__.default));
+    loading: _loading_reducers__WEBPACK_IMPORTED_MODULE_1__.LoadingReducers,
+    posts: _posts_reducers__WEBPACK_IMPORTED_MODULE_2__.PostsReducers
+  }), (0,redux__WEBPACK_IMPORTED_MODULE_4__.applyMiddleware)((0,connected_react_router__WEBPACK_IMPORTED_MODULE_6__.default)(history), redux_thunk__WEBPACK_IMPORTED_MODULE_3__.default));
 }
 
 /***/ }),
@@ -3628,6 +3755,28 @@ var Error = function Error(props) {
 };
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Error);
+
+/***/ }),
+
+/***/ "./resources/js/views/atoms/Forms/BaseCheckBox.js":
+/*!********************************************************!*\
+  !*** ./resources/js/views/atoms/Forms/BaseCheckBox.js ***!
+  \********************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! styled-components */ "./node_modules/styled-components/dist/styled-components.browser.esm.js");
+var _templateObject;
+
+function _taggedTemplateLiteral(strings, raw) { if (!raw) { raw = strings.slice(0); } return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } })); }
+
+
+var BaseCheckBox = styled_components__WEBPACK_IMPORTED_MODULE_0__.default.input(_templateObject || (_templateObject = _taggedTemplateLiteral(["\n    display: none;\n"])));
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (BaseCheckBox);
 
 /***/ }),
 
@@ -4257,6 +4406,78 @@ function _taggedTemplateLiteral(strings, raw) { if (!raw) { raw = strings.slice(
 
 var ProfileFormWrapper = styled_components__WEBPACK_IMPORTED_MODULE_1__.default.section(_templateObject || (_templateObject = _taggedTemplateLiteral(["\n    display: flex;\n    @media screen and (max-width:", "px){\n        flex-direction: column;\n    }\n"])), _styles_size__WEBPACK_IMPORTED_MODULE_0__.default.MediaScreen.Small);
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (ProfileFormWrapper);
+
+/***/ }),
+
+/***/ "./resources/js/views/molecules/Card/TagsCheckbox.jsx":
+/*!************************************************************!*\
+  !*** ./resources/js/views/molecules/Card/TagsCheckbox.jsx ***!
+  \************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "TagsCheckBox": () => (/* binding */ TagsCheckBox)
+/* harmony export */ });
+/* harmony import */ var _atoms_Forms_BaseCheckBox__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../atoms/Forms/BaseCheckBox */ "./resources/js/views/atoms/Forms/BaseCheckBox.js");
+/* harmony import */ var _atoms_Forms_CardForms_FormLabel__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../atoms/Forms/CardForms/FormLabel */ "./resources/js/views/atoms/Forms/CardForms/FormLabel.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! styled-components */ "./node_modules/styled-components/dist/styled-components.browser.esm.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+var _templateObject;
+
+function _taggedTemplateLiteral(strings, raw) { if (!raw) { raw = strings.slice(0); } return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } })); }
+
+function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
+
+function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+
+function _iterableToArrayLimit(arr, i) { var _i = arr == null ? null : typeof Symbol !== "undefined" && arr[Symbol.iterator] || arr["@@iterator"]; if (_i == null) return; var _arr = []; var _n = true; var _d = false; var _s, _e; try { for (_i = _i.call(arr); !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
+
+function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
+
+
+
+
+
+
+
+
+var TagsCheckBox = function TagsCheckBox() {
+  var _useState = (0,react__WEBPACK_IMPORTED_MODULE_2__.useState)(false),
+      _useState2 = _slicedToArray(_useState, 2),
+      checked = _useState2[0],
+      setChecked = _useState2[1];
+
+  var Label = styled_components__WEBPACK_IMPORTED_MODULE_4__.default.div(_templateObject || (_templateObject = _taggedTemplateLiteral(["\n        color: #A5A5A5;\n    "])));
+
+  var checkTags = function checkTags() {
+    if (checked) {
+      setChecked(false);
+    } else {
+      setChecked(true);
+    }
+  };
+
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.Fragment, {
+    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)(_atoms_Forms_CardForms_FormLabel__WEBPACK_IMPORTED_MODULE_1__.default, {
+      children: [!checked ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(Label, {
+        children: "#TagName"
+      }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+        children: "#TagName"
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("input", {
+        type: "checkbox",
+        defaultChecked: checked,
+        onClick: checkTags
+      })]
+    })
+  });
+};
 
 /***/ }),
 
@@ -4977,7 +5198,57 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _atoms_Title_PageTitle__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../atoms/Title/PageTitle */ "./resources/js/views/atoms/Title/PageTitle.jsx");
 /* harmony import */ var _organisms_Section_BaseSection__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../organisms/Section/BaseSection */ "./resources/js/views/organisms/Section/BaseSection.js");
 /* harmony import */ var _atoms_Links_NewPostLink__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../atoms/Links/NewPostLink */ "./resources/js/views/atoms/Links/NewPostLink.js");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react_hook_form__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react-hook-form */ "./node_modules/react-hook-form/dist/index.esm.js");
+/* harmony import */ var _atoms_Overlay_Overlay__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../atoms/Overlay/Overlay */ "./resources/js/views/atoms/Overlay/Overlay.js");
+/* harmony import */ var _organisms_Profile_Section__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../organisms/Profile/Section */ "./resources/js/views/organisms/Profile/Section.js");
+/* harmony import */ var _atoms_Links_CloseLink__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../atoms/Links/CloseLink */ "./resources/js/views/atoms/Links/CloseLink.js");
+/* harmony import */ var _atoms_Forms_CardForms_FormInput__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../atoms/Forms/CardForms/FormInput */ "./resources/js/views/atoms/Forms/CardForms/FormInput.js");
+/* harmony import */ var _atoms_Forms_CardForms_FormLabel__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../atoms/Forms/CardForms/FormLabel */ "./resources/js/views/atoms/Forms/CardForms/FormLabel.js");
+/* harmony import */ var _molecules_Card_BaseFormSection__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../molecules/Card/BaseFormSection */ "./resources/js/views/molecules/Card/BaseFormSection.js");
+/* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! styled-components */ "./node_modules/styled-components/dist/styled-components.browser.esm.js");
+/* harmony import */ var _molecules_Card_TagsCheckbox__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ../molecules/Card/TagsCheckbox */ "./resources/js/views/molecules/Card/TagsCheckbox.jsx");
+/* harmony import */ var _atoms_Forms_BaseCheckBox__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ../atoms/Forms/BaseCheckBox */ "./resources/js/views/atoms/Forms/BaseCheckBox.js");
+/* harmony import */ var _atoms_buttons_BaseButton__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ../atoms/buttons/BaseButton */ "./resources/js/views/atoms/buttons/BaseButton.js");
+/* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
+/* harmony import */ var _reducks_posts_operations__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ../../reducks/posts/operations */ "./resources/js/reducks/posts/operations.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+var _templateObject;
+
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) { symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); } keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+function _taggedTemplateLiteral(strings, raw) { if (!raw) { raw = strings.slice(0); } return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } })); }
+
+function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
+
+function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+
+function _iterableToArrayLimit(arr, i) { var _i = arr == null ? null : typeof Symbol !== "undefined" && arr[Symbol.iterator] || arr["@@iterator"]; if (_i == null) return; var _arr = []; var _n = true; var _d = false; var _s, _e; try { for (_i = _i.call(arr); !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
+
+function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -4986,14 +5257,65 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var Post = function Post() {
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.Fragment, {
-    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_atoms_Title_PageTitle__WEBPACK_IMPORTED_MODULE_0__.default, {
+  var dispatch = (0,react_redux__WEBPACK_IMPORTED_MODULE_14__.useDispatch)();
+
+  var _useState = (0,react__WEBPACK_IMPORTED_MODULE_3__.useState)(false),
+      _useState2 = _slicedToArray(_useState, 2),
+      show = _useState2[0],
+      setShow = _useState2[1];
+
+  var _useForm = (0,react_hook_form__WEBPACK_IMPORTED_MODULE_4__.useForm)(),
+      register = _useForm.register,
+      watch = _useForm.watch,
+      handleSubmit = _useForm.handleSubmit,
+      errors = _useForm.formState.errors;
+
+  var TagSection = styled_components__WEBPACK_IMPORTED_MODULE_17__.default.section(_templateObject || (_templateObject = _taggedTemplateLiteral(["\n        display: flex;\n    "])));
+
+  var onSubmit = function onSubmit() {
+    dispatch((0,_reducks_posts_operations__WEBPACK_IMPORTED_MODULE_15__.addPost)(watch('tag_name')));
+  };
+
+  console.log(watch('tag_name'));
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_16__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_16__.Fragment, {
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_16__.jsx)(_atoms_Title_PageTitle__WEBPACK_IMPORTED_MODULE_0__.default, {
       children: "Post"
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_organisms_Section_BaseSection__WEBPACK_IMPORTED_MODULE_1__.default, {
-      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_atoms_Links_NewPostLink__WEBPACK_IMPORTED_MODULE_2__.default, {
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_16__.jsx)(_organisms_Section_BaseSection__WEBPACK_IMPORTED_MODULE_1__.default, {
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_16__.jsx)(_atoms_Links_NewPostLink__WEBPACK_IMPORTED_MODULE_2__.default, {
+        onClick: function onClick() {
+          return setShow(true);
+        },
         children: "New Post"
       })
-    })]
+    }), show ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_16__.jsx)(_atoms_Overlay_Overlay__WEBPACK_IMPORTED_MODULE_5__.Overlay, {
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_16__.jsxs)(_organisms_Profile_Section__WEBPACK_IMPORTED_MODULE_6__.default, {
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_16__.jsx)(_atoms_Links_CloseLink__WEBPACK_IMPORTED_MODULE_7__.default, {
+          onClick: function onClick() {
+            return setShow(false);
+          },
+          children: "\xD7"
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_16__.jsx)(_molecules_Card_BaseFormSection__WEBPACK_IMPORTED_MODULE_10__.default, {
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_16__.jsxs)("form", {
+            onSubmit: handleSubmit(onSubmit),
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_16__.jsx)(_atoms_Forms_CardForms_FormLabel__WEBPACK_IMPORTED_MODULE_9__.default, {
+              children: "TAGS"
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_16__.jsx)(_atoms_Forms_CardForms_FormInput__WEBPACK_IMPORTED_MODULE_8__.default, _objectSpread({
+              type: "text",
+              name: "tag_name"
+            }, register("tag_name"))), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_16__.jsxs)(TagSection, {
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_16__.jsx)(_molecules_Card_TagsCheckbox__WEBPACK_IMPORTED_MODULE_11__.TagsCheckBox, {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_16__.jsx)(_molecules_Card_TagsCheckbox__WEBPACK_IMPORTED_MODULE_11__.TagsCheckBox, {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_16__.jsx)(_molecules_Card_TagsCheckbox__WEBPACK_IMPORTED_MODULE_11__.TagsCheckBox, {})]
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_16__.jsx)(_atoms_buttons_BaseButton__WEBPACK_IMPORTED_MODULE_13__.default, {
+              type: "submit",
+              minWidth: 8,
+              minHeight: 2,
+              paddingTop: 1.2,
+              paddingLeft: 3,
+              children: "SUBMIT"
+            })]
+          })
+        })]
+      })
+    }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_16__.jsx)("span", {})]
   });
 };
 
