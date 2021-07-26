@@ -25,7 +25,12 @@ class AppServiceProvider extends ServiceProvider
     {
         $this->app->bind(
             \App\Repositories\User\UserRepositoryInterface::class,
-            \App\Repositories\User\UserRepository::class
+            \App\Repositories\User\UserRepository::class,
+        );
+
+        $this->app->bind(
+            \App\Repositories\Tag\TagRepositoryInterface::class,
+            \App\Repositories\Tag\TagRepository::class,
         );
     }
 }
