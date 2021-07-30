@@ -9,12 +9,13 @@ import CloseLink from "../atoms/Links/CloseLink";
 import FormInput from "../atoms/Forms/CardForms/FormInput";
 import FormLabel from "../atoms/Forms/CardForms/FormLabel";
 import BaseFormSection from "../molecules/Card/BaseFormSection";
-import styled from "styled-components";
-import { TagsCheckBox } from "../molecules/Card/TagsCheckbox";
-import BaseCheckBox from "../atoms/Forms/BaseCheckBox";
 import BaseButton from "../atoms/buttons/BaseButton";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { addPost } from "../../reducks/posts/operations";
+import { getTags } from "../../reducks/tags/operations";
+import { TagsWrapper } from "../molecules/TagsWrapper";
+import Color from "../styles/color";
+import StyledLoader from "../atoms/Loader/StyledLoader";
 
 const Post = () => {
 
@@ -22,17 +23,18 @@ const Post = () => {
 
     const [show, setShow] = useState(false);
 
+    const selector = useSelector((state) => state);
+
     const { register, watch, handleSubmit, formState: {errors} } = useForm();
 
-    const TagSection = styled.section`
-        display: flex;
-    `;
-
     const onSubmit = () => {
-        dispatch(addPost(watch('tag_name')));
+        dispatch(addPost(watch('tagName')));
     }
 
-console.log(watch('tag_name'));
+    if (show && selector.tags.tag_array.length === 0){
+        dispatch(getTags());
+    }
+
     return (
         <>
             <PageTitle>
@@ -45,16 +47,14 @@ console.log(watch('tag_name'));
                             <Section>
                                 <CloseLink onClick={() => setShow(false) }>×</CloseLink>
                                 <BaseFormSection>
-                                    <form onSubmit={handleSubmit(onSubmit)}>
-                                        <FormLabel>TAGS</FormLabel>
-                                        <FormInput type="text" name="tag_name" {...register("tag_name")} />
-                                        <TagSection>
-                                            <TagsCheckBox />
-                                            <TagsCheckBox />
-                                            <TagsCheckBox />
-                                        </TagSection>
-                                        <BaseButton type="submit" minWidth={8} minHeight={2} paddingTop={1.2} paddingLeft={3}>SUBMIT</BaseButton>
-                                    </form>
+                                        { selector.tags.tag_array.length === 0 ? <StyledLoader  type="Puff" color={ Color.Card.Form.Color } height={80} width={80} /> :
+                                            <form onSubmit={handleSubmit(onSubmit)}>
+                                                <FormLabel>TAGS</FormLabel>
+                                                <FormInput type="text" name="tagName" {...register("tagName")} />
+                                                <TagsWrapper tag_array={selector.tags.tag_array} register={register} watch={watch} />
+                                                <BaseButton type="submit" minWidth={8} minHeight={2} paddingTop={1.2} paddingLeft={3}>SUBMIT</BaseButton>
+                                            </form>
+                                        }
                                 </BaseFormSection>
                             </Section>
                         </Overlay> : <span /> }
