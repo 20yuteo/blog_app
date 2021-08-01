@@ -2,17 +2,23 @@
 
 namespace App\Http\Controllers;
 
+use App\Repositories\Post\PostRepositoryInterface;
 use App\Repositories\Tag\TagRepositoryInterface;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class PostController extends Controller
 {
 
     protected $tag_repository;
 
-    public function __construct(TagRepositoryInterface $tag_repository)
+    protected $post_repository;
+
+    public function __construct(TagRepositoryInterface $tag_repository,PostRepositoryInterface $post_repository_interface)
     {
         $this->tag_repository = $tag_repository;
+
+        $this->post_repository = $post_repository_interface;
     }
     /**
      * Display a listing of the resource.
@@ -42,7 +48,25 @@ class PostController extends Controller
      */
     public function store(Request $request)
     {
-        return $this->tag_repository->addNewTags($request);
+        DB::beginTransaction();
+        try {
+            $tags = $this->tag_repository->addNewTags($request);
+            $post = $this->post_repository->savePost($request);
+            DB::commit();
+        } catch (\Exception $e){
+            DB::rollback();
+            throw $e;
+        }
+
+        if ($post !== null && $tags !== null){
+            return response()->json(['result' => !$post->tags()->saveMany($tags)->isEmpty()]);
+        } else if ($post !== null){
+            return response()->json(['result' => true]);
+        } else {
+            return response()->json(['result' => false]);
+            throw $e;
+        }
+        return response()->json(['result' => false]);
     }
 
     /**
