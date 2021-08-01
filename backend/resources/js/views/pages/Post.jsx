@@ -14,6 +14,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { addPost } from "../../reducks/posts/operations";
 import { getTags } from "../../reducks/tags/operations";
 import { TagsWrapper } from "../molecules/TagsWrapper";
+import { Editor } from '@tinymce/tinymce-react';
 import Color from "../styles/color";
 import StyledLoader from "../atoms/Loader/StyledLoader";
 
@@ -23,23 +24,28 @@ const Post = () => {
 
     const [show, setShow] = useState(false);
 
+    const [loading, setLoading] = useState(false);
+
+    const [value, setValue] = useState(undefined);
+
     const selector = useSelector((state) => state);
 
     const { register, watch, handleSubmit, formState: {errors} } = useForm();
 
     const onSubmit = () => {
-        dispatch(addPost(watch('tagName')));
+        setLoading(true);
+        dispatch(addPost(watch('tagName'), watch('tagsArray'), value, setShow, setLoading));
     }
 
-    if (show && selector.tags.tag_array.length === 0){
+    if (selector.tags.tag_array.length === 0){
         dispatch(getTags());
     }
 
     return (
         <>
-            <PageTitle>
-                Post
-            </PageTitle>
+        <PageTitle>
+            Post
+        </PageTitle>
             <BaseSection>
                 <NewPostLink onClick={ () => setShow(true) }>New Post</NewPostLink>
             </BaseSection>
@@ -47,8 +53,19 @@ const Post = () => {
                             <Section>
                                 <CloseLink onClick={() => setShow(false) }>×</CloseLink>
                                 <BaseFormSection>
-                                        { selector.tags.tag_array.length === 0 ? <StyledLoader  type="Puff" color={ Color.Card.Form.Color } height={80} width={80} /> :
+                                        { selector.tags.tag_array.length === 0 || loading !== false ? <StyledLoader  type="Puff" color={ Color.Card.Form.Color } height={80} width={80} /> :
                                             <form onSubmit={handleSubmit(onSubmit)}>
+                                                <FormLabel>MAIN CONTENT</FormLabel>
+                                                <Editor
+                                                    apiKey='q5zp8m09wildzftbqilyqzfr2ifw3ls8z31e5rkpu9sjri40'
+                                                    init={{
+                                                        plugins: 'link image code autosave',
+                                                        toolbar: 'undo redo | bold italic | alignleft aligncenter alignright | code image link',
+                                                        height: 500,
+                                                    }}
+                                                    value={ value }
+                                                    onEditorChange={(newValue, editor) => setValue(newValue)}
+                                                />
                                                 <FormLabel>TAGS</FormLabel>
                                                 <FormInput type="text" name="tagName" {...register("tagName")} />
                                                 <TagsWrapper tag_array={selector.tags.tag_array} register={register} watch={watch} />
