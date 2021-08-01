@@ -10,5 +10,6 @@ const Section = styled.section`
     background:${ Color.Card.Background };
     color: ${ Color.Card.Headline };
     font-size: ${ Size.FontSize.Medium }rem;
+    overflow: scroll;
 `;
 export default Section;
