@@ -33,7 +33,22 @@ class TagRepository implements TagRepositoryInterface
                 }
             }
         }
-        return $this->tag->whereIn('name', $this->match[0])->get()->toArray();
+
+        if ($request->tag_name !== null && $request->tagsArray !== false){
+            $array = array_merge($this->match[0], $request->tagsArray);
+        } else if ($request->tag_name !== null){
+            $array = $this->match[0];
+        } else if ($request->tagsArray !== false){
+            $array = $request->tagsArray;
+        } else {
+            $array = [];
+        }
+
+        if (!empty($array)){
+            return $this->tag->whereIn('name', $array)->get();
+        } else {
+            return null;
+        }
     }
 
 
