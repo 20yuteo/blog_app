@@ -27,7 +27,7 @@ class PostController extends Controller
      */
     public function index()
     {
-        return $this->tag_repository->getAllTags();
+        return $this->post_repository->getAllPosts();
     }
 
     /**
