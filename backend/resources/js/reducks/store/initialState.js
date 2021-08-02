@@ -9,7 +9,7 @@ const initialState = {
         isLoading: false
     },
     posts: {
-        tag_name: ''
+        post_array: [],
     },
     tags: {
         tag_array: [],

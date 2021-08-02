@@ -1,4 +1,5 @@
 import axios from "axios";
+import { getPostsAction } from "./actions";
 
 export const addPost = (tag_name, tagsArray, content, setShow, setLoading) => {
     return async(dispatch, getState) => {
@@ -11,5 +12,18 @@ export const addPost = (tag_name, tagsArray, content, setShow, setLoading) => {
                     console.log(res);
                 });
         }
+    }
+}
+
+export const getPosts = () => {
+    return async(dispatch, getState) => {
+        axios.get("api/posts").then(res => {
+            console.log(res);
+            dispatch(getPostsAction({
+                post_array: res.data
+            }))
+        }).catch(res => {
+            console.log(res);
+        })
     }
 }

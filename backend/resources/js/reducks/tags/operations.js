@@ -1,5 +1,4 @@
 import { getTagsAction } from "./actions";
-import { Loading } from "../loading/operations";
 import axios from "axios";
 
 export const getTags = () => {

@@ -8,6 +8,11 @@ export const PostsReducers = (state = initialState.posts, action) => {
                 ...state,
                 ...action.payload
             };
+        case Actions.GET_POST:
+            return {
+                ...state,
+                ...action.payload
+            }
         default:
             return state
     }

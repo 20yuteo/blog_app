@@ -7,3 +7,13 @@ export const addPostAction = (postState) => {
         }
     }
 }
+
+export const GET_POST = "GET_POST";
+export const getPostsAction = (postState) => {
+    return {
+        type: "GET_POST",
+        payload: {
+            post_array: postState.post_array
+        }
+    }
+}
