@@ -26,4 +26,18 @@ class PostRepository implements PostRepositoryInterface
         }
         return null;
     }
+
+
+    /**
+     * get all post
+     *
+     * @return array
+     */
+    public function getAllPosts()
+    {
+        if (Auth::user()){
+            return $this->post->where('user_id', Auth::id())->get()->toArray();
+        }
+        return false;
+    }
 }

@@ -7,9 +7,16 @@ use Illuminate\Http\Request;
 interface PostRepositoryInterface {
 
     /**
-     * get all posts login user
+     * saving new post
      *
      * @param Request
      */
     public function savePost(Request $request);
+
+    /**
+     * get all post
+     *
+     * @return array
+     */
+    public function getAllPosts();
 }
