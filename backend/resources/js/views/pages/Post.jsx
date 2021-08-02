@@ -17,6 +17,7 @@ import { TagsWrapper } from "../molecules/TagsWrapper";
 import { Editor } from '@tinymce/tinymce-react';
 import Color from "../styles/color";
 import StyledLoader from "../atoms/Loader/StyledLoader";
+import { PostCardWrapper } from "../molecules/Card/PostCardWrapper";
 
 const Post = () => {
 
@@ -49,6 +50,7 @@ const Post = () => {
             <BaseSection>
                 <NewPostLink onClick={ () => setShow(true) }>New Post</NewPostLink>
             </BaseSection>
+            <PostCardWrapper post_array={selector.posts.post_array} />
             { show ? <Overlay>
                             <Section>
                                 <CloseLink onClick={() => setShow(false) }>×</CloseLink>
