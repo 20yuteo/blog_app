@@ -9,6 +9,7 @@ import { ErrorBoundary } from '../ErrorBoundary';
 import { getLoginUser } from '../reducks/users/operations';
 import StyledLoader from './atoms/Loader/StyledLoader';
 import Color from './styles/color';
+import { getPosts } from '../reducks/posts/operations';
 
 const App = () => {
 
@@ -18,6 +19,7 @@ const App = () => {
 
     useEffect(() => {
         dispatch(getLoginUser());
+        dispatch(getPosts());
     }, []);
 
     return(
