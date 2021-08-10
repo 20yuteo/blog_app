@@ -14,6 +14,13 @@ interface PostRepositoryInterface {
     public function savePost(Request $request);
 
     /**
+     * saving new post
+     *
+     * @param Request
+     */
+    public function updatePost(Request $request);
+
+    /**
      * get all post
      *
      * @return array

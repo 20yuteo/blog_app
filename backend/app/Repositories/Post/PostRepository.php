@@ -14,6 +14,7 @@ class PostRepository implements PostRepositoryInterface
     {
         $this->post = $post;
     }
+
     /**
      * get all posts login user
      *
@@ -21,12 +22,21 @@ class PostRepository implements PostRepositoryInterface
      */
     public function savePost(Request $request)
     {
-        if ($request->filled('content')){
+        if ($request->filled('content') && $request->filled('title')){
             return Auth::user()->posts()->save($this->post->fill($request->all()));
         }
         return null;
     }
 
+    /**
+     * update posts
+     *
+     * @param Request
+     */
+    public function updatePost(Request $request)
+    {
+        return Auth::user()->posts()->find($request->id)->fill($request->all())->save() ? true : false;
+    }
 
     /**
      * get all post
