@@ -4,7 +4,6 @@ use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\PostController;
-use App\Http\Controllers\TagController;
 
 /*
 |--------------------------------------------------------------------------
@@ -21,7 +20,7 @@ Route::group(['middleware' => ['auth:sanctum']], function(){
     Route::get('/user', [AuthController::class, 'getLoginUser']);
     Route::post('/profile', [ProfileController::class, 'update']);
     Route::post('/post', [PostController::class, 'store']);
-    Route::get('/tags', [TagController::class, 'index']);
+    Route::put('/post', [PostController::class, 'update']);
     Route::get('/posts', [PostController::class, 'index']);
 });
 
