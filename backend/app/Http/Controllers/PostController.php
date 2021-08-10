@@ -83,9 +83,18 @@ class PostController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request)
     {
-        //
+        DB::beginTransaction();
+        try {
+            $this->post_repository->updatePost($request);
+            DB::commit();
+            return response()->json(['result' => true]);
+        } catch (\Exception $e){
+            DB::rollback();
+            throw $e;
+            return response()->json(['result' => false]);
+        }
     }
 
     /**
