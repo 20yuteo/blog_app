@@ -11,9 +11,7 @@ import FormLabel from "../atoms/Forms/CardForms/FormLabel";
 import BaseFormSection from "../molecules/Card/BaseFormSection";
 import BaseButton from "../atoms/buttons/BaseButton";
 import { useDispatch, useSelector } from "react-redux";
-import { addPost } from "../../reducks/posts/operations";
-import { getTags } from "../../reducks/tags/operations";
-import { TagsWrapper } from "../molecules/TagsWrapper";
+import { addPost, updatePost } from "../../reducks/posts/operations";
 import { Editor } from '@tinymce/tinymce-react';
 import Color from "../styles/color";
 import StyledLoader from "../atoms/Loader/StyledLoader";
@@ -29,17 +27,28 @@ const Post = () => {
 
     const [value, setValue] = useState(undefined);
 
+    const [initPost, setInitPost] = useState([]);
+
     const selector = useSelector((state) => state);
 
     const { register, watch, handleSubmit, formState: {errors} } = useForm();
 
-    const onSubmit = () => {
+    const onSubmit = (data, e) => {
         setLoading(true);
-        dispatch(addPost(watch('tagName'), watch('tagsArray'), value, setShow, setLoading));
-    }
 
-    if (selector.tags.tag_array.length === 0){
-        dispatch(getTags());
+        var content;
+
+        if (value === undefined){
+            content = initPost['content'];
+        } else {
+            content = value;
+        }
+
+        if (initPost['id'] === null){
+            dispatch(addPost(data.title, content, setShow, setLoading));
+        } else {
+            dispatch(updatePost(initPost['id'], data.title, content, setShow, setLoading));
+        }
     }
 
     return (
@@ -50,13 +59,15 @@ const Post = () => {
             <BaseSection>
                 <NewPostLink onClick={ () => setShow(true) }>New Post</NewPostLink>
             </BaseSection>
-            <PostCardWrapper post_array={selector.posts.post_array} />
+            <PostCardWrapper post_array={selector.posts.post_array} setInitPost={setInitPost} setShow={setShow} />
             { show ? <Overlay>
                             <Section>
                                 <CloseLink onClick={() => setShow(false) }>×</CloseLink>
                                 <BaseFormSection>
-                                        { selector.tags.tag_array.length === 0 || loading !== false ? <StyledLoader  type="Puff" color={ Color.Card.Form.Color } height={80} width={80} /> :
+                                        { loading !== false ? <StyledLoader  type="Puff" color={ Color.Card.Form.Color } height={80} width={80} /> :
                                             <form onSubmit={handleSubmit(onSubmit)}>
+                                                <FormLabel>TITLE</FormLabel>
+                                                <FormInput type="text" name="title" defaultValue={ initPost['title'] } {...register("title")} />
                                                 <FormLabel>MAIN CONTENT</FormLabel>
                                                 <Editor
                                                     apiKey='q5zp8m09wildzftbqilyqzfr2ifw3ls8z31e5rkpu9sjri40'
@@ -65,12 +76,9 @@ const Post = () => {
                                                         toolbar: 'undo redo | bold italic | alignleft aligncenter alignright | code image link',
                                                         height: 500,
                                                     }}
-                                                    value={ value }
+                                                    initialValue={ initPost['content'] }
                                                     onEditorChange={(newValue, editor) => setValue(newValue)}
                                                 />
-                                                <FormLabel>TAGS</FormLabel>
-                                                <FormInput type="text" name="tagName" {...register("tagName")} />
-                                                <TagsWrapper tag_array={selector.tags.tag_array} register={register} watch={watch} />
                                                 <BaseButton type="submit" minWidth={8} minHeight={2} paddingTop={1.2} paddingLeft={3}>SUBMIT</BaseButton>
                                             </form>
                                         }
