@@ -29,11 +29,6 @@ class AppServiceProvider extends ServiceProvider
         );
 
         $this->app->bind(
-            \App\Repositories\Tag\TagRepositoryInterface::class,
-            \App\Repositories\Tag\TagRepository::class,
-        );
-
-        $this->app->bind(
             \App\Repositories\Post\PostRepositoryInterface::class,
             \App\Repositories\Post\PostRepository::class,
         );
