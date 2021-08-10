@@ -2,6 +2,7 @@ import { signInAction, signOutAction, editProfileAction } from "./actions";
 import { Loading } from "../loading/operations";
 import {push} from 'connected-react-router';
 import axios from "axios";
+import { getPosts } from "../posts/operations";
 
 export const signIn = (email, password) => {
     return async(dispatch, getState) => {
@@ -22,6 +23,7 @@ export const signIn = (email, password) => {
                         name: res.data.user.name,
                         image_url: res.data.user.profile.image_url
                     }))
+                    dispatch(getPosts())
                     dispatch(push('/my_page'))
                 }).catch(res => {
                     Loading(false, dispatch);
