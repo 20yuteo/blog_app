@@ -10,9 +10,6 @@ const initialState = {
     },
     posts: {
         post_array: [],
-    },
-    tags: {
-        tag_array: [],
     }
 };
 
