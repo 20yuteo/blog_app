@@ -22,8 +22,7 @@ const StyledPostCardWrapper = styled.section`
 export const PostCardWrapper = (props) => {
 
     const getPostDetail = (postId) => {
-        props.setInitPost(props.post_array[postId]);
-        props.setShow(true);
+        props.onClickCard(postId);
     }
 
     let postSectionArray = [];
@@ -31,7 +30,7 @@ export const PostCardWrapper = (props) => {
     if (props.post_array.length !== 0){
         for (let i = 0; i < props.post_array.length; i ++){
             postSectionArray.push(
-                <a onClick={() => getPostDetail(i)}>
+                <a onClick={() => getPostDetail(props.post_array[i]['id'])}>
                     <PostCard dangerouslySetInnerHTML={{__html: props.post_array[i]['title'] }} key={props.post_array[i]['id']} />
                 </a>
             );
