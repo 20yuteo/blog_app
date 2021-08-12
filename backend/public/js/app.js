@@ -5127,8 +5127,7 @@ function _taggedTemplateLiteral(strings, raw) { if (!raw) { raw = strings.slice(
 var StyledPostCardWrapper = styled_components__WEBPACK_IMPORTED_MODULE_3__.default.section(_templateObject || (_templateObject = _taggedTemplateLiteral(["\n    display: flex;\n    flex-wrap: wrap;\n    justify-content: space-around;\n    max-width: 560px;\n    max-height: 400px;\n    margin: auto;\n    overflow: scroll;\n    padding: 16px;\n    @media screen and (min-width:", "px) and ( max-width:", "px) {\n        max-height: 400px;\n    }\n    @media screen and (min-width:", "px) {\n        max-height: 720px;\n    }\n"])), _styles_size__WEBPACK_IMPORTED_MODULE_0__.default.MediaScreen.Small, _styles_size__WEBPACK_IMPORTED_MODULE_0__.default.MediaScreen.Medium, _styles_size__WEBPACK_IMPORTED_MODULE_0__.default.MediaScreen.Large);
 var PostCardWrapper = function PostCardWrapper(props) {
   var getPostDetail = function getPostDetail(postId) {
-    props.setInitPost(props.post_array[postId]);
-    props.setShow(true);
+    props.onClickCard(postId);
   };
 
   var postSectionArray = [];
@@ -5137,7 +5136,7 @@ var PostCardWrapper = function PostCardWrapper(props) {
     var _loop = function _loop(i) {
       postSectionArray.push( /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("a", {
         onClick: function onClick() {
-          return getPostDetail(i);
+          return getPostDetail(props.post_array[i]['id']);
         },
         children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_PostCard__WEBPACK_IMPORTED_MODULE_1__.default, {
           dangerouslySetInnerHTML: {
@@ -5965,12 +5964,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _atoms_Loader_StyledLoader__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ../atoms/Loader/StyledLoader */ "./resources/js/views/atoms/Loader/StyledLoader.js");
 /* harmony import */ var _molecules_Card_PostCardWrapper__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ../molecules/Card/PostCardWrapper */ "./resources/js/views/molecules/Card/PostCardWrapper.jsx");
 /* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
-function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) { symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); } keys.push.apply(keys, symbols); } return keys; }
-
-function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
-
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-
 function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
 
 function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
@@ -6018,41 +6011,54 @@ var Post = function Post() {
       loading = _useState4[0],
       setLoading = _useState4[1];
 
-  var _useState5 = (0,react__WEBPACK_IMPORTED_MODULE_3__.useState)(undefined),
+  var _useState5 = (0,react__WEBPACK_IMPORTED_MODULE_3__.useState)([]),
       _useState6 = _slicedToArray(_useState5, 2),
-      value = _useState6[0],
-      setValue = _useState6[1];
+      initPost = _useState6[0],
+      setInitPost = _useState6[1];
 
-  var _useState7 = (0,react__WEBPACK_IMPORTED_MODULE_3__.useState)([]),
+  var _useState7 = (0,react__WEBPACK_IMPORTED_MODULE_3__.useState)(null),
       _useState8 = _slicedToArray(_useState7, 2),
-      initPost = _useState8[0],
-      setInitPost = _useState8[1];
+      id = _useState8[0],
+      setId = _useState8[1];
+
+  var _useState9 = (0,react__WEBPACK_IMPORTED_MODULE_3__.useState)(''),
+      _useState10 = _slicedToArray(_useState9, 2),
+      title = _useState10[0],
+      setTitle = _useState10[1];
+
+  var _useState11 = (0,react__WEBPACK_IMPORTED_MODULE_3__.useState)(''),
+      _useState12 = _slicedToArray(_useState11, 2),
+      content = _useState12[0],
+      setContent = _useState12[1];
 
   var selector = (0,react_redux__WEBPACK_IMPORTED_MODULE_12__.useSelector)(function (state) {
     return state;
   });
 
-  var _useForm = (0,react_hook_form__WEBPACK_IMPORTED_MODULE_4__.useForm)(),
-      register = _useForm.register,
-      watch = _useForm.watch,
-      handleSubmit = _useForm.handleSubmit,
-      errors = _useForm.formState.errors;
-
   var onSubmit = function onSubmit(data, e) {
     setLoading(true);
-    var content;
 
-    if (value === undefined) {
-      content = initPost['content'];
+    if (id === null) {
+      dispatch((0,_reducks_posts_operations__WEBPACK_IMPORTED_MODULE_13__.addPost)(title, content, setShow, setLoading));
     } else {
-      content = value;
+      dispatch((0,_reducks_posts_operations__WEBPACK_IMPORTED_MODULE_13__.updatePost)(id, title, content, setShow, setLoading));
     }
+  };
 
-    if (initPost['id'] === null) {
-      dispatch((0,_reducks_posts_operations__WEBPACK_IMPORTED_MODULE_13__.addPost)(data.title, content, setShow, setLoading));
-    } else {
-      dispatch((0,_reducks_posts_operations__WEBPACK_IMPORTED_MODULE_13__.updatePost)(initPost['id'], data.title, content, setShow, setLoading));
-    }
+  var _onClick = function onClick() {
+    setShow(true);
+    setInitPost([]);
+    setId(null);
+    setTitle('');
+    setContent('');
+  };
+
+  var onClickCard = function onClickCard(id) {
+    setShow(true);
+    setInitPost(selector.posts.post_array[id]);
+    setId(id);
+    setTitle(selector.posts.post_array[id]['title']);
+    setContent(selector.posts.post_array[id]['content']);
   };
 
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_18__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_18__.Fragment, {
@@ -6061,14 +6067,13 @@ var Post = function Post() {
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_18__.jsx)(_organisms_Section_BaseSection__WEBPACK_IMPORTED_MODULE_1__.default, {
       children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_18__.jsx)(_atoms_Links_NewPostLink__WEBPACK_IMPORTED_MODULE_2__.default, {
         onClick: function onClick() {
-          return setShow(true);
+          return _onClick();
         },
         children: "New Post"
       })
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_18__.jsx)(_molecules_Card_PostCardWrapper__WEBPACK_IMPORTED_MODULE_17__.PostCardWrapper, {
       post_array: selector.posts.post_array,
-      setInitPost: setInitPost,
-      setShow: setShow
+      onClickCard: onClickCard
     }), show ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_18__.jsx)(_atoms_Overlay_Overlay__WEBPACK_IMPORTED_MODULE_5__.Overlay, {
       children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_18__.jsxs)(_organisms_Profile_Section__WEBPACK_IMPORTED_MODULE_6__.default, {
         children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_18__.jsx)(_atoms_Links_CloseLink__WEBPACK_IMPORTED_MODULE_7__.default, {
@@ -6083,14 +6088,17 @@ var Post = function Post() {
             height: 80,
             width: 80
           }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_18__.jsxs)("form", {
-            onSubmit: handleSubmit(onSubmit),
+            onSubmit: onSubmit,
             children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_18__.jsx)(_atoms_Forms_CardForms_FormLabel__WEBPACK_IMPORTED_MODULE_9__.default, {
               children: "TITLE"
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_18__.jsx)(_atoms_Forms_CardForms_FormInput__WEBPACK_IMPORTED_MODULE_8__.default, _objectSpread({
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_18__.jsx)(_atoms_Forms_CardForms_FormInput__WEBPACK_IMPORTED_MODULE_8__.default, {
               type: "text",
               name: "title",
-              defaultValue: initPost['title']
-            }, register("title"))), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_18__.jsx)(_atoms_Forms_CardForms_FormLabel__WEBPACK_IMPORTED_MODULE_9__.default, {
+              value: title,
+              onChange: function onChange(e) {
+                setTitle(e.target.value);
+              }
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_18__.jsx)(_atoms_Forms_CardForms_FormLabel__WEBPACK_IMPORTED_MODULE_9__.default, {
               children: "MAIN CONTENT"
             }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_18__.jsx)(_tinymce_tinymce_react__WEBPACK_IMPORTED_MODULE_14__.Editor, {
               apiKey: "q5zp8m09wildzftbqilyqzfr2ifw3ls8z31e5rkpu9sjri40",
@@ -6099,9 +6107,9 @@ var Post = function Post() {
                 toolbar: 'undo redo | bold italic | alignleft aligncenter alignright | code image link',
                 height: 500
               },
-              initialValue: initPost['content'],
+              value: content,
               onEditorChange: function onEditorChange(newValue, editor) {
-                return setValue(newValue);
+                return setContent(newValue);
               }
             }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_18__.jsx)(_atoms_buttons_BaseButton__WEBPACK_IMPORTED_MODULE_11__.default, {
               type: "submit",

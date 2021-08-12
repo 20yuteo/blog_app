@@ -25,30 +25,40 @@ const Post = () => {
 
     const [loading, setLoading] = useState(false);
 
-    const [value, setValue] = useState(undefined);
-
     const [initPost, setInitPost] = useState([]);
 
-    const selector = useSelector((state) => state);
+    const [id, setId] = useState(null);
 
-    const { register, watch, handleSubmit, formState: {errors} } = useForm();
+    const [title, setTitle] = useState('');
+
+    const [content, setContent] = useState('');
+
+    const selector = useSelector((state) => state);
 
     const onSubmit = (data, e) => {
         setLoading(true);
 
-        var content;
-
-        if (value === undefined){
-            content = initPost['content'];
+        if (id === null){
+            dispatch(addPost(title, content, setShow, setLoading));
         } else {
-            content = value;
+            dispatch(updatePost(id, title, content, setShow, setLoading));
         }
+    }
 
-        if (initPost['id'] === null){
-            dispatch(addPost(data.title, content, setShow, setLoading));
-        } else {
-            dispatch(updatePost(initPost['id'], data.title, content, setShow, setLoading));
-        }
+    const onClick = () => {
+        setShow(true);
+        setInitPost([]);
+        setId(null);
+        setTitle('');
+        setContent('');
+    }
+
+    const onClickCard = id => {
+        setShow(true);
+        setInitPost(selector.posts.post_array[id]);
+        setId(id);
+        setTitle(selector.posts.post_array[id]['title']);
+        setContent(selector.posts.post_array[id]['content']);
     }
 
     return (
@@ -57,17 +67,17 @@ const Post = () => {
             Post
         </PageTitle>
             <BaseSection>
-                <NewPostLink onClick={ () => setShow(true) }>New Post</NewPostLink>
+                <NewPostLink onClick={ () => onClick() }>New Post</NewPostLink>
             </BaseSection>
-            <PostCardWrapper post_array={selector.posts.post_array} setInitPost={setInitPost} setShow={setShow} />
+            <PostCardWrapper post_array={selector.posts.post_array} onClickCard={onClickCard} />
             { show ? <Overlay>
                             <Section>
                                 <CloseLink onClick={() => setShow(false) }>×</CloseLink>
                                 <BaseFormSection>
                                         { loading !== false ? <StyledLoader  type="Puff" color={ Color.Card.Form.Color } height={80} width={80} /> :
-                                            <form onSubmit={handleSubmit(onSubmit)}>
+                                            <form onSubmit={onSubmit}>
                                                 <FormLabel>TITLE</FormLabel>
-                                                <FormInput type="text" name="title" defaultValue={ initPost['title'] } {...register("title")} />
+                                                <FormInput type="text" name="title" value={ title } onChange={(e) => {setTitle( e.target.value )}} />
                                                 <FormLabel>MAIN CONTENT</FormLabel>
                                                 <Editor
                                                     apiKey='q5zp8m09wildzftbqilyqzfr2ifw3ls8z31e5rkpu9sjri40'
@@ -76,8 +86,8 @@ const Post = () => {
                                                         toolbar: 'undo redo | bold italic | alignleft aligncenter alignright | code image link',
                                                         height: 500,
                                                     }}
-                                                    initialValue={ initPost['content'] }
-                                                    onEditorChange={(newValue, editor) => setValue(newValue)}
+                                                    value={ content }
+                                                    onEditorChange={(newValue, editor) => setContent( newValue )}
                                                 />
                                                 <BaseButton type="submit" minWidth={8} minHeight={2} paddingTop={1.2} paddingLeft={3}>SUBMIT</BaseButton>
                                             </form>
