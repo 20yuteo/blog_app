@@ -7,6 +7,7 @@ const PageTitle = styled.div`
     font-size: ${ Size.FontSize.Large }rem;
     font-weight: ${ Size.FontWeight };
     padding: 3rem;
+    text-align: left;
 `;
 
 export default PageTitle;
