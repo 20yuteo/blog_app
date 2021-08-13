@@ -12,6 +12,7 @@ import CloseLink from '../atoms/Links/CloseLink';
 import ProfileFormWrapper from '../molecules/Card/ProfileFormWrapper';
 import NameTag from '../atoms/Profile/NameTag';
 import Section from '../organisms/Profile/Section';
+import BaseSection from '../organisms/Section/BaseSection';
 
 const MyPage = () => {
 
@@ -22,7 +23,7 @@ const MyPage = () => {
     const [show, setShow] = useState(false);
 
     return (
-        <div>
+        <BaseSection>
             <PageTitle>
                 MyPage
             </PageTitle>
@@ -42,7 +43,7 @@ const MyPage = () => {
                             </Overlay> : <span /> }
                 </div>
             </ProfileSection>
-        </div>
+        </BaseSection>
     );
 }
 
