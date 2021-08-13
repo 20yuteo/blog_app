@@ -5012,7 +5012,7 @@ function _taggedTemplateLiteral(strings, raw) { if (!raw) { raw = strings.slice(
 
 
 
-var PageTitle = styled_components__WEBPACK_IMPORTED_MODULE_2__.default.div(_templateObject || (_templateObject = _taggedTemplateLiteral(["\n    color: ", ";\n    font-size: ", "rem;\n    font-weight: ", ";\n    padding: 3rem;\n"])), _styles_color__WEBPACK_IMPORTED_MODULE_1__.default.Headline, _styles_size__WEBPACK_IMPORTED_MODULE_0__.default.FontSize.Large, _styles_size__WEBPACK_IMPORTED_MODULE_0__.default.FontWeight);
+var PageTitle = styled_components__WEBPACK_IMPORTED_MODULE_2__.default.div(_templateObject || (_templateObject = _taggedTemplateLiteral(["\n    color: ", ";\n    font-size: ", "rem;\n    font-weight: ", ";\n    padding: 3rem;\n    text-align: left;\n"])), _styles_color__WEBPACK_IMPORTED_MODULE_1__.default.Headline, _styles_size__WEBPACK_IMPORTED_MODULE_0__.default.FontSize.Large, _styles_size__WEBPACK_IMPORTED_MODULE_0__.default.FontWeight);
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (PageTitle);
 
 /***/ }),
@@ -5738,14 +5738,18 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var _atoms_Title_PageTitle__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../atoms/Title/PageTitle */ "./resources/js/views/atoms/Title/PageTitle.jsx");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+/* harmony import */ var _organisms_Section_BaseSection__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../organisms/Section/BaseSection */ "./resources/js/views/organisms/Section/BaseSection.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+
 
 
 
 
 var About = function About() {
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_atoms_Title_PageTitle__WEBPACK_IMPORTED_MODULE_1__.default, {
-    children: "About"
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_organisms_Section_BaseSection__WEBPACK_IMPORTED_MODULE_2__.default, {
+    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_atoms_Title_PageTitle__WEBPACK_IMPORTED_MODULE_1__.default, {
+      children: "About"
+    })
   });
 };
 
@@ -5766,14 +5770,18 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var _atoms_Title_PageTitle__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../atoms/Title/PageTitle */ "./resources/js/views/atoms/Title/PageTitle.jsx");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+/* harmony import */ var _organisms_Section_BaseSection__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../organisms/Section/BaseSection */ "./resources/js/views/organisms/Section/BaseSection.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+
 
 
 
 
 var Home = function Home() {
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_atoms_Title_PageTitle__WEBPACK_IMPORTED_MODULE_1__.default, {
-    children: "Home"
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_organisms_Section_BaseSection__WEBPACK_IMPORTED_MODULE_2__.default, {
+    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_atoms_Title_PageTitle__WEBPACK_IMPORTED_MODULE_1__.default, {
+      children: "Home"
+    })
   });
 };
 
@@ -5839,7 +5847,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _molecules_Card_ProfileFormWrapper__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ../molecules/Card/ProfileFormWrapper */ "./resources/js/views/molecules/Card/ProfileFormWrapper.js");
 /* harmony import */ var _atoms_Profile_NameTag__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ../atoms/Profile/NameTag */ "./resources/js/views/atoms/Profile/NameTag.js");
 /* harmony import */ var _organisms_Profile_Section__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ../organisms/Profile/Section */ "./resources/js/views/organisms/Profile/Section.js");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+/* harmony import */ var _organisms_Section_BaseSection__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ../organisms/Section/BaseSection */ "./resources/js/views/organisms/Section/BaseSection.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
 function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
 
 function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
@@ -5851,6 +5860,7 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
 function _iterableToArrayLimit(arr, i) { var _i = arr == null ? null : typeof Symbol !== "undefined" && arr[Symbol.iterator] || arr["@@iterator"]; if (_i == null) return; var _arr = []; var _n = true; var _d = false; var _s, _e; try { for (_i = _i.call(arr); !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
 
 function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
+
 
 
 
@@ -5885,16 +5895,16 @@ var MyPage = function MyPage() {
       show = _useState2[0],
       setShow = _useState2[1];
 
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_14__.jsxs)("div", {
-    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_14__.jsx)(_atoms_Title_PageTitle__WEBPACK_IMPORTED_MODULE_5__.default, {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_15__.jsxs)(_organisms_Section_BaseSection__WEBPACK_IMPORTED_MODULE_14__.default, {
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_15__.jsx)(_atoms_Title_PageTitle__WEBPACK_IMPORTED_MODULE_5__.default, {
       children: "MyPage"
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_14__.jsxs)(_styles_element__WEBPACK_IMPORTED_MODULE_6__.ProfileSection, {
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_14__.jsx)(_atoms_Image_ProfileImage__WEBPACK_IMPORTED_MODULE_3__.ProfileImage, {
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_15__.jsxs)(_styles_element__WEBPACK_IMPORTED_MODULE_6__.ProfileSection, {
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_15__.jsx)(_atoms_Image_ProfileImage__WEBPACK_IMPORTED_MODULE_3__.ProfileImage, {
         src: selector.users.image_url
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_14__.jsx)(_atoms_Profile_NameTag__WEBPACK_IMPORTED_MODULE_12__.default, {
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_15__.jsx)(_atoms_Profile_NameTag__WEBPACK_IMPORTED_MODULE_12__.default, {
         children: selector.users.name
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_14__.jsxs)("div", {
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_14__.jsx)(_atoms_buttons_BaseButton__WEBPACK_IMPORTED_MODULE_4__.default, {
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_15__.jsxs)("div", {
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_15__.jsx)(_atoms_buttons_BaseButton__WEBPACK_IMPORTED_MODULE_4__.default, {
           type: "button",
           minWidth: 8,
           minHeight: 2,
@@ -5904,27 +5914,27 @@ var MyPage = function MyPage() {
             return setShow(true);
           },
           children: "Edit"
-        }), show ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_14__.jsx)(_atoms_Overlay_Overlay__WEBPACK_IMPORTED_MODULE_2__.Overlay, {
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_14__.jsxs)(_organisms_Profile_Section__WEBPACK_IMPORTED_MODULE_13__.default, {
-            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_14__.jsx)(_atoms_Links_CloseLink__WEBPACK_IMPORTED_MODULE_10__.default, {
+        }), show ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_15__.jsx)(_atoms_Overlay_Overlay__WEBPACK_IMPORTED_MODULE_2__.Overlay, {
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_15__.jsxs)(_organisms_Profile_Section__WEBPACK_IMPORTED_MODULE_13__.default, {
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_15__.jsx)(_atoms_Links_CloseLink__WEBPACK_IMPORTED_MODULE_10__.default, {
               onClick: function onClick() {
                 return setShow(false);
               },
               children: "\xD7"
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_14__.jsxs)(_molecules_Card_ProfileFormWrapper__WEBPACK_IMPORTED_MODULE_11__.default, {
-              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_14__.jsx)(_molecules_Card_UserImageForm__WEBPACK_IMPORTED_MODULE_8__.default, {
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_15__.jsxs)(_molecules_Card_ProfileFormWrapper__WEBPACK_IMPORTED_MODULE_11__.default, {
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_15__.jsx)(_molecules_Card_UserImageForm__WEBPACK_IMPORTED_MODULE_8__.default, {
                 register: register,
                 watch: watch,
                 userImage: selector.users.image_url,
                 handleSubmit: handleSubmit
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_14__.jsx)(_molecules_Card_ProfileForm__WEBPACK_IMPORTED_MODULE_9__.ProfileForm, {
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_15__.jsx)(_molecules_Card_ProfileForm__WEBPACK_IMPORTED_MODULE_9__.ProfileForm, {
                 register: register,
                 watch: watch,
                 handleSubmit: handleSubmit
               })]
             })]
           })
-        }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_14__.jsx)("span", {})]
+        }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_15__.jsx)("span", {})]
       })]
     })]
   });
@@ -6062,15 +6072,15 @@ var Post = function Post() {
   };
 
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_18__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_18__.Fragment, {
-    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_18__.jsx)(_atoms_Title_PageTitle__WEBPACK_IMPORTED_MODULE_0__.default, {
-      children: "Post"
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_18__.jsx)(_organisms_Section_BaseSection__WEBPACK_IMPORTED_MODULE_1__.default, {
-      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_18__.jsx)(_atoms_Links_NewPostLink__WEBPACK_IMPORTED_MODULE_2__.default, {
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_18__.jsxs)(_organisms_Section_BaseSection__WEBPACK_IMPORTED_MODULE_1__.default, {
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_18__.jsx)(_atoms_Title_PageTitle__WEBPACK_IMPORTED_MODULE_0__.default, {
+        children: "Post"
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_18__.jsx)(_atoms_Links_NewPostLink__WEBPACK_IMPORTED_MODULE_2__.default, {
         onClick: function onClick() {
           return _onClick();
         },
         children: "New Post"
-      })
+      })]
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_18__.jsx)(_molecules_Card_PostCardWrapper__WEBPACK_IMPORTED_MODULE_17__.PostCardWrapper, {
       post_array: selector.posts.post_array,
       onClickCard: onClickCard
