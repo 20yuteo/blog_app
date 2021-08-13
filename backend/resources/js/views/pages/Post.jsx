@@ -63,10 +63,10 @@ const Post = () => {
 
     return (
         <>
-        <PageTitle>
-            Post
-        </PageTitle>
             <BaseSection>
+                <PageTitle>
+                    Post
+                </PageTitle>
                 <NewPostLink onClick={ () => onClick() }>New Post</NewPostLink>
             </BaseSection>
             <PostCardWrapper post_array={selector.posts.post_array} onClickCard={onClickCard} />
