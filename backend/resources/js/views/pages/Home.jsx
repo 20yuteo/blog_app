@@ -1,11 +1,14 @@
 import React from 'react'
 import PageTitle from '../atoms/Title/PageTitle';
+import BaseSection from '../organisms/Section/BaseSection';
 
 const Home = () => {
     return (
-        <PageTitle>
-            Home
-        </PageTitle>
+        <BaseSection>
+            <PageTitle>
+                Home
+            </PageTitle>
+        </BaseSection>
     );
 }
 
