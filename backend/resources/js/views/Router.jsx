@@ -3,6 +3,7 @@ import { Nav } from './styles/element';
 import { Route, Switch, Redirect } from 'react-router';
 import {Login, About, Home, MyPage} from './pages';
 import Post from './pages/Post';
+import { Article } from './molecules/Post/Article';
 
 const Router = (props) => {
     return (
@@ -15,6 +16,9 @@ const Router = (props) => {
                 </Route>
                 <Route exact path={"/my_page"}>
                     { props.users.isSignedIn ? <MyPage/> : <Redirect to="/login" /> }
+                </Route>
+                <Route path={"/post/:id"}>
+                    { props.users.isSignedIn ? <Article /> : <Redirect to="/" /> }
                 </Route>
                 <Route>
                     { props.users.isSignedIn ? <Post/> : <Redirect to="/login" /> }
