@@ -16,6 +16,7 @@ export const Section = styled.section`
 `;
 
 export const Nav = styled.nav`
+    overflow: auto;
     flex: 1;
 `;
 
