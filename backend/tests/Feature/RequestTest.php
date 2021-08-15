@@ -33,16 +33,4 @@ class RequestTest extends TestCase
 
         $response->assertOk();
     }
-
-    /**
-     * A request test for login page
-     *
-     * @return void
-     */
-    public function testRequestLoginPage()
-    {
-        $response = $this->get('/login');
-
-        $response->assertOk();
-    }
 }
