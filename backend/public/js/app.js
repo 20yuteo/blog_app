@@ -4965,6 +4965,58 @@ var Overlay = styled_components__WEBPACK_IMPORTED_MODULE_0__.default.div(_templa
 
 /***/ }),
 
+/***/ "./resources/js/views/atoms/Post/Content.js":
+/*!**************************************************!*\
+  !*** ./resources/js/views/atoms/Post/Content.js ***!
+  \**************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _styles_size__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../styles/size */ "./resources/js/views/styles/size.js");
+/* harmony import */ var _styles_color__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../styles/color */ "./resources/js/views/styles/color.js");
+/* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! styled-components */ "./node_modules/styled-components/dist/styled-components.browser.esm.js");
+var _templateObject;
+
+function _taggedTemplateLiteral(strings, raw) { if (!raw) { raw = strings.slice(0); } return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } })); }
+
+
+
+
+var Content = styled_components__WEBPACK_IMPORTED_MODULE_2__.default.div(_templateObject || (_templateObject = _taggedTemplateLiteral(["\n    color: ", ";\n    font-size: ", "rem;\n    font-weight: ", ";\n    padding: 24px;\n    text-align: left;\n    line-height: 4rem;\n"])), _styles_color__WEBPACK_IMPORTED_MODULE_1__.default.Headline, _styles_size__WEBPACK_IMPORTED_MODULE_0__.default.FontSize.Large, _styles_size__WEBPACK_IMPORTED_MODULE_0__.default.FontWeight);
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Content);
+
+/***/ }),
+
+/***/ "./resources/js/views/atoms/Post/Title.js":
+/*!************************************************!*\
+  !*** ./resources/js/views/atoms/Post/Title.js ***!
+  \************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _styles_size__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../styles/size */ "./resources/js/views/styles/size.js");
+/* harmony import */ var _styles_color__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../styles/color */ "./resources/js/views/styles/color.js");
+/* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! styled-components */ "./node_modules/styled-components/dist/styled-components.browser.esm.js");
+var _templateObject;
+
+function _taggedTemplateLiteral(strings, raw) { if (!raw) { raw = strings.slice(0); } return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } })); }
+
+
+
+
+var Title = styled_components__WEBPACK_IMPORTED_MODULE_2__.default.div(_templateObject || (_templateObject = _taggedTemplateLiteral(["\n    color: ", ";\n    font-size: ", "rem;\n    font-weight: ", ";\n    border-bottom: 8px solid ", ";\n    padding: 24px;\n    margin: 16px;\n"])), _styles_color__WEBPACK_IMPORTED_MODULE_1__.default.Headline, _styles_size__WEBPACK_IMPORTED_MODULE_0__.default.FontSize.Large, _styles_size__WEBPACK_IMPORTED_MODULE_0__.default.FontWeight, _styles_color__WEBPACK_IMPORTED_MODULE_1__.default.Headline);
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Title);
+
+/***/ }),
+
 /***/ "./resources/js/views/atoms/Profile/NameTag.js":
 /*!*****************************************************!*\
   !*** ./resources/js/views/atoms/Profile/NameTag.js ***!
@@ -5124,10 +5176,10 @@ function _taggedTemplateLiteral(strings, raw) { if (!raw) { raw = strings.slice(
 
 
 
-var StyledPostCardWrapper = styled_components__WEBPACK_IMPORTED_MODULE_3__.default.section(_templateObject || (_templateObject = _taggedTemplateLiteral(["\n    display: flex;\n    flex-wrap: wrap;\n    justify-content: space-around;\n    max-width: 560px;\n    max-height: 400px;\n    margin: auto;\n    overflow: scroll;\n    padding: 16px;\n    @media screen and (min-width:", "px) and ( max-width:", "px) {\n        max-height: 400px;\n    }\n    @media screen and (min-width:", "px) {\n        max-height: 720px;\n    }\n"])), _styles_size__WEBPACK_IMPORTED_MODULE_0__.default.MediaScreen.Small, _styles_size__WEBPACK_IMPORTED_MODULE_0__.default.MediaScreen.Medium, _styles_size__WEBPACK_IMPORTED_MODULE_0__.default.MediaScreen.Large);
+var StyledPostCardWrapper = styled_components__WEBPACK_IMPORTED_MODULE_3__.default.section(_templateObject || (_templateObject = _taggedTemplateLiteral(["\n    display: flex;\n    flex-wrap: wrap;\n    justify-content: space-around;\n    max-width: 560px;\n    max-height: 400px;\n    margin: auto;\n    padding: 16px;\n    @media screen and (min-width:", "px) and ( max-width:", "px) {\n        max-height: 400px;\n    }\n    @media screen and (min-width:", "px) {\n        max-height: 720px;\n    }\n"])), _styles_size__WEBPACK_IMPORTED_MODULE_0__.default.MediaScreen.Small, _styles_size__WEBPACK_IMPORTED_MODULE_0__.default.MediaScreen.Medium, _styles_size__WEBPACK_IMPORTED_MODULE_0__.default.MediaScreen.Large);
 var PostCardWrapper = function PostCardWrapper(props) {
-  var getPostDetail = function getPostDetail(postId) {
-    props.onClickCard(postId);
+  var getPostDetail = function getPostDetail(id) {
+    props.onClickCard(id);
   };
 
   var postSectionArray = [];
@@ -5136,7 +5188,7 @@ var PostCardWrapper = function PostCardWrapper(props) {
     var _loop = function _loop(i) {
       postSectionArray.push( /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("a", {
         onClick: function onClick() {
-          return getPostDetail(props.post_array[i]['id']);
+          return getPostDetail(i);
         },
         children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_PostCard__WEBPACK_IMPORTED_MODULE_1__.default, {
           dangerouslySetInnerHTML: {
@@ -5492,6 +5544,28 @@ var PasswordForm = function PasswordForm(_ref) {
 
 /***/ }),
 
+/***/ "./resources/js/views/molecules/Post/Section.js":
+/*!******************************************************!*\
+  !*** ./resources/js/views/molecules/Post/Section.js ***!
+  \******************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! styled-components */ "./node_modules/styled-components/dist/styled-components.browser.esm.js");
+var _templateObject;
+
+function _taggedTemplateLiteral(strings, raw) { if (!raw) { raw = strings.slice(0); } return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } })); }
+
+
+var Section = styled_components__WEBPACK_IMPORTED_MODULE_0__.default.section(_templateObject || (_templateObject = _taggedTemplateLiteral(["\n    display: flex;\n    flex-direction: column;\n    height: 100%;\n"])));
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Section);
+
+/***/ }),
+
 /***/ "./resources/js/views/organisms/BaseForm.js":
 /*!**************************************************!*\
   !*** ./resources/js/views/organisms/BaseForm.js ***!
@@ -5696,7 +5770,7 @@ function _taggedTemplateLiteral(strings, raw) { if (!raw) { raw = strings.slice(
 
 
 
-var Section = styled_components__WEBPACK_IMPORTED_MODULE_2__.default.section(_templateObject || (_templateObject = _taggedTemplateLiteral(["\n    z-index:2;\n    width: 80%;\n    height: 80%;\n    padding: 1em;\n    background:", ";\n    color: ", ";\n    font-size: ", "rem;\n    overflow: scroll;\n"])), _styles_color__WEBPACK_IMPORTED_MODULE_0__.default.Card.Background, _styles_color__WEBPACK_IMPORTED_MODULE_0__.default.Card.Headline, _styles_size__WEBPACK_IMPORTED_MODULE_1__.default.FontSize.Medium);
+var Section = styled_components__WEBPACK_IMPORTED_MODULE_2__.default.section(_templateObject || (_templateObject = _taggedTemplateLiteral(["\n    z-index:2;\n    width: 90%;\n    height: 90%;\n    padding: 1em;\n    background:", ";\n    color: ", ";\n    font-size: ", "rem;\n"])), _styles_color__WEBPACK_IMPORTED_MODULE_0__.default.Card.Background, _styles_color__WEBPACK_IMPORTED_MODULE_0__.default.Card.Headline, _styles_size__WEBPACK_IMPORTED_MODULE_1__.default.FontSize.Medium);
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Section);
 
 /***/ }),
@@ -5720,7 +5794,7 @@ function _taggedTemplateLiteral(strings, raw) { if (!raw) { raw = strings.slice(
 
 
 
-var BaseSection = styled_components__WEBPACK_IMPORTED_MODULE_1__.default.section(_templateObject || (_templateObject = _taggedTemplateLiteral(["\n    justify-content: center;\n    margin: 0 auto;\n    text-align: center;\n    @media screen and (max-width:", "px) {\n        max-width: 32rem;\n    }\n    @media screen and (min-width:", "px) and ( max-width:", "px) {\n        max-width: 32rem;\n    }\n    @media screen and (min-width:", "px) {\n        max-width: 64rem;\n    }\n"])), _styles_size__WEBPACK_IMPORTED_MODULE_0__.default.MediaScreen.Small, _styles_size__WEBPACK_IMPORTED_MODULE_0__.default.MediaScreen.Small, _styles_size__WEBPACK_IMPORTED_MODULE_0__.default.MediaScreen.Medium, _styles_size__WEBPACK_IMPORTED_MODULE_0__.default.MediaScreen.Large);
+var BaseSection = styled_components__WEBPACK_IMPORTED_MODULE_1__.default.section(_templateObject || (_templateObject = _taggedTemplateLiteral(["\n    justify-content: center;\n    margin: 0 auto;\n    text-align: center;\n    @media screen and (max-width:", "px) {\n        max-width: 32rem;\n    }\n    @media screen and (min-width:", "px) and ( max-width:", "px) {\n        max-width: 64rem;\n    }\n    @media screen and (min-width:", "px) {\n        max-width: 96rem;\n    }\n"])), _styles_size__WEBPACK_IMPORTED_MODULE_0__.default.MediaScreen.Small, _styles_size__WEBPACK_IMPORTED_MODULE_0__.default.MediaScreen.Small, _styles_size__WEBPACK_IMPORTED_MODULE_0__.default.MediaScreen.Medium, _styles_size__WEBPACK_IMPORTED_MODULE_0__.default.MediaScreen.Large);
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (BaseSection);
 
 /***/ }),
@@ -5769,19 +5843,78 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var _atoms_Title_PageTitle__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../atoms/Title/PageTitle */ "./resources/js/views/atoms/Title/PageTitle.jsx");
-/* harmony import */ var _organisms_Section_BaseSection__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../organisms/Section/BaseSection */ "./resources/js/views/organisms/Section/BaseSection.js");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+/* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
+/* harmony import */ var _atoms_Title_PageTitle__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../atoms/Title/PageTitle */ "./resources/js/views/atoms/Title/PageTitle.jsx");
+/* harmony import */ var _molecules_Card_PostCardWrapper__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../molecules/Card/PostCardWrapper */ "./resources/js/views/molecules/Card/PostCardWrapper.jsx");
+/* harmony import */ var _organisms_Section_BaseSection__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../organisms/Section/BaseSection */ "./resources/js/views/organisms/Section/BaseSection.js");
+/* harmony import */ var _atoms_Post_Title__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../atoms/Post/Title */ "./resources/js/views/atoms/Post/Title.js");
+/* harmony import */ var _atoms_Post_Content__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../atoms/Post/Content */ "./resources/js/views/atoms/Post/Content.js");
+/* harmony import */ var _molecules_Post_Section__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../molecules/Post/Section */ "./resources/js/views/molecules/Post/Section.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
+
+function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+
+function _iterableToArrayLimit(arr, i) { var _i = arr == null ? null : typeof Symbol !== "undefined" && arr[Symbol.iterator] || arr["@@iterator"]; if (_i == null) return; var _arr = []; var _n = true; var _d = false; var _s, _e; try { for (_i = _i.call(arr); !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
+
+function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
+
+
+
+
+
+
+
 
 
 
 
 
 var Home = function Home() {
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_organisms_Section_BaseSection__WEBPACK_IMPORTED_MODULE_2__.default, {
-    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_atoms_Title_PageTitle__WEBPACK_IMPORTED_MODULE_1__.default, {
+  var selector = (0,react_redux__WEBPACK_IMPORTED_MODULE_1__.useSelector)(function (state) {
+    return state;
+  });
+
+  var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(false),
+      _useState2 = _slicedToArray(_useState, 2),
+      isShowing = _useState2[0],
+      setIsShowing = _useState2[1];
+
+  var _useState3 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(''),
+      _useState4 = _slicedToArray(_useState3, 2),
+      title = _useState4[0],
+      setTitle = _useState4[1];
+
+  var _useState5 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(''),
+      _useState6 = _slicedToArray(_useState5, 2),
+      content = _useState6[0],
+      setContent = _useState6[1];
+
+  var onClickCard = function onClickCard(postId) {
+    setIsShowing(true);
+    setTitle(selector.posts.post_array[postId]['title']);
+    setContent(selector.posts.post_array[postId]['content']);
+  };
+
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)(_organisms_Section_BaseSection__WEBPACK_IMPORTED_MODULE_4__.default, {
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_atoms_Title_PageTitle__WEBPACK_IMPORTED_MODULE_2__.default, {
       children: "Home"
-    })
+    }), isShowing ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)(_molecules_Post_Section__WEBPACK_IMPORTED_MODULE_7__.default, {
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_atoms_Post_Title__WEBPACK_IMPORTED_MODULE_5__.default, {
+        children: title
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_atoms_Post_Content__WEBPACK_IMPORTED_MODULE_6__.default, {
+        dangerouslySetInnerHTML: {
+          __html: content
+        }
+      })]
+    }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_molecules_Card_PostCardWrapper__WEBPACK_IMPORTED_MODULE_3__.PostCardWrapper, {
+      post_array: selector.posts.post_array,
+      onClickCard: onClickCard
+    })]
   });
 };
 
@@ -5959,21 +6092,20 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _organisms_Section_BaseSection__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../organisms/Section/BaseSection */ "./resources/js/views/organisms/Section/BaseSection.js");
 /* harmony import */ var _atoms_Links_NewPostLink__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../atoms/Links/NewPostLink */ "./resources/js/views/atoms/Links/NewPostLink.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var react_hook_form__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react-hook-form */ "./node_modules/react-hook-form/dist/index.esm.js");
-/* harmony import */ var _atoms_Overlay_Overlay__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../atoms/Overlay/Overlay */ "./resources/js/views/atoms/Overlay/Overlay.js");
-/* harmony import */ var _organisms_Profile_Section__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../organisms/Profile/Section */ "./resources/js/views/organisms/Profile/Section.js");
-/* harmony import */ var _atoms_Links_CloseLink__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../atoms/Links/CloseLink */ "./resources/js/views/atoms/Links/CloseLink.js");
-/* harmony import */ var _atoms_Forms_CardForms_FormInput__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../atoms/Forms/CardForms/FormInput */ "./resources/js/views/atoms/Forms/CardForms/FormInput.js");
-/* harmony import */ var _atoms_Forms_CardForms_FormLabel__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../atoms/Forms/CardForms/FormLabel */ "./resources/js/views/atoms/Forms/CardForms/FormLabel.js");
-/* harmony import */ var _molecules_Card_BaseFormSection__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../molecules/Card/BaseFormSection */ "./resources/js/views/molecules/Card/BaseFormSection.js");
-/* harmony import */ var _atoms_buttons_BaseButton__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ../atoms/buttons/BaseButton */ "./resources/js/views/atoms/buttons/BaseButton.js");
-/* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
-/* harmony import */ var _reducks_posts_operations__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ../../reducks/posts/operations */ "./resources/js/reducks/posts/operations.js");
-/* harmony import */ var _tinymce_tinymce_react__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! @tinymce/tinymce-react */ "./node_modules/@tinymce/tinymce-react/lib/es2015/main/ts/index.js");
-/* harmony import */ var _styles_color__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ../styles/color */ "./resources/js/views/styles/color.js");
-/* harmony import */ var _atoms_Loader_StyledLoader__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ../atoms/Loader/StyledLoader */ "./resources/js/views/atoms/Loader/StyledLoader.js");
-/* harmony import */ var _molecules_Card_PostCardWrapper__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ../molecules/Card/PostCardWrapper */ "./resources/js/views/molecules/Card/PostCardWrapper.jsx");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+/* harmony import */ var _atoms_Overlay_Overlay__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../atoms/Overlay/Overlay */ "./resources/js/views/atoms/Overlay/Overlay.js");
+/* harmony import */ var _organisms_Profile_Section__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../organisms/Profile/Section */ "./resources/js/views/organisms/Profile/Section.js");
+/* harmony import */ var _atoms_Links_CloseLink__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../atoms/Links/CloseLink */ "./resources/js/views/atoms/Links/CloseLink.js");
+/* harmony import */ var _atoms_Forms_CardForms_FormInput__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../atoms/Forms/CardForms/FormInput */ "./resources/js/views/atoms/Forms/CardForms/FormInput.js");
+/* harmony import */ var _atoms_Forms_CardForms_FormLabel__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../atoms/Forms/CardForms/FormLabel */ "./resources/js/views/atoms/Forms/CardForms/FormLabel.js");
+/* harmony import */ var _molecules_Card_BaseFormSection__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../molecules/Card/BaseFormSection */ "./resources/js/views/molecules/Card/BaseFormSection.js");
+/* harmony import */ var _atoms_buttons_BaseButton__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../atoms/buttons/BaseButton */ "./resources/js/views/atoms/buttons/BaseButton.js");
+/* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
+/* harmony import */ var _reducks_posts_operations__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ../../reducks/posts/operations */ "./resources/js/reducks/posts/operations.js");
+/* harmony import */ var _tinymce_tinymce_react__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! @tinymce/tinymce-react */ "./node_modules/@tinymce/tinymce-react/lib/es2015/main/ts/index.js");
+/* harmony import */ var _styles_color__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ../styles/color */ "./resources/js/views/styles/color.js");
+/* harmony import */ var _atoms_Loader_StyledLoader__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ../atoms/Loader/StyledLoader */ "./resources/js/views/atoms/Loader/StyledLoader.js");
+/* harmony import */ var _molecules_Card_PostCardWrapper__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ../molecules/Card/PostCardWrapper */ "./resources/js/views/molecules/Card/PostCardWrapper.jsx");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
 function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
 
 function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
@@ -6007,9 +6139,8 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 
 
-
 var Post = function Post() {
-  var dispatch = (0,react_redux__WEBPACK_IMPORTED_MODULE_12__.useDispatch)();
+  var dispatch = (0,react_redux__WEBPACK_IMPORTED_MODULE_11__.useDispatch)();
 
   var _useState = (0,react__WEBPACK_IMPORTED_MODULE_3__.useState)(false),
       _useState2 = _slicedToArray(_useState, 2),
@@ -6041,7 +6172,7 @@ var Post = function Post() {
       content = _useState12[0],
       setContent = _useState12[1];
 
-  var selector = (0,react_redux__WEBPACK_IMPORTED_MODULE_12__.useSelector)(function (state) {
+  var selector = (0,react_redux__WEBPACK_IMPORTED_MODULE_11__.useSelector)(function (state) {
     return state;
   });
 
@@ -6049,9 +6180,9 @@ var Post = function Post() {
     setLoading(true);
 
     if (id === null) {
-      dispatch((0,_reducks_posts_operations__WEBPACK_IMPORTED_MODULE_13__.addPost)(title, content, setShow, setLoading));
+      dispatch((0,_reducks_posts_operations__WEBPACK_IMPORTED_MODULE_12__.addPost)(title, content, setShow, setLoading));
     } else {
-      dispatch((0,_reducks_posts_operations__WEBPACK_IMPORTED_MODULE_13__.updatePost)(id, title, content, setShow, setLoading));
+      dispatch((0,_reducks_posts_operations__WEBPACK_IMPORTED_MODULE_12__.updatePost)(id, title, content, setShow, setLoading));
     }
   };
 
@@ -6066,51 +6197,51 @@ var Post = function Post() {
   var onClickCard = function onClickCard(id) {
     setShow(true);
     setInitPost(selector.posts.post_array[id]);
-    setId(id);
+    setId(selector.posts.post_array[id]['id']);
     setTitle(selector.posts.post_array[id]['title']);
     setContent(selector.posts.post_array[id]['content']);
   };
 
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_18__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_18__.Fragment, {
-    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_18__.jsxs)(_organisms_Section_BaseSection__WEBPACK_IMPORTED_MODULE_1__.default, {
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_18__.jsx)(_atoms_Title_PageTitle__WEBPACK_IMPORTED_MODULE_0__.default, {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_17__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_17__.Fragment, {
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_17__.jsxs)(_organisms_Section_BaseSection__WEBPACK_IMPORTED_MODULE_1__.default, {
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_17__.jsx)(_atoms_Title_PageTitle__WEBPACK_IMPORTED_MODULE_0__.default, {
         children: "Post"
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_18__.jsx)(_atoms_Links_NewPostLink__WEBPACK_IMPORTED_MODULE_2__.default, {
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_17__.jsx)(_atoms_Links_NewPostLink__WEBPACK_IMPORTED_MODULE_2__.default, {
         onClick: function onClick() {
           return _onClick();
         },
         children: "New Post"
       })]
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_18__.jsx)(_molecules_Card_PostCardWrapper__WEBPACK_IMPORTED_MODULE_17__.PostCardWrapper, {
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_17__.jsx)(_molecules_Card_PostCardWrapper__WEBPACK_IMPORTED_MODULE_16__.PostCardWrapper, {
       post_array: selector.posts.post_array,
       onClickCard: onClickCard
-    }), show ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_18__.jsx)(_atoms_Overlay_Overlay__WEBPACK_IMPORTED_MODULE_5__.Overlay, {
-      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_18__.jsxs)(_organisms_Profile_Section__WEBPACK_IMPORTED_MODULE_6__.default, {
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_18__.jsx)(_atoms_Links_CloseLink__WEBPACK_IMPORTED_MODULE_7__.default, {
+    }), show ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_17__.jsx)(_atoms_Overlay_Overlay__WEBPACK_IMPORTED_MODULE_4__.Overlay, {
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_17__.jsxs)(_organisms_Profile_Section__WEBPACK_IMPORTED_MODULE_5__.default, {
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_17__.jsx)(_atoms_Links_CloseLink__WEBPACK_IMPORTED_MODULE_6__.default, {
           onClick: function onClick() {
             return setShow(false);
           },
           children: "\xD7"
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_18__.jsx)(_molecules_Card_BaseFormSection__WEBPACK_IMPORTED_MODULE_10__.default, {
-          children: loading !== false ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_18__.jsx)(_atoms_Loader_StyledLoader__WEBPACK_IMPORTED_MODULE_16__.default, {
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_17__.jsx)(_molecules_Card_BaseFormSection__WEBPACK_IMPORTED_MODULE_9__.default, {
+          children: loading !== false ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_17__.jsx)(_atoms_Loader_StyledLoader__WEBPACK_IMPORTED_MODULE_15__.default, {
             type: "Puff",
-            color: _styles_color__WEBPACK_IMPORTED_MODULE_15__.default.Card.Form.Color,
+            color: _styles_color__WEBPACK_IMPORTED_MODULE_14__.default.Card.Form.Color,
             height: 80,
             width: 80
-          }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_18__.jsxs)("form", {
+          }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_17__.jsxs)("form", {
             onSubmit: onSubmit,
-            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_18__.jsx)(_atoms_Forms_CardForms_FormLabel__WEBPACK_IMPORTED_MODULE_9__.default, {
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_17__.jsx)(_atoms_Forms_CardForms_FormLabel__WEBPACK_IMPORTED_MODULE_8__.default, {
               children: "TITLE"
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_18__.jsx)(_atoms_Forms_CardForms_FormInput__WEBPACK_IMPORTED_MODULE_8__.default, {
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_17__.jsx)(_atoms_Forms_CardForms_FormInput__WEBPACK_IMPORTED_MODULE_7__.default, {
               type: "text",
               name: "title",
               value: title,
               onChange: function onChange(e) {
                 setTitle(e.target.value);
               }
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_18__.jsx)(_atoms_Forms_CardForms_FormLabel__WEBPACK_IMPORTED_MODULE_9__.default, {
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_17__.jsx)(_atoms_Forms_CardForms_FormLabel__WEBPACK_IMPORTED_MODULE_8__.default, {
               children: "MAIN CONTENT"
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_18__.jsx)(_tinymce_tinymce_react__WEBPACK_IMPORTED_MODULE_14__.Editor, {
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_17__.jsx)(_tinymce_tinymce_react__WEBPACK_IMPORTED_MODULE_13__.Editor, {
               apiKey: "q5zp8m09wildzftbqilyqzfr2ifw3ls8z31e5rkpu9sjri40",
               init: {
                 plugins: 'link image code autosave',
@@ -6121,7 +6252,7 @@ var Post = function Post() {
               onEditorChange: function onEditorChange(newValue, editor) {
                 return setContent(newValue);
               }
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_18__.jsx)(_atoms_buttons_BaseButton__WEBPACK_IMPORTED_MODULE_11__.default, {
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_17__.jsx)(_atoms_buttons_BaseButton__WEBPACK_IMPORTED_MODULE_10__.default, {
               type: "submit",
               minWidth: 8,
               minHeight: 2,
@@ -6132,7 +6263,7 @@ var Post = function Post() {
           })
         })]
       })
-    }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_18__.jsx)("span", {})]
+    }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_17__.jsx)("span", {})]
   });
 };
 
@@ -6239,7 +6370,7 @@ function _taggedTemplateLiteral(strings, raw) { if (!raw) { raw = strings.slice(
 
 var Main = styled_components__WEBPACK_IMPORTED_MODULE_1__.default.main(_templateObject || (_templateObject = _taggedTemplateLiteral(["\n    display: flex;\n    height: 100%;\n    @media screen and (max-width:", "px) {\n        flex-direction: column-reverse;\n    }\n"])), _size__WEBPACK_IMPORTED_MODULE_0__.default.MediaScreen.Small);
 var Section = styled_components__WEBPACK_IMPORTED_MODULE_1__.default.section(_templateObject2 || (_templateObject2 = _taggedTemplateLiteral(["\n    display: flex;\n    flex-flow: column;\n    flex-grow: 1;\n"])));
-var Nav = styled_components__WEBPACK_IMPORTED_MODULE_1__.default.nav(_templateObject3 || (_templateObject3 = _taggedTemplateLiteral(["\n    flex: 1;\n"])));
+var Nav = styled_components__WEBPACK_IMPORTED_MODULE_1__.default.nav(_templateObject3 || (_templateObject3 = _taggedTemplateLiteral(["\n    overflow: auto;\n    flex: 1;\n"])));
 var ProfileSection = styled_components__WEBPACK_IMPORTED_MODULE_1__.default.section(_templateObject4 || (_templateObject4 = _taggedTemplateLiteral(["\n    display: flex;\n    padding: 16px;\n    justify-content: space-around;\n"])));
 
 /***/ }),
