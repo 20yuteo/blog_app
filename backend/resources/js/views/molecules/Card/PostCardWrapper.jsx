@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import Size from "../../styles/size";
 import PostCard from "./PostCard";
+import { Link } from 'react-router-dom';
 
 const StyledPostCardWrapper = styled.section`
     display: flex;
@@ -20,18 +21,14 @@ const StyledPostCardWrapper = styled.section`
 
 export const PostCardWrapper = (props) => {
 
-    const getPostDetail = (id) => {
-        props.onClickCard(id);
-    }
-
     let postSectionArray = [];
 
     if (props.post_array.length !== 0){
         for (let i = 0; i < props.post_array.length; i ++){
             postSectionArray.push(
-                <a onClick={() => getPostDetail(i)}>
+                <Link to={"/post/" + props.post_array[i]['id']}>
                     <PostCard dangerouslySetInnerHTML={{__html: props.post_array[i]['title'] }} key={props.post_array[i]['id']} />
-                </a>
+                </Link>
             );
         }
     }
