@@ -9,7 +9,6 @@ const StyledPostCardWrapper = styled.section`
     max-width: 560px;
     max-height: 400px;
     margin: auto;
-    overflow: scroll;
     padding: 16px;
     @media screen and (min-width:${Size.MediaScreen.Small}px) and ( max-width:${Size.MediaScreen.Medium}px) {
         max-height: 400px;
@@ -21,8 +20,8 @@ const StyledPostCardWrapper = styled.section`
 
 export const PostCardWrapper = (props) => {
 
-    const getPostDetail = (postId) => {
-        props.onClickCard(postId);
+    const getPostDetail = (id) => {
+        props.onClickCard(id);
     }
 
     let postSectionArray = [];
@@ -30,7 +29,7 @@ export const PostCardWrapper = (props) => {
     if (props.post_array.length !== 0){
         for (let i = 0; i < props.post_array.length; i ++){
             postSectionArray.push(
-                <a onClick={() => getPostDetail(props.post_array[i]['id'])}>
+                <a onClick={() => getPostDetail(i)}>
                     <PostCard dangerouslySetInnerHTML={{__html: props.post_array[i]['title'] }} key={props.post_array[i]['id']} />
                 </a>
             );
