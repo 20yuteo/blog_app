@@ -2,7 +2,6 @@ import PageTitle from "../atoms/Title/PageTitle"
 import BaseSection from "../organisms/Section/BaseSection";
 import NewPostLink from "../atoms/Links/NewPostLink";
 import { useState } from "react";
-import { useForm } from "react-hook-form";
 import { Overlay } from "../atoms/Overlay/Overlay";
 import Section from "../organisms/Profile/Section";
 import CloseLink from "../atoms/Links/CloseLink";
@@ -56,7 +55,7 @@ const Post = () => {
     const onClickCard = id => {
         setShow(true);
         setInitPost(selector.posts.post_array[id]);
-        setId(id);
+        setId(selector.posts.post_array[id]['id']);
         setTitle(selector.posts.post_array[id]['title']);
         setContent(selector.posts.post_array[id]['content']);
     }
