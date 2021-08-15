@@ -9,10 +9,10 @@ const BaseSection = styled.section`
         max-width: 32rem;
     }
     @media screen and (min-width:${Size.MediaScreen.Small}px) and ( max-width:${Size.MediaScreen.Medium}px) {
-        max-width: 32rem;
+        max-width: 64rem;
     }
     @media screen and (min-width:${Size.MediaScreen.Large}px) {
-        max-width: 64rem;
+        max-width: 96rem;
     }
 `;
 export default BaseSection;
