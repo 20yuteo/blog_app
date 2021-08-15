@@ -23,6 +23,11 @@ class RequestTest extends TestCase
                 'name' => 'test name'
             ])
             ->create();
+
+        $this->post = Post::factory()
+            ->state([
+                'user_id' => $this->user->id
+            ])->create();
     }
 
     /**
@@ -77,7 +82,37 @@ class RequestTest extends TestCase
                 'result' => true
             ]);
 
-        $this->assertSame(1, Post::all()->count());
+        $this->assertSame(2, Post::all()->count());
+    }
+
+    /**
+     * A request for update post when unAuthorized.
+     *
+     * @return void
+     */
+    public function testUpdatePostRequestWhenUnAuthorized()
+    {
+        $this->withoutExceptionHandling();
+        $this->expectException(Exception::class);
+        ($this->putJson('api/post', ['id' => $this->post->id, 'title' => 'updated title', 'content' => 'updated content']))->execute(1);
+    }
+
+    /**
+     * A request for update post when Authorized.
+     *
+     * @return void
+     */
+    public function testUpdatePostRequestWhenAuthorized()
+    {
+        $this->withoutExceptionHandling();
+        $result = $this->actingAs($this->user)
+            ->putJson('api/post', ['id' => $this->post->id, 'title' => 'updated title', 'content' => 'updated content']);
+        $result->assertOk()
+            ->assertJson([
+                'result' => true
+            ]);
+        $this->assertSame('updated title', Post::find($this->post->id)->title);
+        $this->assertSame('updated content', Post::find($this->post->id)->content);
     }
 
     /**
@@ -100,6 +135,6 @@ class RequestTest extends TestCase
         $this->expectException(Exception::class);
         ($this->actingAs($this->user)
             ->postJson('api/post', ['title' => 'test title', 'content' => 'test content']))->execute(1);
-        $this->assertSame(0, Post::all()->count());
+        $this->assertSame(1, Post::all()->count());
     }
 }
