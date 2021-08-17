@@ -5485,7 +5485,7 @@ function _taggedTemplateLiteral(strings, raw) { if (!raw) { raw = strings.slice(
 
 
 
-var Links = styled_components__WEBPACK_IMPORTED_MODULE_2__.default.div(_templateObject || (_templateObject = _taggedTemplateLiteral(["\n    display: flex;\n    width: 100%;\n    border: 8px solid ", ";\n    overflow:scroll;\n    background: ", ";\n    @media screen and (min-width:", "px) {\n        flex-flow: column;\n        border-right: 8px solid ", ";\n        width: 16rem;\n        height: 100%;\n    }\n"])), _styles_color__WEBPACK_IMPORTED_MODULE_0__.default.Stroke, _styles_color__WEBPACK_IMPORTED_MODULE_0__.default.Stroke, _styles_size__WEBPACK_IMPORTED_MODULE_1__.default.MediaScreen.Small, _styles_color__WEBPACK_IMPORTED_MODULE_0__.default.Stroke);
+var Links = styled_components__WEBPACK_IMPORTED_MODULE_2__.default.div(_templateObject || (_templateObject = _taggedTemplateLiteral(["\n    display: flex;\n    border: 8px solid ", ";\n    overflow:scroll;\n    background: ", ";\n    @media screen and (min-width:", "px) {\n        flex-flow: column;\n        border-right: 8px solid ", ";\n        width: 16rem;\n        height: 100%;\n    }\n"])), _styles_color__WEBPACK_IMPORTED_MODULE_0__.default.Stroke, _styles_color__WEBPACK_IMPORTED_MODULE_0__.default.Stroke, _styles_size__WEBPACK_IMPORTED_MODULE_1__.default.MediaScreen.Small, _styles_color__WEBPACK_IMPORTED_MODULE_0__.default.Stroke);
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Links);
 
 /***/ }),
@@ -6231,9 +6231,58 @@ var Post = function Post() {
             }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_17__.jsx)(_tinymce_tinymce_react__WEBPACK_IMPORTED_MODULE_13__.Editor, {
               apiKey: "q5zp8m09wildzftbqilyqzfr2ifw3ls8z31e5rkpu9sjri40",
               init: {
-                plugins: 'link image code autosave',
-                toolbar: 'undo redo | bold italic | alignleft aligncenter alignright | code image link',
-                height: 500
+                selector: "textarea",
+                plugins: ["advlist autolink lists link image preview anchor code textpattern"],
+                toolbar: "bold italic | bullist numlist | link image",
+                height: 500,
+                textpattern_patterns: [{
+                  start: '*',
+                  end: '*',
+                  format: 'italic'
+                }, {
+                  start: '**',
+                  end: '**',
+                  format: 'bold'
+                }, {
+                  start: '#',
+                  format: 'h1'
+                }, {
+                  start: '##',
+                  format: 'h2'
+                }, {
+                  start: '###',
+                  format: 'h3'
+                }, {
+                  start: '####',
+                  format: 'h4'
+                }, {
+                  start: '#####',
+                  format: 'h5'
+                }, {
+                  start: '######',
+                  format: 'h6'
+                }, {
+                  start: '1. ',
+                  cmd: 'InsertOrderedList'
+                }, {
+                  start: '* ',
+                  cmd: 'InsertUnorderedList'
+                }, {
+                  start: '- ',
+                  cmd: 'InsertUnorderedList'
+                }, {
+                  start: '---',
+                  replacement: '<hr/>'
+                }, {
+                  start: '--',
+                  replacement: '—'
+                }, {
+                  start: '-',
+                  replacement: '—'
+                }, {
+                  start: '//code',
+                  replacement: '<code style="width: 100%; display: inline-block; padding: 0.1em 0.25em; color: #fffffe; background-color: #001858; border-radius: 3px; border: solid 1px #001858; overflow: scroll; font-family: Consolas, Menlo, Monaco, -apple-system, BlinkMacSystemFont, "Segoe UI", Meiryo, monospace;">code here</code>'
+                }]
               },
               value: content,
               onEditorChange: function onEditorChange(newValue, editor) {
