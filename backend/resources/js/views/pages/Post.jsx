@@ -81,9 +81,29 @@ const Post = () => {
                                                 <Editor
                                                     apiKey='q5zp8m09wildzftbqilyqzfr2ifw3ls8z31e5rkpu9sjri40'
                                                     init={{
-                                                        plugins: 'link image code autosave',
-                                                        toolbar: 'undo redo | bold italic | alignleft aligncenter alignright | code image link',
+                                                        selector: "textarea",
+                                                        plugins: [
+                                                            "advlist autolink lists link image preview anchor code textpattern"
+                                                        ],
+                                                        toolbar: "bold italic | bullist numlist | link image",
                                                         height: 500,
+                                                        textpattern_patterns: [
+                                                            {start: '*', end: '*', format: 'italic'},
+                                                            {start: '**', end: '**', format: 'bold'},
+                                                            {start: '#', format: 'h1'},
+                                                            {start: '##', format: 'h2'},
+                                                            {start: '###', format: 'h3'},
+                                                            {start: '####', format: 'h4'},
+                                                            {start: '#####', format: 'h5'},
+                                                            {start: '######', format: 'h6'},
+                                                            {start: '1. ', cmd: 'InsertOrderedList'},
+                                                            {start: '* ', cmd: 'InsertUnorderedList'},
+                                                            {start: '- ', cmd: 'InsertUnorderedList' },
+                                                            {start: '---', replacement: '<hr/>'},
+                                                            {start: '--', replacement: '—'},
+                                                            {start: '-', replacement: '—'},
+                                                            {start: '//code', replacement: '<code style="width: 100%; display: inline-block; padding: 0.1em 0.25em; color: #fffffe; background-color: #001858; border-radius: 3px; border: solid 1px #001858; overflow: scroll; font-family: Consolas, Menlo, Monaco, -apple-system, BlinkMacSystemFont, "Segoe UI", Meiryo, monospace;">code here</code>'}
+                                                        ]
                                                     }}
                                                     value={ content }
                                                     onEditorChange={(newValue, editor) => setContent( newValue )}
