@@ -4,7 +4,6 @@ import Size from "../styles/size";
 
 const Links = styled.div`
     display: flex;
-    width: 100%;
     border: 8px solid ${Color.Stroke};
     overflow:scroll;
     background: ${ Color.Stroke };
