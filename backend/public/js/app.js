@@ -5017,7 +5017,7 @@ function _taggedTemplateLiteral(strings, raw) { if (!raw) { raw = strings.slice(
 
 
 
-var Title = styled_components__WEBPACK_IMPORTED_MODULE_2__.default.div(_templateObject || (_templateObject = _taggedTemplateLiteral(["\n    color: ", ";\n    font-size: ", "rem;\n    font-weight: ", ";\n    border-bottom: 8px solid ", ";\n    padding: 24px;\n    margin: 16px;\n"])), _styles_color__WEBPACK_IMPORTED_MODULE_1__.default.Headline, _styles_size__WEBPACK_IMPORTED_MODULE_0__.default.FontSize.Large, _styles_size__WEBPACK_IMPORTED_MODULE_0__.default.FontWeight, _styles_color__WEBPACK_IMPORTED_MODULE_1__.default.Headline);
+var Title = styled_components__WEBPACK_IMPORTED_MODULE_2__.default.h2(_templateObject || (_templateObject = _taggedTemplateLiteral(["\n    color: ", ";\n    font-weight: ", ";\n    border-bottom: 8px solid ", ";\n    padding: 24px;\n    margin: 16px;\n"])), _styles_color__WEBPACK_IMPORTED_MODULE_1__.default.Headline, _styles_size__WEBPACK_IMPORTED_MODULE_0__.default.FontWeight, _styles_color__WEBPACK_IMPORTED_MODULE_1__.default.Headline);
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Title);
 
 /***/ }),
@@ -5069,7 +5069,7 @@ function _taggedTemplateLiteral(strings, raw) { if (!raw) { raw = strings.slice(
 
 
 
-var PageTitle = styled_components__WEBPACK_IMPORTED_MODULE_2__.default.div(_templateObject || (_templateObject = _taggedTemplateLiteral(["\n    color: ", ";\n    font-size: ", "rem;\n    font-weight: ", ";\n    padding: 3rem;\n    text-align: left;\n"])), _styles_color__WEBPACK_IMPORTED_MODULE_1__.default.Headline, _styles_size__WEBPACK_IMPORTED_MODULE_0__.default.FontSize.Large, _styles_size__WEBPACK_IMPORTED_MODULE_0__.default.FontWeight);
+var PageTitle = styled_components__WEBPACK_IMPORTED_MODULE_2__.default.h1(_templateObject || (_templateObject = _taggedTemplateLiteral(["\n    color: ", ";\n    font-weight: ", ";\n    padding: 3rem;\n    text-align: left;\n"])), _styles_color__WEBPACK_IMPORTED_MODULE_1__.default.Headline, _styles_size__WEBPACK_IMPORTED_MODULE_0__.default.FontWeight);
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (PageTitle);
 
 /***/ }),
