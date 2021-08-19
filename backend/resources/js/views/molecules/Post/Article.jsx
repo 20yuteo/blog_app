@@ -4,7 +4,6 @@ import Title from "../../atoms/Post/Title";
 import { useParams } from "react-router";
 import { useSelector } from "react-redux";
 import BaseSection from "../../organisms/Section/BaseSection";
-import PageTitle from "../../atoms/Title/PageTitle";
 import marked from "marked";
 
 const StyledArticle = styled.section`
@@ -29,9 +28,6 @@ export const Article = () => {
 
     return(
         <BaseSection>
-            <PageTitle>
-                Article
-            </PageTitle>
             <StyledArticle>
                 <Title>
                     { selectedArticle.title }
