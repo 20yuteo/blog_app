@@ -3,7 +3,6 @@ import { useSelector } from "react-redux";
 import { Overlay } from '../atoms/Overlay/Overlay';
 import { ProfileImage } from '../atoms/Image/ProfileImage';
 import BaseButton from '../atoms/buttons/BaseButton';
-import PageTitle from '../atoms/Title/PageTitle';
 import { ProfileSection } from '../styles/element';
 import { useForm } from "react-hook-form";
 import UserImageForm from '../molecules/Card/UserImageForm';
@@ -24,9 +23,6 @@ const MyPage = () => {
 
     return (
         <BaseSection>
-            <PageTitle>
-                MyPage
-            </PageTitle>
             <ProfileSection>
                 <ProfileImage src={selector.users.image_url} />
                 <NameTag>{ selector.users.name }</NameTag>
