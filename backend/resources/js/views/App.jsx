@@ -8,7 +8,6 @@ import { Main } from './styles/element';
 import { ErrorBoundary } from '../ErrorBoundary';
 import { getLoginUser } from '../reducks/users/operations';
 import StyledLoader from './atoms/Loader/StyledLoader';
-import Color from './styles/color';
 import { getPosts } from '../reducks/posts/operations';
 
 const App = () => {
@@ -27,7 +26,7 @@ const App = () => {
             <NavBar />
             <Section>
                 <ErrorBoundary>
-                    { selector.loading.isLoading ? <StyledLoader type="Puff" color={ Color.Stroke } height={80} width={80} /> : <><Header/><Router users={selector.users} /></> }
+                    { selector.loading.isLoading ? <StyledLoader /> : <><Header/><Router users={selector.users} /></> }
                 </ErrorBoundary>
             </Section>
         </Main>
