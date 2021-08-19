@@ -1,7 +1,7 @@
 import React from 'react'
 import { Nav } from './styles/element';
 import { Route, Switch, Redirect } from 'react-router';
-import {Login, About, Home, MyPage} from './pages';
+import {Login, About, Home, MyPage, Editor} from './pages';
 import Post from './pages/Post';
 import { Article } from './molecules/Post/Article';
 
@@ -17,7 +17,15 @@ const Router = (props) => {
                 <Route exact path={"/my_page"}>
                     { props.users.isSignedIn ? <MyPage/> : <Redirect to="/login" /> }
                 </Route>
-                <Route path={"/post/:id"} component={Article} />
+                <Route path={"/post/:id"}>
+                    { props.users.isSignedIn ? <Article/> : <Redirect to="/" /> }
+                </Route>
+                <Route path={"/create"}>
+                    { props.users.isSignedIn ? <Editor /> : <Redirect to="/" /> }
+                </Route>
+                <Route path={"/edit:id"}>
+                    { !props.users.isSignedIn ? <Editor /> : <Redirect to="/my_page" /> }
+                </Route>
                 <Route>
                     { props.users.isSignedIn ? <Post/> : <Redirect to="/login" /> }
                 </Route>
