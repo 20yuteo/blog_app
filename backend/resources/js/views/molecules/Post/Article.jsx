@@ -5,6 +5,7 @@ import { useParams } from "react-router";
 import { useSelector } from "react-redux";
 import BaseSection from "../../organisms/Section/BaseSection";
 import PageTitle from "../../atoms/Title/PageTitle";
+import marked from "marked";
 
 const StyledArticle = styled.section`
     display: flex;
@@ -12,7 +13,8 @@ const StyledArticle = styled.section`
     height: 100%;
 `;
 
-export const Article = (props) => {
+export const Article = () => {
+
     const params = useParams();
 
     const selector = useSelector((state) => state);
@@ -34,7 +36,7 @@ export const Article = (props) => {
                 <Title>
                     { selectedArticle.title }
                 </Title>
-                <Content dangerouslySetInnerHTML={{__html: selectedArticle.content }} />
+                <Content dangerouslySetInnerHTML={{__html: marked(selectedArticle.content) }} />
             </StyledArticle>
         </BaseSection>
     )
