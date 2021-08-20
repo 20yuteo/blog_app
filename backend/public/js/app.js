@@ -4611,15 +4611,31 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var _styles_size__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../styles/size */ "./resources/js/views/styles/size.js");
 /* harmony import */ var _styles_color__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../styles/color */ "./resources/js/views/styles/color.js");
-/* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! styled-components */ "./node_modules/styled-components/dist/styled-components.browser.esm.js");
-var _templateObject;
+/* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! styled-components */ "./node_modules/styled-components/dist/styled-components.browser.esm.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+var _templateObject, _templateObject2, _templateObject3;
 
 function _taggedTemplateLiteral(strings, raw) { if (!raw) { raw = strings.slice(0); } return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } })); }
 
 
 
 
-var Title = styled_components__WEBPACK_IMPORTED_MODULE_2__.default.h2(_templateObject || (_templateObject = _taggedTemplateLiteral(["\n    color: ", ";\n    font-weight: ", ";\n    border-bottom: 8px solid ", ";\n    padding: 24px;\n    margin: 16px;\n"])), _styles_color__WEBPACK_IMPORTED_MODULE_1__.default.Headline, _styles_size__WEBPACK_IMPORTED_MODULE_0__.default.FontWeight, _styles_color__WEBPACK_IMPORTED_MODULE_1__.default.Headline);
+
+
+var StyledTitle = styled_components__WEBPACK_IMPORTED_MODULE_3__.default.div(_templateObject || (_templateObject = _taggedTemplateLiteral(["\n        font-size: 3.6rem;\n    "])));
+var StyledCreatedAt = styled_components__WEBPACK_IMPORTED_MODULE_3__.default.div(_templateObject2 || (_templateObject2 = _taggedTemplateLiteral(["\n        font-size: 1.6rem;\n    "])));
+var TitleWrapper = styled_components__WEBPACK_IMPORTED_MODULE_3__.default.div(_templateObject3 || (_templateObject3 = _taggedTemplateLiteral(["\n        color: ", ";\n        font-weight: ", ";\n        border: 8px solid ", ";\n        background-color: ", ";\n        color: ", ";\n        padding: 24px;\n        margin: 16px;\n        display: flex;\n        flex-direction: column;\n    "])), _styles_color__WEBPACK_IMPORTED_MODULE_1__.default.Headline, _styles_size__WEBPACK_IMPORTED_MODULE_0__.default.FontWeight, _styles_color__WEBPACK_IMPORTED_MODULE_1__.default.Headline, _styles_color__WEBPACK_IMPORTED_MODULE_1__.default.Card.Background, _styles_color__WEBPACK_IMPORTED_MODULE_1__.default.Card.Headline);
+
+var Title = function Title(props) {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)(TitleWrapper, {
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(StyledTitle, {
+      children: props.title
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)(StyledCreatedAt, {
+      children: ["created_at: ", props.created_at]
+    })]
+  });
+};
+
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Title);
 
 /***/ }),
@@ -5165,7 +5181,8 @@ var Article = function Article() {
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_organisms_Section_BaseSection__WEBPACK_IMPORTED_MODULE_3__.default, {
     children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)(StyledArticle, {
       children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_atoms_Post_Title__WEBPACK_IMPORTED_MODULE_1__.default, {
-        children: selectedArticle.title
+        title: selectedArticle.title,
+        created_at: selectedArticle.created_at
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_atoms_Post_Content__WEBPACK_IMPORTED_MODULE_0__.default, {
         dangerouslySetInnerHTML: {
           __html: marked__WEBPACK_IMPORTED_MODULE_4___default()(selectedArticle.content)
