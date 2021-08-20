@@ -29,9 +29,7 @@ export const Article = () => {
     return(
         <BaseSection>
             <StyledArticle>
-                <Title>
-                    { selectedArticle.title }
-                </Title>
+                <Title title={ selectedArticle.title } created_at={ selectedArticle.created_at } />
                 <Content dangerouslySetInnerHTML={{__html: marked(selectedArticle.content) }} />
             </StyledArticle>
         </BaseSection>
