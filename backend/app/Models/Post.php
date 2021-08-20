@@ -14,6 +14,11 @@ class Post extends Model
         'content'
     ];
 
+    protected $casts = [
+        'created_at' => 'datetime:Y年m月d日',
+        'updated_at' => 'datetime:Y年m月d日',
+    ];
+
     public function users()
     {
         return $this->belongsTo('App\Models\User');
