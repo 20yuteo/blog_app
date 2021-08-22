@@ -29,10 +29,7 @@
             "App\\": "app/",
             "Database\\Factories\\": "database/factories/",
             "Database\\Seeders\\": "database/seeders/"
-        },
-        "classmap": [
-            "app/Repositories/Tag"
-        ]
+        }
     },
     "autoload-dev": {
         "psr-4": {
