@@ -28,5 +28,5 @@ jobs:
             php -v
             composer install
             cp .env.production .env
-            php artisan key:generate
-            php artisan migrate
+            php artisan key:generate --force
+            docker-compose exec app php artisan migrate --force
