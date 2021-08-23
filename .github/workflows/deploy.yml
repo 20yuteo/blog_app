@@ -26,4 +26,7 @@ jobs:
             git pull origin main
             cd backend
             php -v
+            composer install
+            cp .env.production .env
+            php artisan key:generate
             php artisan migrate
