@@ -38,9 +38,6 @@ const NavBar = () => {
             <LinkWrapper>
                 <BaseLink to={ '/' } backgroundColor={ Color.Background } borderColor={ Color.Stroke } Name={'Home'}/>
             </LinkWrapper>
-            <LinkWrapper>
-                <BaseLink to={ '/about' } backgroundColor={ Color.Secondary } borderColor={ Color.Stroke }  Name={'About'} />
-            </LinkWrapper>
                 { authComponent }
         </Links>
     );
