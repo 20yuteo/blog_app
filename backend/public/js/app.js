@@ -4027,10 +4027,6 @@ var Router = function Router(props) {
     children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)(react_router__WEBPACK_IMPORTED_MODULE_6__.Switch, {
       children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(react_router__WEBPACK_IMPORTED_MODULE_6__.Route, {
         exact: true,
-        path: "/about",
-        component: _pages__WEBPACK_IMPORTED_MODULE_2__.About
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(react_router__WEBPACK_IMPORTED_MODULE_6__.Route, {
-        exact: true,
         path: "(/)?",
         component: _pages__WEBPACK_IMPORTED_MODULE_2__.Home
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(react_router__WEBPACK_IMPORTED_MODULE_6__.Route, {
@@ -5425,32 +5421,6 @@ var BaseSection = styled_components__WEBPACK_IMPORTED_MODULE_0__.default.section
 
 /***/ }),
 
-/***/ "./resources/js/views/pages/About.jsx":
-/*!********************************************!*\
-  !*** ./resources/js/views/pages/About.jsx ***!
-  \********************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var _organisms_Section_BaseSection__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../organisms/Section/BaseSection */ "./resources/js/views/organisms/Section/BaseSection.js");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
-
-
-
-
-var About = function About() {
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_organisms_Section_BaseSection__WEBPACK_IMPORTED_MODULE_1__.default, {});
-};
-
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (About);
-
-/***/ }),
-
 /***/ "./resources/js/views/pages/Editor.jsx":
 /*!*********************************************!*\
   !*** ./resources/js/views/pages/Editor.jsx ***!
@@ -5811,18 +5781,15 @@ var Post = function Post() {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "About": () => (/* reexport safe */ _About__WEBPACK_IMPORTED_MODULE_0__.default),
-/* harmony export */   "Home": () => (/* reexport safe */ _Home__WEBPACK_IMPORTED_MODULE_1__.default),
-/* harmony export */   "Login": () => (/* reexport safe */ _Login__WEBPACK_IMPORTED_MODULE_2__.default),
-/* harmony export */   "MyPage": () => (/* reexport safe */ _MyPage__WEBPACK_IMPORTED_MODULE_3__.default),
-/* harmony export */   "Editor": () => (/* reexport safe */ _Editor__WEBPACK_IMPORTED_MODULE_4__.default)
+/* harmony export */   "Home": () => (/* reexport safe */ _Home__WEBPACK_IMPORTED_MODULE_0__.default),
+/* harmony export */   "Login": () => (/* reexport safe */ _Login__WEBPACK_IMPORTED_MODULE_1__.default),
+/* harmony export */   "MyPage": () => (/* reexport safe */ _MyPage__WEBPACK_IMPORTED_MODULE_2__.default),
+/* harmony export */   "Editor": () => (/* reexport safe */ _Editor__WEBPACK_IMPORTED_MODULE_3__.default)
 /* harmony export */ });
-/* harmony import */ var _About__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./About */ "./resources/js/views/pages/About.jsx");
-/* harmony import */ var _Home__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Home */ "./resources/js/views/pages/Home.jsx");
-/* harmony import */ var _Login__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./Login */ "./resources/js/views/pages/Login.jsx");
-/* harmony import */ var _MyPage__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./MyPage */ "./resources/js/views/pages/MyPage.jsx");
-/* harmony import */ var _Editor__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./Editor */ "./resources/js/views/pages/Editor.jsx");
-
+/* harmony import */ var _Home__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Home */ "./resources/js/views/pages/Home.jsx");
+/* harmony import */ var _Login__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Login */ "./resources/js/views/pages/Login.jsx");
+/* harmony import */ var _MyPage__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./MyPage */ "./resources/js/views/pages/MyPage.jsx");
+/* harmony import */ var _Editor__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./Editor */ "./resources/js/views/pages/Editor.jsx");
 
 
 
@@ -6037,13 +6004,6 @@ var NavBar = function NavBar() {
         backgroundColor: _styles_color__WEBPACK_IMPORTED_MODULE_6__.default.Background,
         borderColor: _styles_color__WEBPACK_IMPORTED_MODULE_6__.default.Stroke,
         Name: 'Home'
-      })
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_molecules_LinkWrapper__WEBPACK_IMPORTED_MODULE_4__.LinkWrapper, {
-      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_atoms_Links_BaseLink__WEBPACK_IMPORTED_MODULE_3__.default, {
-        to: '/about',
-        backgroundColor: _styles_color__WEBPACK_IMPORTED_MODULE_6__.default.Secondary,
-        borderColor: _styles_color__WEBPACK_IMPORTED_MODULE_6__.default.Stroke,
-        Name: 'About'
       })
     }), authComponent]
   });
