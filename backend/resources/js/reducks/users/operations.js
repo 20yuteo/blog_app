@@ -12,7 +12,7 @@ export const signIn = (email, password) => {
         if (!isSignedIn){
             Loading(true, dispatch);
             axios.get('sanctum/csrf-cookie').then(res => {
-                axios.post("api/login", {
+                axios.post("login", {
                     email,
                     password
                 }).then(res => {
@@ -41,7 +41,7 @@ export const signOut = () => {
 
         if (isSignedIn){
             Loading(true, dispatch);
-            axios.get("api/logout").then(res => {
+            axios.get("logout").then(res => {
                 Loading(false, dispatch);
                 dispatch(signOutAction())
                 dispatch(push('/'))
