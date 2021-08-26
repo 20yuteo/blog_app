@@ -3,6 +3,7 @@
 namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
+use Illuminate\Support\Facades\View;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -32,5 +33,8 @@ class AppServiceProvider extends ServiceProvider
             \App\Repositories\Post\PostRepositoryInterface::class,
             \App\Repositories\Post\PostRepository::class,
         );
+
+        $is_production = env('APP_ENV') === 'production' ? true : false;
+        View::share('is_production',$is_production);
     }
 }

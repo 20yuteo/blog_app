@@ -10,7 +10,7 @@
     <title>{{ config('app.name', 'Laravel') }}</title>
 
     <!-- Scripts -->
-    <script src="{{ asset('js/app.js', true) }}" defer></script>
+    <script src="{{ asset('js/app.js', $is_production) }}" defer></script>
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
@@ -18,7 +18,7 @@
 
     <!-- Styles -->
     <link href="https://cdn.jsdelivr.net/npm/reset-css@5.0.1/reset.min.css" rel="stylesheet">
-    <link href="{{ asset('css/base.css', true) }}" rel="stylesheet">
+    <link href="{{ asset('css/base.css', $is_production) }}" rel="stylesheet">
     <link rel="stylesheet" href="https://unpkg.com/easymde/dist/easymde.min.css">
 
     {{-- highlight --}}
