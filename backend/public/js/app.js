@@ -3694,7 +3694,7 @@ var signIn = function signIn(email, password) {
               if (!isSignedIn) {
                 (0,_loading_operations__WEBPACK_IMPORTED_MODULE_2__.Loading)(true, dispatch);
                 axios__WEBPACK_IMPORTED_MODULE_3___default().get('sanctum/csrf-cookie').then(function (res) {
-                  axios__WEBPACK_IMPORTED_MODULE_3___default().post("login", {
+                  axios__WEBPACK_IMPORTED_MODULE_3___default().post("api/login", {
                     email: email,
                     password: password
                   }).then(function (res) {
@@ -3740,7 +3740,7 @@ var signOut = function signOut() {
 
               if (isSignedIn) {
                 (0,_loading_operations__WEBPACK_IMPORTED_MODULE_2__.Loading)(true, dispatch);
-                axios__WEBPACK_IMPORTED_MODULE_3___default().get("logout").then(function (res) {
+                axios__WEBPACK_IMPORTED_MODULE_3___default().get("api/logout").then(function (res) {
                   (0,_loading_operations__WEBPACK_IMPORTED_MODULE_2__.Loading)(false, dispatch);
                   dispatch((0,_actions__WEBPACK_IMPORTED_MODULE_1__.signOutAction)());
                   dispatch((0,connected_react_router__WEBPACK_IMPORTED_MODULE_5__.push)('/'));
