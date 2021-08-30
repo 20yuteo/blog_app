@@ -3,11 +3,11 @@
     "scripts": {
         "dev": "npm run development",
         "development": "mix",
-        "watch": "mix watch",
+        "watch": "cross-env NODE_ENV=development ENV_FILE=./.env mix watch",
         "watch-poll": "mix watch -- --watch-options-poll=1000",
         "hot": "mix watch --hot",
         "prod": "npm run production",
-        "production": "mix --production"
+        "production": "cross-env NODE_ENV=production ENV_FILE=./.env.production mix --production"
     },
     "devDependencies": {
         "@babel/preset-react": "^7.13.13",
@@ -16,6 +16,7 @@
         "@types/react-dom": "^17.0.8",
         "axios": "^0.21",
         "bootstrap": "^4.6.0",
+        "cross-env": "^7.0.3",
         "jquery": "^3.6",
         "laravel-mix": "^6.0.6",
         "lodash": "^4.17.19",
@@ -32,6 +33,7 @@
         "@tinymce/tinymce-react": "^3.12.6",
         "connected-react-router": "^6.9.1",
         "history": "^4.10.1",
+        "mix-env-file": "^0.1.1",
         "react-hook-form": "^7.11.1",
         "react-loader-spinner": "^4.0.0",
         "react-markdown": "^7.0.0",
