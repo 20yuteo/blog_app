@@ -23,7 +23,11 @@ window.axios = require('axios');
 
 window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 
-window.axios.defaults.baseURL = 'http://localhost';
+if (process.env.NODE_ENV === 'production'){
+    window.axios.defaults.baseURL = 'https://www.20yuteo.com';
+} else {
+    window.axios.defaults.baseURL = 'http://localhost';
+}
 
 window.axios.defaults.withCredentials = true;
 /**
