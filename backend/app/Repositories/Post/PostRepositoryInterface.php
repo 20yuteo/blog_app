@@ -3,6 +3,7 @@
 namespace App\Repositories\Post;
 
 use Illuminate\Http\Request;
+use App\Models\Post;
 
 interface PostRepositoryInterface {
 
@@ -18,7 +19,7 @@ interface PostRepositoryInterface {
      *
      * @param Request
      */
-    public function updatePost(Request $request);
+    public function updatePost(Post $post, Request $request);
 
     /**
      * get all post

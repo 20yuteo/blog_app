@@ -33,9 +33,9 @@ class PostRepository implements PostRepositoryInterface
      *
      * @param Request
      */
-    public function updatePost(Request $request)
+    public function updatePost(Post $post, Request $request)
     {
-        return Auth::user()->posts()->find($request->id)->fill($request->all())->save() ? true : false;
+        return $post->fill($request->all())->save();
     }
 
     /**
