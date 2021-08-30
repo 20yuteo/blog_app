@@ -11,34 +11,17 @@ const NavBar = () => {
 
     const dispatch = useDispatch();
 
-    const selector = useSelector((state) => state);
-
-    let authComponent;
-
-    if (selector.users.isSignedIn){
-        authComponent = <>
-                            <LinkWrapper>
-                                <BaseLink to={ '/post' } backgroundColor={ Color.Tertiary } borderColor={ Color.Stroke }  Name={'Post'} />
-                            </LinkWrapper>
-                            <LinkWrapper>
-                                <BaseLink to={ '/my_page' } backgroundColor={ Color.Secondary } borderColor={ Color.Stroke }  Name={'MyPage'} />
-                            </LinkWrapper>
-                            <LinkWrapper>
-                                <BaseButton type="button" minWidth={8} minHeight={2} paddingTop={1.2} paddingLeft={3} onClick={() => dispatch(signOut())}>Logout</BaseButton>
-                            </LinkWrapper>
-                        </>
-    } else {
-        authComponent = <LinkWrapper>
-                            <BaseLink to={ '/login' } backgroundColor={ Color.Tertiary } borderColor={ Color.Stroke } Name={'Login'} />
-                        </LinkWrapper>
-    }
-
     return (
         <Links>
             <LinkWrapper>
-                <BaseLink to={ '/' } backgroundColor={ Color.Background } borderColor={ Color.Stroke } Name={'Home'}/>
+                <BaseLink to={ '/post' } backgroundColor={ Color.Tertiary } borderColor={ Color.Stroke }  Name={'Post'} />
             </LinkWrapper>
-                { authComponent }
+            <LinkWrapper>
+                <BaseLink to={ '/my_page' } backgroundColor={ Color.Secondary } borderColor={ Color.Stroke }  Name={'MyPage'} />
+            </LinkWrapper>
+            <LinkWrapper>
+                <BaseButton type="button" minWidth={8} minHeight={2} paddingTop={1.2} paddingLeft={3} onClick={() => dispatch(signOut())}>Logout</BaseButton>
+            </LinkWrapper>
         </Links>
     );
 }
