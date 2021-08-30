@@ -2,7 +2,7 @@ import { useParams } from "react-router";
 import { useDispatch, useSelector } from "react-redux";
 import BaseSection from "../organisms/Section/BaseSection";
 import SimpleMDE from 'react-simplemde-editor';
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import FormLabel from "../atoms/Forms/MainForms/FormLabel";
 import FormInput from "../atoms/Forms/CardForms/FormInput";
 import { addPost, updatePost } from "../../reducks/posts/operations";
@@ -23,17 +23,20 @@ const Editor = () => {
 
     const [title, setTitle] = useState('');
 
-    const [content, setContent] = useState('initial value');
+    const [content, setContent] = useState('');
 
-    if (params.id !== undefined){
-        selector.posts.post_array.forEach(function(post){
-            if (post.id == params.id){
-                setId(post.id);
-                setTitle(post.title);
-                setContent(post.content);
-            }
-        });
-    }
+    useEffect(() => {
+        if (params.id !== undefined){
+            selector.posts.post_array.forEach(function(post){
+                if (post.id == params.id){
+                    setId(post.id);
+                    setTitle(post.title);
+                    setContent(post.content);
+                    return;
+                }
+            });
+        }
+    }, []);
 
     const onClick = (data, e) => {
         setLoading(true);

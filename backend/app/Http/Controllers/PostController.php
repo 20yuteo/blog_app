@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Repositories\Post\PostRepositoryInterface;
 use Illuminate\Http\Request;
+use App\Models\Post;
 use Illuminate\Support\Facades\DB;
 
 class PostController extends Controller
@@ -83,11 +84,11 @@ class PostController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request)
+    public function update(Post $post, Request $request)
     {
         DB::beginTransaction();
         try {
-            $this->post_repository->updatePost($request);
+            $this->post_repository->updatePost($post, $request);
             DB::commit();
             return response()->json(['result' => true]);
         } catch (\Exception $e){
