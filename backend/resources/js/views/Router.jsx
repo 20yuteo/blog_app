@@ -16,14 +16,14 @@ const Router = (props) => {
                 <Route exact path={"/my_page"}>
                     { props.users.isSignedIn ? <MyPage/> : <Redirect to="/login" /> }
                 </Route>
-                <Route path={"/post/:id"}>
-                    { props.users.isSignedIn ? <Article/> : <Redirect to="/" /> }
+                <Route path={"/post/edit/:id"}>
+                    { props.users.isSignedIn ? <Editor /> : <Redirect to="/my_page" /> }
                 </Route>
-                <Route path={"/create"}>
+                <Route exact path={"/post/create"}>
                     { props.users.isSignedIn ? <Editor /> : <Redirect to="/" /> }
                 </Route>
-                <Route path={"/edit:id"}>
-                    { !props.users.isSignedIn ? <Editor /> : <Redirect to="/my_page" /> }
+                <Route path={"/post/:id"}>
+                    { props.users.isSignedIn ? <Article/> : <Redirect to="/" /> }
                 </Route>
                 <Route>
                     { props.users.isSignedIn ? <Post/> : <Redirect to="/login" /> }
