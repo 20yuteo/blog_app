@@ -3983,7 +3983,7 @@ var App = function App() {
     dispatch((0,_reducks_posts_operations__WEBPACK_IMPORTED_MODULE_9__.getPosts)());
   }, []);
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsxs)(_styles_element__WEBPACK_IMPORTED_MODULE_5__.Main, {
-    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)(_template_NavBar__WEBPACK_IMPORTED_MODULE_2__.default, {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)(_styles_element__WEBPACK_IMPORTED_MODULE_5__.Section, {
+    children: [selector.users.isSignedIn ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)(_template_NavBar__WEBPACK_IMPORTED_MODULE_2__.default, {}) : '', /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)(_styles_element__WEBPACK_IMPORTED_MODULE_5__.Section, {
       children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)(_ErrorBoundary__WEBPACK_IMPORTED_MODULE_6__.ErrorBoundary, {
         children: selector.loading.isLoading ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)(_atoms_Loader_StyledLoader__WEBPACK_IMPORTED_MODULE_8__.default, {}) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.Fragment, {
           children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)(_organisms_Header_Hearder__WEBPACK_IMPORTED_MODULE_4__.default, {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)(_Router__WEBPACK_IMPORTED_MODULE_3__.default, {
@@ -5997,64 +5997,36 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-
 var NavBar = function NavBar() {
   var dispatch = (0,react_redux__WEBPACK_IMPORTED_MODULE_1__.useDispatch)();
-  var selector = (0,react_redux__WEBPACK_IMPORTED_MODULE_1__.useSelector)(function (state) {
-    return state;
-  });
-  var authComponent;
-
-  if (selector.users.isSignedIn) {
-    authComponent = /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.Fragment, {
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_molecules_LinkWrapper__WEBPACK_IMPORTED_MODULE_4__.LinkWrapper, {
-        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_atoms_Links_BaseLink__WEBPACK_IMPORTED_MODULE_3__.default, {
-          to: '/post',
-          backgroundColor: _styles_color__WEBPACK_IMPORTED_MODULE_6__.default.Tertiary,
-          borderColor: _styles_color__WEBPACK_IMPORTED_MODULE_6__.default.Stroke,
-          Name: 'Post'
-        })
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_molecules_LinkWrapper__WEBPACK_IMPORTED_MODULE_4__.LinkWrapper, {
-        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_atoms_Links_BaseLink__WEBPACK_IMPORTED_MODULE_3__.default, {
-          to: '/my_page',
-          backgroundColor: _styles_color__WEBPACK_IMPORTED_MODULE_6__.default.Secondary,
-          borderColor: _styles_color__WEBPACK_IMPORTED_MODULE_6__.default.Stroke,
-          Name: 'MyPage'
-        })
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_molecules_LinkWrapper__WEBPACK_IMPORTED_MODULE_4__.LinkWrapper, {
-        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_atoms_buttons_BaseButton__WEBPACK_IMPORTED_MODULE_5__.default, {
-          type: "button",
-          minWidth: 8,
-          minHeight: 2,
-          paddingTop: 1.2,
-          paddingLeft: 3,
-          onClick: function onClick() {
-            return dispatch((0,_reducks_users_operations__WEBPACK_IMPORTED_MODULE_7__.signOut)());
-          },
-          children: "Logout"
-        })
-      })]
-    });
-  } else {
-    authComponent = /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_molecules_LinkWrapper__WEBPACK_IMPORTED_MODULE_4__.LinkWrapper, {
-      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_atoms_Links_BaseLink__WEBPACK_IMPORTED_MODULE_3__.default, {
-        to: '/login',
-        backgroundColor: _styles_color__WEBPACK_IMPORTED_MODULE_6__.default.Tertiary,
-        borderColor: _styles_color__WEBPACK_IMPORTED_MODULE_6__.default.Stroke,
-        Name: 'Login'
-      })
-    });
-  }
-
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)(_molecules_Links__WEBPACK_IMPORTED_MODULE_2__.default, {
     children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_molecules_LinkWrapper__WEBPACK_IMPORTED_MODULE_4__.LinkWrapper, {
       children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_atoms_Links_BaseLink__WEBPACK_IMPORTED_MODULE_3__.default, {
-        to: '/',
-        backgroundColor: _styles_color__WEBPACK_IMPORTED_MODULE_6__.default.Background,
+        to: '/post',
+        backgroundColor: _styles_color__WEBPACK_IMPORTED_MODULE_6__.default.Tertiary,
         borderColor: _styles_color__WEBPACK_IMPORTED_MODULE_6__.default.Stroke,
-        Name: 'Home'
+        Name: 'Post'
       })
-    }), authComponent]
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_molecules_LinkWrapper__WEBPACK_IMPORTED_MODULE_4__.LinkWrapper, {
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_atoms_Links_BaseLink__WEBPACK_IMPORTED_MODULE_3__.default, {
+        to: '/my_page',
+        backgroundColor: _styles_color__WEBPACK_IMPORTED_MODULE_6__.default.Secondary,
+        borderColor: _styles_color__WEBPACK_IMPORTED_MODULE_6__.default.Stroke,
+        Name: 'MyPage'
+      })
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_molecules_LinkWrapper__WEBPACK_IMPORTED_MODULE_4__.LinkWrapper, {
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_atoms_buttons_BaseButton__WEBPACK_IMPORTED_MODULE_5__.default, {
+        type: "button",
+        minWidth: 8,
+        minHeight: 2,
+        paddingTop: 1.2,
+        paddingLeft: 3,
+        onClick: function onClick() {
+          return dispatch((0,_reducks_users_operations__WEBPACK_IMPORTED_MODULE_7__.signOut)());
+        },
+        children: "Logout"
+      })
+    })]
   });
 };
 
