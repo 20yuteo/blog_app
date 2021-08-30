@@ -10,7 +10,7 @@ const Post = () => {
     return (
         <>
             <BaseSection>
-                <NewPostLink to='/create'>New Post</NewPostLink>
+                <NewPostLink to='/post/create'>New Post</NewPostLink>
             </BaseSection>
             <PostCardWrapper post_array={selector.posts.post_array} />
         </>

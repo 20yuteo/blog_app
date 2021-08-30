@@ -4,7 +4,7 @@ import { getPostsAction } from "./actions";
 
 export const addPost = (title, content, setLoading) => {
     return async(dispatch, getState) => {
-        axios.post('api/post', {title, content })
+        axios.post(`/api/post`, {title, content })
             .then(res => {
                 setLoading(false);
                 dispatch(push('/post'));
@@ -17,7 +17,7 @@ export const addPost = (title, content, setLoading) => {
 
 export const updatePost = (id, title, content, setLoading) => {
     return async(dispatch, getState) => {
-        axios.put('api/post', {id, title, content })
+        axios.put(`/api/post/` + id, {title, content })
             .then(res => {
                 setLoading(false);
                 dispatch(push('/post'));
