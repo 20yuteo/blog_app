@@ -5,6 +5,8 @@ import { useParams } from "react-router";
 import { useSelector } from "react-redux";
 import BaseSection from "../../organisms/Section/BaseSection";
 import marked from "marked";
+import NewPostLink from "../../atoms/Links/NewPostLink";
+import { useState, useEffect } from "react";
 
 const StyledArticle = styled.section`
     display: flex;
@@ -18,19 +20,31 @@ export const Article = () => {
 
     const selector = useSelector((state) => state);
 
-    var selectedArticle;
+    const [title, setTitle] = useState('');
 
-    selector.posts.post_array.forEach(function(post) {
-        if(post.id == params.id){
-            return selectedArticle = post;
+    const [content, setContent] = useState('');
+
+    const [createdAt, setCreatedAt] = useState('');
+
+    useEffect(() => {
+        if (params.id !== undefined){
+            selector.posts.post_array.forEach(function(post) {
+                if(post.id == params.id){
+                    setTitle(post.title);
+                    setContent(post.content);
+                    setCreatedAt(post.created_at);
+                    return true;
+                }
+            });
         }
-    });
+    }, []);
 
     return(
         <BaseSection>
+            { params.id !== undefined ? <NewPostLink to={'/post/edit/' + params.id } >Edit Post</NewPostLink> : '' }
             <StyledArticle>
-                <Title title={ selectedArticle.title } created_at={ selectedArticle.created_at } />
-                <Content dangerouslySetInnerHTML={{__html: marked(selectedArticle.content) }} />
+                <Title title={ title } created_at={ createdAt } />
+                <Content dangerouslySetInnerHTML={{__html: marked(content) }} />
             </StyledArticle>
         </BaseSection>
     )
