@@ -4058,9 +4058,7 @@ var Router = function Router(props) {
         })
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(react_router__WEBPACK_IMPORTED_MODULE_6__.Route, {
         path: "/post/:id",
-        children: props.users.isSignedIn ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_molecules_Post_Article__WEBPACK_IMPORTED_MODULE_4__.Article, {}) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(react_router__WEBPACK_IMPORTED_MODULE_6__.Redirect, {
-          to: "/"
-        })
+        component: _molecules_Post_Article__WEBPACK_IMPORTED_MODULE_4__.Article
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(react_router__WEBPACK_IMPORTED_MODULE_6__.Route, {
         children: props.users.isSignedIn ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_pages_Post__WEBPACK_IMPORTED_MODULE_3__.default, {}) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(react_router__WEBPACK_IMPORTED_MODULE_6__.Redirect, {
           to: "/login"
@@ -5218,7 +5216,7 @@ var Article = function Article() {
     }
   }, []);
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)(_organisms_Section_BaseSection__WEBPACK_IMPORTED_MODULE_3__.default, {
-    children: [params.id !== undefined ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_atoms_Links_NewPostLink__WEBPACK_IMPORTED_MODULE_5__.default, {
+    children: [params.id !== undefined && selector.users.isSignedIn ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_atoms_Links_NewPostLink__WEBPACK_IMPORTED_MODULE_5__.default, {
       to: '/post/edit/' + params.id,
       children: "Edit Post"
     }) : '', /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)(StyledArticle, {
