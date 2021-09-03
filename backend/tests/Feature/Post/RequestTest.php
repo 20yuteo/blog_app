@@ -94,7 +94,7 @@ class RequestTest extends TestCase
     {
         $this->withoutExceptionHandling();
         $this->expectException(Exception::class);
-        ($this->putJson('api/post', ['id' => $this->post->id, 'title' => 'updated title', 'content' => 'updated content']))->execute(1);
+        ($this->putJson(route('post.store', ['id' => $this->post->id, 'title' => 'updated title', 'content' => 'updated content'])))->execute(1);
     }
 
     /**
@@ -105,8 +105,10 @@ class RequestTest extends TestCase
     public function testUpdatePostRequestWhenAuthorized()
     {
         $this->withoutExceptionHandling();
+
         $result = $this->actingAs($this->user)
-            ->putJson('api/post', ['id' => $this->post->id, 'title' => 'updated title', 'content' => 'updated content']);
+            ->putJson(route('post.update', ['post' => $this->post, 'title' =>'updated title', 'content' => 'updated content']));
+
         $result->assertOk()
             ->assertJson([
                 'result' => true
