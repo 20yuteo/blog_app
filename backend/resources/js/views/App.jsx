@@ -23,7 +23,7 @@ const App = () => {
 
     return(
         <Main>
-            <NavBar />
+            { selector.users.isSignedIn ? <NavBar /> : '' }
             <Section>
                 <ErrorBoundary>
                     { selector.loading.isLoading ? <StyledLoader /> : <><Header/><Router users={selector.users} /></> }
