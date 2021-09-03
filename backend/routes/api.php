@@ -21,8 +21,8 @@ Route::group(['middleware' => ['auth:sanctum']], function(){
     Route::post('/profile', [ProfileController::class, 'update']);
     Route::post('/post', [PostController::class, 'store']);
     Route::put('/post/{post}', [PostController::class, 'update']);
-    Route::get('/posts', [PostController::class, 'index']);
 });
 
+Route::get('/posts', [PostController::class, 'index']);
 Route::post('/login', [AuthController::class, 'login']);
 Route::get('/logout', [AuthController::class, 'logout']);
