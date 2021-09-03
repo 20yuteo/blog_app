@@ -22,9 +22,7 @@ const Router = (props) => {
                 <Route exact path={"/post/create"}>
                     { props.users.isSignedIn ? <Editor /> : <Redirect to="/" /> }
                 </Route>
-                <Route path={"/post/:id"}>
-                    { props.users.isSignedIn ? <Article/> : <Redirect to="/" /> }
-                </Route>
+                <Route path={"/post/:id"} component={Article} />
                 <Route>
                     { props.users.isSignedIn ? <Post/> : <Redirect to="/login" /> }
                 </Route>
