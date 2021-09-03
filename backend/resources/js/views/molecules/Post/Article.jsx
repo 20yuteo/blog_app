@@ -41,7 +41,7 @@ export const Article = () => {
 
     return(
         <BaseSection>
-            { params.id !== undefined ? <NewPostLink to={'/post/edit/' + params.id } >Edit Post</NewPostLink> : '' }
+            { params.id !== undefined && selector.users.isSignedIn ? <NewPostLink to={'/post/edit/' + params.id } >Edit Post</NewPostLink> : '' }
             <StyledArticle>
                 <Title title={ title } created_at={ createdAt } />
                 <Content dangerouslySetInnerHTML={{__html: marked(content) }} />
