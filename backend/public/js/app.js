@@ -3694,6 +3694,7 @@ var signIn = function signIn(email, password) {
             case 0:
               state = getState();
               isSignedIn = state.users.isSignedIn;
+              console.log(isSignedIn);
 
               if (!isSignedIn) {
                 (0,_loading_operations__WEBPACK_IMPORTED_MODULE_2__.Loading)(true, dispatch);
@@ -3702,6 +3703,7 @@ var signIn = function signIn(email, password) {
                     email: email,
                     password: password
                   }).then(function (res) {
+                    console.log(res);
                     (0,_loading_operations__WEBPACK_IMPORTED_MODULE_2__.Loading)(false, dispatch);
                     dispatch((0,_actions__WEBPACK_IMPORTED_MODULE_1__.signInAction)({
                       isSignedIn: true,
@@ -3718,7 +3720,7 @@ var signIn = function signIn(email, password) {
                 });
               }
 
-            case 3:
+            case 4:
             case "end":
               return _context.stop();
           }
@@ -3781,6 +3783,7 @@ var getLoginUser = function getLoginUser() {
               if (!isSignedIn) {
                 (0,_loading_operations__WEBPACK_IMPORTED_MODULE_2__.Loading)(true, dispatch);
                 axios__WEBPACK_IMPORTED_MODULE_3___default().get("api/user").then(function (res) {
+                  console.log(res);
                   (0,_loading_operations__WEBPACK_IMPORTED_MODULE_2__.Loading)(false, dispatch);
                   dispatch((0,_actions__WEBPACK_IMPORTED_MODULE_1__.signInAction)({
                     isSignedIn: true,
