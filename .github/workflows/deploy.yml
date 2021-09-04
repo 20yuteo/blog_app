@@ -30,3 +30,4 @@ jobs:
             cp .env.production .env
             php artisan key:generate --force
             docker-compose exec -T app php artisan migrate --force
+            docker-compose exec web npm run production
