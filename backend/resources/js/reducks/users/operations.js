@@ -9,6 +9,7 @@ export const signIn = (email, password) => {
         const state = getState();
         const isSignedIn = state.users.isSignedIn
 
+        console.log(isSignedIn);
         if (!isSignedIn){
             Loading(true, dispatch);
             axios.get('sanctum/csrf-cookie').then(res => {
@@ -16,6 +17,7 @@ export const signIn = (email, password) => {
                     email,
                     password
                 }).then(res => {
+                    console.log(res);
                     Loading(false, dispatch);
                     dispatch(signInAction({
                         isSignedIn: true,
@@ -60,6 +62,7 @@ export const getLoginUser = () => {
         if (!isSignedIn){
             Loading(true, dispatch);
             axios.get("api/user").then(res => {
+                console.log(res);
                 Loading(false, dispatch);
                 dispatch(signInAction({
                     isSignedIn: true,
