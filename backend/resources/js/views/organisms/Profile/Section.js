@@ -1,14 +1,15 @@
 import styled from "styled-components";
-import Color from "../../styles/color";
 import Size from "../../styles/size";
 
 const Section = styled.section`
-    z-index:2;
-    width: 90%;
-    height: 90%;
-    padding: 1em;
-    background:${ Color.Card.Background };
-    color: ${ Color.Card.Headline };
-    font-size: ${ Size.FontSize.Medium }rem;
+    display: flex;
+    justify-content: space-around;
+    padding: 16px;
+    @media screen and (max-width:${Size.MediaScreen.Small}px) {
+        flex-direction: column;
+    }
+    @media screen and (min-width:${Size.MediaScreen.Small}px) and ( max-width:${Size.MediaScreen.Medium}px) {
+        flex-direction: column;
+    }
 `;
 export default Section;

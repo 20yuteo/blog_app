@@ -4,13 +4,13 @@ import { ImageFormLabel } from "../../atoms/Forms/CardForms/ImageFormLabel";
 import ModalProfileImage from "../../atoms/Image/ModalProfileImage";
 import BaseButton from "../../atoms/buttons/BaseButton";
 import { useDispatch } from "react-redux";
-import { editProfileImage } from "../../../reducks/users/operations";
+import { editProfile } from "../../../reducks/users/operations";
 
 const UserImageForm = ({register, watch, userImage, handleSubmit}) => {
     const dispatch = useDispatch();
 
     const onSubmit = () => {
-        dispatch(editProfileImage(watch('file')[0]));
+        dispatch(editProfile(watch('file')[0]));
     }
 
     return(
