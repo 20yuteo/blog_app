@@ -78,37 +78,17 @@ export const getLoginUser = () => {
     }
 }
 
-export const editProfileImage = (uploadImage) => {
+export const editProfile = (uploadImage, userName) => {
     return async(dispatch) => {
-        if (uploadImage !== undefined){
+        if (uploadImage !== undefined || userName !== undefined){
             Loading(true, dispatch);
-            const data = new FormData();
-            data.append('file', uploadImage);
-            axios.post("api/profile", data ).then(res => {
-                Loading(false, dispatch);
-                dispatch(editProfileAction({
-                    isSignedIn: true,
-                    id: res.data.user.id,
-                    name: res.data.user.name,
-                    image_url: res.data.user.profile.image_url
-                }))
-                dispatch(push('/my_page'))
-            }).catch(res => {
-                Loading(false, dispatch);
-            });
-        }
-    }
-}
 
-export const editProfile = (userName) => {
-    return async (dispatch) => {
-        let name = null;
-        if (userName !== undefined) {
-            name = userName;
-        }
-        if (name !== null){
-            Loading(true, dispatch);
-            axios.post("api/profile", { name }).then(res => {
+            const data = new FormData();
+
+            data.append('file', uploadImage);
+            data.append('name', userName);
+
+            axios.post("api/profile", data).then(res => {
                 Loading(false, dispatch);
                 dispatch(editProfileAction({
                     isSignedIn: true,

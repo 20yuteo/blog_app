@@ -19,9 +19,3 @@ export const Nav = styled.nav`
     overflow: auto;
     flex: 1;
 `;
-
-export const ProfileSection = styled.section`
-    display: flex;
-    padding: 16px;
-    justify-content: space-around;
-`;
