@@ -9,11 +9,12 @@ const NewPostLink = styled(Link)`
     font-size: ${Size.FontSize.Medium}rem;
     font-weight: ${Size.Form.FontWeight};
     display: inline-block;
-    padding: 2rem 0 2rem;
+    padding: 2rem;
     min-height: 2rem;
     width: 80%;
     margin: 10%;
     text-decoration: none;
     text-align: center;
+    white-space: nowrap;
 `;
 export default NewPostLink;
