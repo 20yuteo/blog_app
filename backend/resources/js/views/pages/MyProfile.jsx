@@ -8,9 +8,9 @@ import ImageFormInput from "../atoms/Forms/CardForms/ImageFormInput";
 import NewPostLink from "../atoms/Links/NewPostLink";
 import FormLabel from "../atoms/Forms/MainForms/FormLabel";
 import FormInput from "../atoms/Forms/CardForms/FormInput";
-import { Wrapper } from "../molecules/Profile/Wrapper";
-import { ImageWrapper } from "../molecules/Profile/ImageWrapper";
-import { Section } from "../organisms/Profile/Section";
+import Wrapper from "../molecules/Profile/Wrapper";
+import ImageWrapper from "../molecules/Profile/ImageWrapper";
+import Section from "../organisms/Profile/Section";
 
 const MyProfile = () => {
 
