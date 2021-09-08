@@ -1,9 +1,5 @@
-/**
- * @jest-environment jsdom
- */
-
-import React, { Component } from "react";
-import { render, screen, cleanup, fireEvent } from '@testing-library/react';
+import React from "react";
+import { render } from '@testing-library/react';
 import "@testing-library/jest-dom/extend-expect";
 import HelloWorld from "../views/HelloWorld";
 
