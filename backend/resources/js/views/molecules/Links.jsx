@@ -5,7 +5,6 @@ import Size from "../styles/size";
 const Links = styled.div`
     display: flex;
     border: 8px solid ${Color.Stroke};
-    overflow:scroll;
     background: ${ Color.Stroke };
     @media screen and (min-width:${Size.MediaScreen.Small}px) {
         flex-flow: column;
