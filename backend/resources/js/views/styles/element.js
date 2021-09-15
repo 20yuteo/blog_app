@@ -4,6 +4,7 @@ import Size from "./size";
 export const Main = styled.main`
     display: flex;
     height: 100%;
+    overflow: auto;
     @media screen and (max-width:${Size.MediaScreen.Small}px) {
         flex-direction: column-reverse;
     }
@@ -16,6 +17,6 @@ export const Section = styled.section`
 `;
 
 export const Nav = styled.nav`
-    overflow: auto;
     flex: 1;
+    margin: 32px;
 `;

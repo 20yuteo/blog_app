@@ -12,7 +12,6 @@ const NewPostLink = styled(Link)`
     padding: 2rem;
     min-height: 2rem;
     width: 80%;
-    margin: 10%;
     text-decoration: none;
     text-align: center;
     white-space: nowrap;

@@ -5,6 +5,7 @@ const Section = styled.section`
     display: flex;
     justify-content: space-around;
     padding: 16px;
+    text-align: center;
     @media screen and (max-width:${Size.MediaScreen.Small}px) {
         flex-direction: column;
     }

@@ -8,6 +8,7 @@ import ModalProfileImage from '../atoms/Image/ModalProfileImage';
 import PostsSection from '../molecules/MyPage/PostsSection';
 import ProfileSection from '../molecules/MyPage/ProfileSection';
 import Section from '../organisms/MyPage/Section';
+import NewLinkWrapper from '../molecules/Link/NewLinkWrapper';
 
 const MyPage = () => {
 
@@ -23,7 +24,9 @@ const MyPage = () => {
                 <ProfileSection>
                     <ModalProfileImage src={selector.users.image_url} />
                     <NameTag>{ selector.users.name }</NameTag>
-                    <NewPostLink to="/user/edit">Edit My Profile</NewPostLink>
+                    <NewLinkWrapper>
+                        <NewPostLink to="/user/edit">Edit Profile</NewPostLink>
+                    </NewLinkWrapper>
                 </ProfileSection>
             </Section>
         </BaseSection>
