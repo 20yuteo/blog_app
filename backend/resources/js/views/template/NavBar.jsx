@@ -1,5 +1,5 @@
 import React from 'react';
-import { useDispatch ,useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import Links from '../molecules/Links';
 import BaseLink from '../atoms/Links/BaseLink';
 import { LinkWrapper } from '../molecules/LinkWrapper';
@@ -13,9 +13,6 @@ const NavBar = () => {
 
     return (
         <Links>
-            <LinkWrapper>
-                <BaseLink to={ '/post' } backgroundColor={ Color.Tertiary } borderColor={ Color.Stroke }  Name={'Post'} />
-            </LinkWrapper>
             <LinkWrapper>
                 <BaseLink to={ '/my_page' } backgroundColor={ Color.Secondary } borderColor={ Color.Stroke }  Name={'MyPage'} />
             </LinkWrapper>
