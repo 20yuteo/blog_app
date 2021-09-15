@@ -11,6 +11,7 @@ import FormInput from "../atoms/Forms/CardForms/FormInput";
 import Wrapper from "../molecules/Profile/Wrapper";
 import ImageWrapper from "../molecules/Profile/ImageWrapper";
 import Section from "../organisms/Profile/Section";
+import NewLinkWrapper from "../molecules/Link/NewLinkWrapper";
 
 const MyProfile = () => {
 
@@ -41,7 +42,9 @@ const MyProfile = () => {
                     <FormInput type="text" name="name" {...register("name")} />
                 </Wrapper>
             </Section>
-            <NewPostLink onClick={ onClick }>EDIT PROFILE</NewPostLink>
+            <NewLinkWrapper>
+                <NewPostLink onClick={ onClick }>EDIT PROFILE</NewPostLink>
+            </NewLinkWrapper>
         </>
     );
 }
