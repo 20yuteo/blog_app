@@ -5,14 +5,19 @@ namespace App\Repositories\Post;
 use App\Models\Post;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use App\Factories\PostFactory;
 
 class PostRepository implements PostRepositoryInterface
 {
     protected $post;
 
-    public function __construct(Post $post)
+    protected $post_factory;
+
+    public function __construct(Post $post, PostFactory $post_factory)
     {
         $this->post = $post;
+
+        $this->post_factory = $post_factory;
     }
 
     /**
@@ -22,10 +27,9 @@ class PostRepository implements PostRepositoryInterface
      */
     public function savePost(Request $request)
     {
-        if ($request->filled('content') && $request->filled('title')){
-            return Auth::user()->posts()->save($this->post->fill($request->all()));
-        }
-        return null;
+        return Auth::user()->posts()->save(
+                $this->post_factory->create($request)
+            );
     }
 
     /**
