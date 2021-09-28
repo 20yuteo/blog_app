@@ -18,7 +18,9 @@ const MyPage = () => {
         <BaseSection>
             <Section>
                 <PostsSection>
-                    <NewPostLink to="/post/create">New Post</NewPostLink>
+                    <NewLinkWrapper>
+                        <NewPostLink to="/post/create">New Post</NewPostLink>
+                    </NewLinkWrapper>
                     <PostCardWrapper post_array={ selector.posts.post_array } />
                 </PostsSection>
                 <ProfileSection>
