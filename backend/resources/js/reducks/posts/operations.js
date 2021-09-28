@@ -2,9 +2,9 @@ import axios from "axios";
 import {push} from 'connected-react-router';
 import { getPostsAction } from "./actions";
 
-export const addPost = (title, content, setLoading) => {
+export const addPost = (title, content, tag, tagIds, setLoading) => {
     return async(dispatch, getState) => {
-        axios.post(`/api/post`, {title, content })
+        axios.post(`/api/post`, {title, content, tag, tagIds })
             .then(res => {
                 setLoading(false);
                 dispatch(push('/post'));
@@ -15,9 +15,9 @@ export const addPost = (title, content, setLoading) => {
     }
 }
 
-export const updatePost = (id, title, content, setLoading) => {
+export const updatePost = (id, title, content, tag, tagIds, setLoading) => {
     return async(dispatch, getState) => {
-        axios.put(`/api/post/` + id, {title, content })
+        axios.put(`/api/post/` + id, {title, content, tag, tagIds })
             .then(res => {
                 setLoading(false);
                 dispatch(push('/post'));
