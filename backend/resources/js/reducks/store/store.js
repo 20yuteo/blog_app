@@ -8,6 +8,7 @@ import {UsersReducers} from "../users/reducers";
 import { LoadingReducers } from "../loading/reducers";
 import { PostsReducers } from "../posts/reducers";
 import thunk from 'redux-thunk';
+import { TagReducers } from "../tags/reducers";
 
 export default function createStore(history) {
     return reduxCreateStore(
@@ -16,6 +17,7 @@ export default function createStore(history) {
             users: UsersReducers,
             loading: LoadingReducers,
             posts: PostsReducers,
+            tags: TagReducers
         }),
         applyMiddleware(
             routerMiddleware(history),
