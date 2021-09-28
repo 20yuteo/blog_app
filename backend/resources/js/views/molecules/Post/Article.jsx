@@ -7,6 +7,7 @@ import BaseSection from "../../organisms/Section/BaseSection";
 import marked from "marked";
 import NewPostLink from "../../atoms/Links/NewPostLink";
 import { useState, useEffect } from "react";
+import NewLinkWrapper from "../Link/NewLinkWrapper";
 
 const StyledArticle = styled.section`
     display: flex;
@@ -41,7 +42,14 @@ export const Article = () => {
 
     return(
         <BaseSection>
-            { params.id !== undefined && selector.users.isSignedIn ? <NewPostLink to={'/post/edit/' + params.id } >Edit Post</NewPostLink> : '' }
+            { params.id !== undefined && selector.users.isSignedIn ?
+                <NewLinkWrapper>
+                    <NewPostLink to={'/post/edit/' + params.id } >
+                        Edit Post
+                    </NewPostLink>
+                </NewLinkWrapper>
+                : '' }
+
             <StyledArticle>
                 <Title title={ title } created_at={ createdAt } />
                 <Content dangerouslySetInnerHTML={{__html: marked(content) }} />
