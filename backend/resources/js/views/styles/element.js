@@ -14,6 +14,7 @@ export const Section = styled.section`
     display: flex;
     flex-flow: column;
     flex-grow: 1;
+    overflow: auto;
 `;
 
 export const Nav = styled.nav`
