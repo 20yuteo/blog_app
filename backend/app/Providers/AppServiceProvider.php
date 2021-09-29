@@ -34,6 +34,16 @@ class AppServiceProvider extends ServiceProvider
             \App\Repositories\Post\PostRepository::class,
         );
 
+        $this->app->bind(
+            \App\Repositories\Tag\TagRepositoryInterface::class,
+            \App\Repositories\Tag\TagRepository::class
+        );
+
+        $this->app->bind(
+            \App\Services\TagServices\TagServiceInterface::class,
+            \App\Services\TagServices\TagService::class
+        );
+
         $is_production = env('APP_ENV') === 'production' ? true : false;
         View::share('is_production',$is_production);
     }

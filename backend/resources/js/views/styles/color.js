@@ -7,6 +7,7 @@ const Color = {
     Stroke: '#001858',
     Main: '#f3d2c1',
     Highlight: '#fef6e4',
+    TextUnSelected: "#C2CCE5",
     Secondary: '#8bd3dd',
     Tertiary: '#f582ae',
     Link: '#f582ae',

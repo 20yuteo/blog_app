@@ -7,6 +7,7 @@ use App\Repositories\Post\PostRepository;
 use App\Repositories\Post\PostRepositoryInterface;
 use Exception;
 use App\Models\Post;
+use App\Models\Tag;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithFaker;
 use Tests\TestCase;
@@ -28,6 +29,14 @@ class RequestTest extends TestCase
             ->state([
                 'user_id' => $this->user->id
             ])->create();
+
+        Tag::insert([
+            [ 'name' => 'react', 'created_at' => now(), 'updated_at' => now() ],
+            [ 'name' => 'laravel', 'created_at' => now(), 'updated_at' => now() ],
+            [ 'name' => 'docker', 'created_at' => now(), 'updated_at' => now() ],
+        ]);
+
+        $this->tags = Tag::all();
     }
 
     /**
@@ -76,7 +85,7 @@ class RequestTest extends TestCase
     {
         $this->withoutExceptionHandling();
         $request = $this->actingAs($this->user)
-            ->postJson('api/post', ['title' => 'test content', 'content' => 'test content']);
+            ->postJson('api/post', ['title' => 'test content', 'content' => 'test content', 'tag' => 'test tag', 'tags_array' => $this->tags->pluck('id')->toArray()]);
         $request->assertOk()
             ->assertJson([
                 'result' => true

@@ -28,8 +28,13 @@
         "psr-4": {
             "App\\": "app/",
             "Database\\Factories\\": "database/factories/",
-            "Database\\Seeders\\": "database/seeders/"
-        }
+            "Database\\Seeders\\": "database/seeders/",
+            "App\\Services\\TagServices\\": "app/Services/TagServices/",
+            "App\\Factories\\": "app/Factories"
+        },
+        "classmap": [
+            "app/Services/TagServices/TagService.php"
+        ]
     },
     "autoload-dev": {
         "psr-4": {
